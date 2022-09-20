@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Device Management System</title>
+  <!-- Required meta tags -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <link rel="icon" type="image/x-icon"
+    href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTH0FD9qi-rzY1oe-h_k5zC8u9UAGdD1eRZha82rdm85R5-dU0lYPDjjrnwAIWUpaiNBMg&usqp=CAU">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+    integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <style>
+    * {
+      margin: 0px;
+      padding: 0px;
+    }
+
+    body {
+      background-color: #ffffff;
+    }
+
+    .login {
+      min-height: 100vh;
+    }
+
+    .bg-image {
+      background-image: url("https://www.softwebsolutions.com/wp-content/uploads/2018/02/Device-Management-1.jpg");
+      background-size: cover;
+      background-position: center;
+    }
+
+    .login-heading {
+      font-weight: 700;
+      color: #72badb;
+    }
+
+    .btn-login {
+      font-size: 0.9rem;
+      letter-spacing: 0.05rem;
+      padding: 0.75rem 1rem;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container-fluid ps-md-0">
+    <div class="row g-0">
+      <div class="d-none d-md-flex col-md-4 col-lg-7 bg-image"></div>
+      <div class="col-md-8 col-lg-5">
+        <div class="login d-flex align-items-center py-5">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-9 col-lg-8 mx-auto">
+                <h2 class="login-heading mb-4"><i class="fa-solid fa-layer-group"></i> Device Management System</h2>
+
+                <!-- Sign In Form -->
+                <form>
+                  <div class="form-floating mb-3">
+                    <label for="floatingInput">Username</label>
+                    <input type="email" class="form-control" id="floatingInput" placeholder="email or username"
+                      value="admin" />
+                  </div>
+                  <div class="form-floating mb-3">
+                    <label for="floatingPassword">Password</label>
+                    <input type="password" class="form-control" id="floatingPassword" placeholder="Password"
+                      value="admin@123" />
+                  </div>
+
+                  <div class="form-check mb-3">
+                    <input class="form-check-input" type="checkbox" value="" checked id="rememberPasswordCheck" />
+                    <label class="form-check-label" for="rememberPasswordCheck">
+                      Remember password
+                    </label>
+                  </div>
+
+                  <div class="d-grid">
+                    <a class="btn btn-sm btn-primary text-uppercase fw-bold mb-2" href='/dashboard_screens/'>
+                      Sign in
+                    </a>
+                  </div>
+              </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>
