@@ -1,5 +1,6 @@
 from django.urls import path
+from monitoring_app.views import dashboard
 
 urlpatterns = [
-    # path('', admin.site.urls),
+    path('dashboard', dashboard),
 ]

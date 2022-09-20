@@ -4,8 +4,8 @@ from django.http import HttpResponse,JsonResponse
 # Create your views here.
 
 
-# login page
-def login(request):
+# dashboard page
+def dashboard(request):
     if request.method == 'GET':
         context = {}
-        return render(request,'')
+        return render(request,'utils/base.html')

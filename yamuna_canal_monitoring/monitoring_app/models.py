@@ -46,9 +46,9 @@ class Site(models.Model):
 
     calibration = models.BooleanField(default=False,help_text='calibration enabled')
 
-    site_added_by = models.CharField(default='', verbose_name='Added By',max_length=120,blank=True)
-    last_updated_by = models.CharField(default='', verbose_name='Last Updated By',max_length=120,blank=True)
-    created_at = models.DateTimeField(auto_now_add=True, blank=True)
-    last_updated_at = models.DateTimeField(default=django.utils.timezone.now,editable=False)
+    # site_added_by = models.CharField(default='', verbose_name='Added By',max_length=120,blank=True)
+    # last_updated_by = models.CharField(default='', verbose_name='Last Updated By',max_length=120,blank=True)
+    # created_at = models.DateTimeField(auto_now_add=True, blank=True)
+    # last_updated_at = models.DateTimeField(default=django.utils.timezone.now,editable=False)
 
 
