@@ -9,3 +9,8 @@ def dashboard(request):
     if request.method == 'GET':
         context = {}
         return render(request,'utils/base.html')
+
+def reports_dash(request):
+    if request.method == 'GET':
+        context = {}
+        return render(request,'utils/reports.html')
