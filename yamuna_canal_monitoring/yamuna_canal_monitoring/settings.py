@@ -27,7 +27,7 @@ SECRET_KEY = 'django-insecure-=nq(4v6l4k4oljjpd55(_d%50)h4q3cfmjn$^!ef-9v1w06+9&
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -81,6 +81,14 @@ WSGI_APPLICATION = 'yamuna_canal_monitoring.wsgi.application'
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
 DATABASES = {
+#     'default': {
+#        'ENGINE': 'django.db.backends.postgresql',
+#        'NAME': 'ymc_db',
+#        'USER': 'posgres',
+#        'PASSWORD': 'ymc@123',
+#        'HOST': '127.0.0.1',
+#        'PORT': 5432,
+#    }
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
