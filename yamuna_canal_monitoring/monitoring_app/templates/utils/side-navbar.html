@@ -1,0 +1,64 @@
+{% load static %}
+<nav class="sidebar sidebar-offcanvas" id="sidebar">
+    <ul class="nav">
+        <li class="nav-item mt-3">
+            <a class="nav-link" href="{% url 'dashboard' %}">
+                <i class="fa fa-th" aria-hidden="true"></i>
+                <span class="menu-title">&nbsp;&nbsp;<b>Dashboard</b></span>
+            </a>
+        </li>
+        <li class="nav-item mt-3">
+            <a class="nav-link" href="{% url 'gis' %}">
+                <i class="fa fa-globe" aria-hidden="true"></i>
+                <span class="menu-title">&nbsp;&nbsp;<b>Map View</b></span>
+            </a>
+        </li>
+        <li class="nav-item mt-3">
+            <a class="nav-link" href="{% url 'sites' %}">
+                <i class="fa-sharp fa-solid fa-location-dot" aria-hidden="true"></i>
+                <span class="menu-title">&nbsp;&nbsp;<b>Manage Station</b></span>
+            </a>
+        </li>
+        <li class="nav-item mt-3">
+            <a class="nav-link" href="{% url 'users' %}">
+                <i class="fa-solid fa-users" aria-hidden="true"></i>
+                <span class="menu-title">&nbsp;&nbsp;<b>Manage Users</b></span>
+            </a>
+        </li>
+        {% comment %} <li class="nav-item mt-3">
+            <a class="nav-link" href="{% url 'sites' %}">
+                <i class="fa-solid fa-code-compare" aria-hidden="true"></i>
+                <span class="menu-title">&nbsp;&nbsp;<b>Compare Sites</b></span>
+            </a>
+        </li> {% endcomment %}
+        {% comment %} <li class="nav-item mt-3">
+            <a class="nav-link" href="{% url 'reports_dash' %}">
+                <i class="fa fa-file" aria-hidden="true"></i>
+                <span class="menu-title">&nbsp;&nbsp;<b>Reports</b></span>
+            </a>
+        </li> {% endcomment %}
+        <li class="nav-item mt-5"></li>
+        <li class="nav-item mt-5"></li>
+        <li class="nav-item mt-5"></li>
+        <li class="nav-item mt-5"></li>
+        <li class="nav-item mt-3">
+            <hr>
+            <a class="nav-link" href="#">
+                <i class="fa-solid fa-list" aria-hidden="true"></i>
+                <span class="menu-title">&nbsp;&nbsp;<b>Guidelines</b></span>
+            </a>
+        </li>
+        <li class="nav-item mt-3">
+            <a class="nav-link" href="#">
+                <i class="fa-solid fa-user" aria-hidden="true"></i>
+                <span class="menu-title">&nbsp;&nbsp;<b>User Profile</b></span>
+            </a>
+        </li>
+        <li class="nav-item mt-3">
+            <a class="nav-link" href="#">
+                <i class="fa-solid fa-power-off" aria-hidden="true"></i>
+                <span class="menu-title">&nbsp;&nbsp;<b>Logout</b></span>
+            </a>
+        </li>
+    </ul>
+</nav>
