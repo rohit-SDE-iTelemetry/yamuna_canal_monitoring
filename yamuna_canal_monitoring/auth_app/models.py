@@ -38,6 +38,6 @@ class UserProfile(models.Model):
     # user permissions
     permissions = models.ManyToManyField(Permission, default=None)
 
-    # added_by = models.CharField(default='', verbose_name='Added By',max_length=120,blank=True)
-    # last_updated_by = models.CharField(default='', verbose_name='Last Updated By',max_length=120,blank=True)
-    # created_at = models.DateTimeField(blank=True,default=django.utils.timezone.now)
+    added_by = models.CharField(default='', verbose_name='Added By',max_length=120,blank=True)
+    last_updated_by = models.CharField(default='', verbose_name='Last Updated By',max_length=120,blank=True)
+    created_at = models.DateTimeField(blank=True,default=django.utils.timezone.now)
