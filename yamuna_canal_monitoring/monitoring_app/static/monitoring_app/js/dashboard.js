@@ -369,10 +369,10 @@
     if ($("#marketingOverview").length) {
       var marketingOverviewChart = document.getElementById("marketingOverview").getContext('2d');
       var marketingOverviewData = {
-          labels: ["JAN","FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"],
+          labels: ["stn-001","stn-002", "stn-003", "stn-004" , "stn-005", "stn-006", "stn-007"],
           datasets: [{
-              label: 'Last week',
-              data: [110, 220, 200, 190, 220, 110, 210, 110, 205, 202, 201, 150],
+              label: 'Today Water Level(m)',
+              data: [2, 0.3, 2, 0,1,5,3],
               backgroundColor: "#52CDFF",
               borderColor: [
                   '#52CDFF',
@@ -381,8 +381,8 @@
               fill: true, // 3: no fill
               
           },{
-            label: 'This week',
-            data: [215, 290, 210, 250, 290, 230, 290, 210, 280, 220, 190, 300],
+            label: 'Yesterday Water Level(m)',
+            data: [1.5, 0.7, 5, 1,1,2,4],
             backgroundColor: "#1F3BB3",
             borderColor: [
                 '#1F3BB3',
