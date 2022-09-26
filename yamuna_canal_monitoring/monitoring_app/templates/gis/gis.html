@@ -1,5 +1,8 @@
 {% extends 'utils/base.html' %}
+{% load static %}
 {% block content %}
+<link rel="stylesheet" type="text/css" href="{% static 'monitoring_app/css/map.css' %}" />
+
 <div class="main-panel">
     <div class="content-wrapper">
         <div class="card"
@@ -65,7 +68,9 @@
                                 <div class="card">
                                     <div class="card-body">
                                         <h5 class="card-title text-secondary"><i class="fa-solid fa-map"></i> Station on Map</h5>
-                                        <p class="card-text">add saharanpur yamuna stretch map view here!</p>
+                                        <!-- <p class="card-text">add saharanpur yamuna stretch map view here!</p> -->
+                                        <div id="map"></div>
+
                                     </div>
                                 </div>
                             </div>
@@ -77,4 +82,7 @@
     </div>
     <!-- main-panel ends -->
 </div>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC2jIUfDq0QUVMJF5Y6y-cYlSHNuGp-DvU&callback=initMap&v=weekly" defer></script>
+<script src="{% static 'monitoring_app/js/map.js' %}"></script>
+
 {% endblock content %}
