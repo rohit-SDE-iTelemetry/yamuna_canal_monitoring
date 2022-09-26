@@ -1,6 +1,9 @@
 from multiprocessing import context
 from django.shortcuts import render
 from django.http import HttpResponse,JsonResponse
+from django.contrib.auth.models import User, Permission
+
+from monitoring_app.utils.GLOBALS import exlude_permissions
 
 
 # dashboard view
@@ -21,8 +24,10 @@ def user_list(request):
 # add-user view
 def add_user(request):
     if request.method == 'GET':
-        context = {}
-        return render(request,'users/add-user.html')
+        permissionObj = Permission.objects.all()
+        
+        context = {'permissionObj':permissionObj,'exlude_permissions':exlude_permissions}
+        return render(request,'users/add-user.html',context)
 
 # edit-user view
 def edit_user(request):
