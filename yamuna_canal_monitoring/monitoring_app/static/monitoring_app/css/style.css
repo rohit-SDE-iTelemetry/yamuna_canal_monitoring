@@ -13367,6 +13367,7 @@ fieldset:disabled .swal2-modal .swal2-buttonswrapper .swal2-styled,
   background-clip: border-box;
   border: 1px solid #e3e3e3;
   border-radius: 20px;
+  /* height: 100%; */
 }
 
 .card > hr {
@@ -28924,6 +28925,7 @@ div.tagsinput span.tag a {
   flex-wrap: nowrap;
   flex-direction: column;
   margin-bottom: 60px;
+  position: fixed;
 }
 
 .sidebar .nav .nav-item {
