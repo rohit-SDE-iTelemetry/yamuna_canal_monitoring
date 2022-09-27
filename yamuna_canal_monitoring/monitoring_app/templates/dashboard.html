@@ -2,8 +2,42 @@
 {% block content %}
 <div class="main-panel">
     <div class="content-wrapper">
+        <div class="row flex-grow">
+            <div class="col-md-4 grid-margin stretch-card">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">Image of site</h4>
+                        <h5>Image</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 grid-margin stretch-card">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">Current details</h4>
+                        <h5>Data</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 grid-margin stretch-card">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">Site Info</h4>
+                        <h5>Data</h5>
+                        <h5>.</h5>
+                        <h5>.</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+
         <div class="row">
-            <div class="col-lg-12 d-flex flex-column">
+            <div class="col-lg-6 d-flex flex-column">
                 <div class="row flex-grow">
                   <div class="col-12 col-lg-4 col-lg-12 grid-margin stretch-card">
                     <div class="card card-rounded">
@@ -24,10 +58,10 @@
                   </div>
                 </div>
               </div>
-        </div>
+        <!-- </div> -->
 
-        <div class="row">
-            <div class="col-lg-12 d-flex flex-column">
+        <!-- <div class="row"> -->
+            <div class="col-lg-6 d-flex flex-column">
                 <div class="row flex-grow">
                   <div class="col-12 grid-margin stretch-card">
                     <div class="card card-rounded">
@@ -84,9 +118,9 @@
                         <a href="" data-toggle="tooltip" data-placement="top"
                             title="Live Stations" class="text-white badge badge-success"><b>Live : 2</b></a>&nbsp;&nbsp;
                         <a href="" data-toggle="tooltip" data-placement="top"
-                            title="Delay Stations" class="text-white badge badge-danger"><b>Delay : 0</b></a>&nbsp;&nbsp;
+                            title="Delay Stations" class="text-white badge badge-warning"><b>Delay : 0</b></a>&nbsp;&nbsp;
                         <a href="" data-toggle="tooltip" data-placement="top"
-                            title="Offline Stations" class="text-white badge badge-warning"><b>Offline : 1</b></a>&nbsp;&nbsp;
+                            title="Offline Stations" class="text-white badge badge-danger"><b>Offline : 1</b></a>&nbsp;&nbsp;
                         <!-- <a href="" class="text-primary" data-toggle="tooltip" data-placement="top"
                             title="Download Stations Details"><b><i class="fa-solid fa-cloud-arrow-down"></i></b></a> -->
                     </div>
@@ -100,108 +134,74 @@
                         <table id="" class="table" width="100%">
                             <thead>
                                 <tr>
-                                    <th class="th-sm">Station
+                                    <th class="" width="200">Station
                                     </th>
-                                    <th class="th-sm">Prefix
+                                    <th class="" width="200">Prefix
                                     </th>
-                                    <th class="th-sm">Status
+                                    <th class="" width="200">Status
                                     </th>
-                                    <th class="th-sm">Age
+                                    <th class="" width="200">Last Reading At
                                     </th>
-                                    <th class="th-sm">Start date
-                                    </th>
-                                    <th class="th-sm">Salary
+                                    <th class="" width="200">Parameter Values
                                     </th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>Tiger Nixon</td>
+                                    <td><b><a href="">Station 001</a></b></td>
                                     <td>System Architect</td>
-                                    <td>Edinburgh</td>
-                                    <td>61</td>
+                                    <td><a class="text-white badge badge-success"><b>Live</b></a></td>
                                     <td>2011/04/25</td>
-                                    <td>$320,800</td>
+                                    <td><b>Battery :</b> 23(v) <b>&nbsp;&nbsp;|&nbsp;&nbsp;</b> Water Level : 2.3(m) <b>&nbsp;&nbsp;|&nbsp;&nbsp;</b> Flow Rate : 23(m3/s) <b>&nbsp;&nbsp;|&nbsp;&nbsp;</b> Gate Opening : 15(mm) <b>&nbsp;&nbsp;|&nbsp;&nbsp;</b> ADVM : 23(m/s) </td>
                                 </tr>
                                 <tr>
-                                    <td>Garrett Winters</td>
+                                    <td><b><a href="">Station 002</a></b></td>
                                     <td>Accountant</td>
-                                    <td>Tokyo</td>
-                                    <td>63</td>
+                                    <td><a class="text-white badge badge-success"><b>Live</b></a></td>
                                     <td>2011/07/25</td>
-                                    <td>$170,750</td>
+                                    <td><b>Battery :</b> 23(v) <b>&nbsp;&nbsp;|&nbsp;&nbsp;</b> Water Level : 2.3(m) <b>&nbsp;&nbsp;|&nbsp;&nbsp;</b> Flow Rate : 23(m3/s) <b>&nbsp;&nbsp;|&nbsp;&nbsp;</b> Gate Opening : 15(mm) <b>&nbsp;&nbsp;|&nbsp;&nbsp;</b> ADVM : 23(m/s) </td>
                                 </tr>
                                 <tr>
-                                    <td>Ashton Cox</td>
+                                    <td><b><a href="">Station 003</a></b></td>
                                     <td>Junior Technical Author</td>
-                                    <td>San Francisco</td>
-                                    <td>66</td>
+                                    <td><a class="text-white badge badge-warning"><b>Delay</b></a></td>
                                     <td>2009/01/12</td>
-                                    <td>$86,000</td>
+                                    <td><b>Battery :</b> 23(v) <b>&nbsp;&nbsp;|&nbsp;&nbsp;</b> Water Level : 2.3(m) <b>&nbsp;&nbsp;|&nbsp;&nbsp;</b> Flow Rate : 23(m3/s) <b>&nbsp;&nbsp;|&nbsp;&nbsp;</b> Gate Opening : 15(mm) <b>&nbsp;&nbsp;|&nbsp;&nbsp;</b> ADVM : 23(m/s) </td>
                                 </tr>
                                 <tr>
-                                    <td>Michael Silva</td>
+                                    <td><b><a href="">Station 004</a></b></td>
                                     <td>Marketing Designer</td>
-                                    <td>London</td>
-                                    <td>66</td>
+                                    <td><a class="text-white badge badge-success"><b>Live</b></a></td>
                                     <td>2012/11/27</td>
-                                    <td>$198,500</td>
+                                    <td><b>Battery :</b> 23(v) <b>&nbsp;&nbsp;|&nbsp;&nbsp;</b> Water Level : 2.3(m) <b>&nbsp;&nbsp;|&nbsp;&nbsp;</b> Flow Rate : 23(m3/s) <b>&nbsp;&nbsp;|&nbsp;&nbsp;</b> Gate Opening : 15(mm) <b>&nbsp;&nbsp;|&nbsp;&nbsp;</b> ADVM : 23(m/s) </td>
                                 </tr>
                                 <tr>
-                                    <td>Paul Byrd</td>
+                                    <td><b><a href="">Station 005</a></b></td>
                                     <td>Chief Financial Officer (CFO)</td>
-                                    <td>New York</td>
-                                    <td>64</td>
+                                    <td><a class="text-white badge badge-warning"><b>Delay</b></a></td>
                                     <td>2010/06/09</td>
-                                    <td>$725,000</td>
+                                    <td><b>Battery :</b> 23(v) <b>&nbsp;&nbsp;|&nbsp;&nbsp;</b> Water Level : 2.3(m) <b>&nbsp;&nbsp;|&nbsp;&nbsp;</b> Flow Rate : 23(m3/s) <b>&nbsp;&nbsp;|&nbsp;&nbsp;</b> Gate Opening : 15(mm) <b>&nbsp;&nbsp;|&nbsp;&nbsp;</b> ADVM : 23(m/s) </td>
                                 </tr>
                                 <tr>
-                                    <td>Gloria Little</td>
-                                    <td>Systems Administrator</td>
-                                    <td>New York</td>
-                                    <td>59</td>
-                                    <td>2009/04/10</td>
-                                    <td>$237,500</td>
-                                </tr>
-                                <tr>
-                                    <td>Bradley Greer</td>
-                                    <td>Software Engineer</td>
-                                    <td>London</td>
-                                    <td>41</td>
-                                    <td>2012/10/13</td>
-                                    <td>$132,000</td>
-                                </tr>
-                                <tr>
-                                    <td>Dai Rios</td>
-                                    <td>Personnel Lead</td>
-                                    <td>Edinburgh</td>
-                                    <td>35</td>
-                                    <td>2012/09/26</td>
-                                    <td>$217,500</td>
-                                </tr>
-                                <tr>
-                                    <td>Jenette Caldwell</td>
+                                    <td><b><a href="">Station 006</a></b></td>
                                     <td>Development Lead</td>
-                                    <td>New York</td>
-                                    <td>30</td>
+                                    <td><a class="text-white badge badge-success"><b>Live</b></a></td>
                                     <td>2011/09/03</td>
-                                    <td>$345,000</td>
+                                    <td><b>Battery :</b> 23(v) <b>&nbsp;&nbsp;|&nbsp;&nbsp;</b> Water Level : 2.3(m) <b>&nbsp;&nbsp;|&nbsp;&nbsp;</b> Flow Rate : 23(m3/s) <b>&nbsp;&nbsp;|&nbsp;&nbsp;</b> Gate Opening : 15(mm) <b>&nbsp;&nbsp;|&nbsp;&nbsp;</b> ADVM : 23(m/s) </td>
                                 </tr>
                                 <tr>
-                                    <td>Yuri Berry</td>
+                                    <td><b><a href="">Station 007</a></b></td>
                                     <td>Chief Marketing Officer (CMO)</td>
-                                    <td>New York</td>
-                                    <td>40</td>
+                                    <td><a class="text-white badge badge-success"><b>Live</b></a></td>
                                     <td>2009/06/25</td>
-                                    <td>$675,000</td>
+                                    <td><b>Battery :</b> 23(v) <b>&nbsp;&nbsp;|&nbsp;&nbsp;</b> Water Level : 2.3(m) <b>&nbsp;&nbsp;|&nbsp;&nbsp;</b> Flow Rate : 23(m3/s) <b>&nbsp;&nbsp;|&nbsp;&nbsp;</b> Gate Opening : 15(mm) <b>&nbsp;&nbsp;|&nbsp;&nbsp;</b> ADVM : 23(m/s) </td>
                                 </tr>
                                 <tr>
-                                    <td>Caesar Vance</td>
+                                    <td><b><a href="">Station 008</a></b></td>
                                     <td>Pre-Sales Support</td>
-                                    <td>New York</td>
-                                    <td>21</td>
+                                    <td><a class="text-white badge badge-danger"><b>Offline</b></a></td>
                                     <td>2011/12/12</td>
-                                    <td>$106,450</td>
+                                    <td><b>Battery :</b> 23(v) <b>&nbsp;&nbsp;|&nbsp;&nbsp;</b> Water Level : 2.3(m) <b>&nbsp;&nbsp;|&nbsp;&nbsp;</b> Flow Rate : 23(m3/s) <b>&nbsp;&nbsp;|&nbsp;&nbsp;</b> Gate Opening : 15(mm) <b>&nbsp;&nbsp;|&nbsp;&nbsp;</b> ADVM : 23(m/s) </td>
                                 </tr>
                             </tbody>
                         </table>
