@@ -29,7 +29,7 @@ except Exception as err:
 
 site_array = [{'site001':'prfx001'},{'site002':'prfx002'}]
 station_array = ['station001','station002','station003']
-param_array = ['battery','waterLevel','flowRate','gateOpening']
+param_array = ['battery','waterLevel','flowRate','gateOpening','velocity']
 
 '''
 raw json data format : {
@@ -38,7 +38,8 @@ raw json data format : {
                         'data':{'battery':{'value':xx,'unit':xx},
                                 'waterLevel':{'value':xx,'unit':xx},
                                 'flowRate':{'value':xx,'unit':xx},
-                                'gateOpening':{'value':xx,'unit':xx}
+                                'gateOpening':{'value':xx,'unit':xx},
+                                'velocity':{'value':xx,'unit':xx}
                                 }
                         }
 '''
@@ -59,6 +60,9 @@ def get_random_value(param):
     elif(param == 'gateOpening'):
         value = random.uniform(0.01, 100)
         return round(value,2),'mm'
+    elif(param == 'velocity'):
+        value = random.uniform(3, 10)
+        return round(value,2),'m/s'
 
 '''
 generate raw json formatted files
