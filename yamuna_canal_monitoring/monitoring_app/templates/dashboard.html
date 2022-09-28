@@ -1,79 +1,127 @@
 {% extends 'utils/base.html' %}
 {% block content %}
 <div class="main-panel">
-    <div class="content-wrapper">
-        <div class="row flex-grow">
-            <div class="col-md-4 grid-margin stretch-card">
-                <div class="card">
-                    <div class="card-body">
-                        <h4 class="card-title">Image of site</h4>
-                        <h5>Image</h5>
-                    </div>
-                </div>
+  <div class="content-wrapper">
+    <div class="row flex-grow">
+      <div class="col-md-4 grid-margin stretch-card">
+        <div class="card" style="background-color: #8109ac;color:white;">
+          <div class="card-body">
+            <h4 class="card-title"><b><i class="fa-solid fa-industry"></i> Total Stations</b></h4>
+            <p style="font-size: 40px;"><b data-target="8" class="count">08</b></p>
+            <div class="text-left">
+              <a href="" data-toggle="tooltip" data-placement="top" title="Live Stations"
+                class="text-white badge badge-success"><b>Live : 5</b></a>&nbsp;&nbsp;
+              <a href="" data-toggle="tooltip" data-placement="top" title="Delay Stations"
+                class="text-white badge badge-warning"><b>Delay : 2</b></a>&nbsp;&nbsp;
+              <a href="" data-toggle="tooltip" data-placement="top" title="Offline Stations"
+                class="text-white badge badge-danger"><b>Offline : 1</b></a>&nbsp;&nbsp;
+              <!-- <a href="" class="text-primary" data-toggle="tooltip" data-placement="top"
+                              title="Download Stations Details"><b><i class="fa-solid fa-cloud-arrow-down"></i></b></a> -->
             </div>
-            <div class="col-md-4 grid-margin stretch-card">
-                <div class="card">
-                    <div class="card-body">
-                        <h4 class="card-title">Current details</h4>
-                        <h5>Data</h5>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 grid-margin stretch-card">
-                <div class="card">
-                    <div class="card-body">
-                        <h4 class="card-title">Site Info</h4>
-                        <h5>Data</h5>
-                        <h5>.</h5>
-                        <h5>.</h5>
-                    </div>
-                </div>
-            </div>
+          </div>
         </div>
+      </div>
+      <div class="col-md-4 grid-margin stretch-card">
+        <div class="card" style="background-color: #393ce3;color:white;">
+          <div class="card-body">
+            <h4 class="card-title"><i class="fa-solid fa-circle-info"></i> Current Reading Received</h4>
+            <!-- <p style="font-size: 40px;"><b>08</b></p> -->
+            <div id="marquee-data-append">
+              <div class="news">
+                <p><b style="font-size: 40px;">Stn-001</b>&nbsp;&nbsp;<b style="font-size: 15px;">(27-sept-2022
+                    14:05:00)</b></p>
+                <marquee class="news-content">
+                  <b>Battery :</b> 23(v) <b>&nbsp;&nbsp;|&nbsp;&nbsp;</b> <b>Water Level :</b> 2.3(m)
+                  <b>&nbsp;&nbsp;|&nbsp;&nbsp;</b> <b>Flow Rate :</b> 23(m3/s) <b>&nbsp;&nbsp;|&nbsp;&nbsp;</b> <b>Gate
+                    Opening :</b> 15(mm) <b>&nbsp;&nbsp;|&nbsp;&nbsp;</b> <b>Velocity :</b> 13(m/s)
+                </marquee>
+                <!-- <span class="m-1 p-1" style="border: 1px solid white;padding:5px;border-radius:4px;"><b>Battery : 23(v)</b> </span>&nbsp;&nbsp;
+                <span class="m-1 p-1" style="border: 1px solid white;padding:5px;border-radius:4px;"><b>Flow Rate : 12(m3/s)</b> </span>&nbsp;&nbsp;
+                <span class="m-1 p-1" style="border: 1px solid white;padding:5px;border-radius:4px;"><b>Water Level : 2.3(m)</b> </span>&nbsp;&nbsp;<br><br>
+                <span class="m-1 p-1" style="border: 1px solid white;padding:5px;border-radius:4px;"><b>Gate Opening : 15(mm)</b> </span>&nbsp;&nbsp;
+                <span class="m-1 p-1" style="border: 1px solid white;padding:5px;border-radius:4px;"><b>Velocity : 9(m/s)</b> </span> -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 grid-margin stretch-card">
+        <div class="card" style="background-color: #15b326;color:white;">
+          <div class="card-body">
+            <h4 class="card-title"><i class="fa-solid fa-water"></i> Total Water Discharged (cusec)</h4>
+            <p style="font-size: 40px;"><b data-target="34000" class="count">0</b></p>
+            <!-- <div id="demo" class="carousel slide" data-ride="carousel">
+              <div class="carousel-inner"> -->
+            <!-- <div class="carousel-item active">
+                  <p style="font-size: 30px;"><b>Stn-001</b></p>
+                  <hr>
+                  <p><b>Weather : Sunny </b><img src="" alt="" width="20px" height="20px"></p>
+                </div> -->
+            <!-- <div class="carousel-item">
+                  <p style="font-size: 40px;"><b>08</b></p>
+                </div>
+                <div class="carousel-item">
+                  <p style="font-size: 40px;"><b>08</b></p>
+                </div> -->
+            <!-- </div>
+            
+            </div> -->
+            <div class="text-left">
+              <a href="" data-toggle="tooltip" data-placement="top" title="Opened Gates"
+                class="mt-2 p-2 text-white badge badge-secondary"><b>Opened Gates : 15</b></a>&nbsp;&nbsp;
+              <a href="" data-toggle="tooltip" data-placement="top" title="Closed Gates"
+                class="mt-2 p-2 text-white badge badge-primary"><b>Closed Gates : 20</b></a>&nbsp;&nbsp;
+              <!-- <a href="" class="text-primary" data-toggle="tooltip" data-placement="top"
+                              title="Download Stations Details"><b><i class="fa-solid fa-cloud-arrow-down"></i></b></a> -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 
 
 
 
 
 
-        <div class="row">
-            <div class="col-lg-6 d-flex flex-column">
-                <div class="row flex-grow">
-                  <div class="col-12 col-lg-4 col-lg-12 grid-margin stretch-card">
-                    <div class="card card-rounded">
-                      <div class="card-body">
-                        <div class="d-sm-flex justify-content-between align-items-start">
-                          <div>
-                            <h4 class="card-title card-title-dash">Stationwise Flow Rate</h4>
-                            <!-- <h5 class="card-subtitle card-subtitle-dash">Lorem Ipsum is simply dummy text of the
+    <div class="row">
+      <div class="col-lg-6 d-flex flex-column">
+        <div class="row flex-grow">
+          <div class="col-12 col-lg-4 col-lg-12 grid-margin stretch-card">
+            <div class="card card-rounded">
+              <div class="card-body">
+                <div class="d-sm-flex justify-content-between align-items-start">
+                  <div>
+                    <h4 class="card-title card-title-dash">Stationwise Flow Rate</h4>
+                    <!-- <h5 class="card-subtitle card-subtitle-dash">Lorem Ipsum is simply dummy text of the
                               printing</h5> -->
-                          </div>
-                          <div id="performance-line-legend"></div>
-                        </div>
-                        <div class="chartjs-wrapper mt-5">
-                          <canvas id="performaneLine"></canvas>
-                        </div>
-                      </div>
-                    </div>
                   </div>
+                  <div id="performance-line-legend"></div>
+                </div>
+                <div class="chartjs-wrapper mt-5">
+                  <canvas id="performaneLine"></canvas>
                 </div>
               </div>
-        <!-- </div> -->
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- </div> -->
 
-        <!-- <div class="row"> -->
-            <div class="col-lg-6 d-flex flex-column">
-                <div class="row flex-grow">
-                  <div class="col-12 grid-margin stretch-card">
-                    <div class="card card-rounded">
-                      <div class="card-body">
-                        <div class="d-sm-flex justify-content-between align-items-start">
-                          <div>
-                            <h4 class="card-title card-title-dash">Stationwise Water Level</h4>
-                            <!-- <p class="card-subtitle card-subtitle-dash">Lorem ipsum dolor sit amet consectetur
+      <!-- <div class="row"> -->
+      <div class="col-lg-6 d-flex flex-column">
+        <div class="row flex-grow">
+          <div class="col-12 grid-margin stretch-card">
+            <div class="card card-rounded">
+              <div class="card-body">
+                <div class="d-sm-flex justify-content-between align-items-start">
+                  <div>
+                    <h4 class="card-title card-title-dash">Stationwise Water Level</h4>
+                    <!-- <p class="card-subtitle card-subtitle-dash">Lorem ipsum dolor sit amet consectetur
                               adipisicing elit</p> -->
-                          </div>
-                          <div>
-                            <!-- <div class="dropdown">
+                  </div>
+                  <div>
+                    <!-- <div class="dropdown">
                               <button class="btn btn-secondary dropdown-toggle toggle-dark btn-lg mb-0 me-0"
                                 type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown"
                                 aria-haspopup="true" aria-expanded="false"> This month </button>
@@ -86,137 +134,208 @@
                                 <a class="dropdown-item" href="#">Separated link</a>
                               </div>
                             </div> -->
-                          </div>
-                        </div>
-                        <div class="d-sm-flex align-items-center mt-1 justify-content-between">
-                          <div class="d-sm-flex align-items-center mt-4 justify-content-between">
-                            <!-- <h2 class="me-2 fw-bold">$36,2531.00</h2>
-                            <h4 class="me-2">USD</h4>
-                            <h4 class="text-success">(+1.37%)</h4> -->
-                          </div>
-                          <div class="me-3">
-                            <div id="marketing-overview-legend"></div>
-                          </div>
-                        </div>
-                        <div class="chartjs-bar-wrapper mt-3">
-                          <canvas id="marketingOverview"></canvas>
-                        </div>
-                      </div>
-                    </div>
                   </div>
                 </div>
-              </div>
-        </div>
-
-        <div class="card" style="box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;border-radius:10px;">
-            <div class="card-body">
-                <div class="row">
-                    <div class="col-lg-6">
-                        <h5 class="card-title text-primary"><b><i class="fa-solid fa-list"></i> SHARANPUR - YAMUNA STRETCH STATIONS</b></h5>
-                    </div>
-                    <div class="col-lg-6 text-right">
-                        <a href="" data-toggle="tooltip" data-placement="top"
-                            title="Live Stations" class="text-white badge badge-success"><b>Live : 2</b></a>&nbsp;&nbsp;
-                        <a href="" data-toggle="tooltip" data-placement="top"
-                            title="Delay Stations" class="text-white badge badge-warning"><b>Delay : 0</b></a>&nbsp;&nbsp;
-                        <a href="" data-toggle="tooltip" data-placement="top"
-                            title="Offline Stations" class="text-white badge badge-danger"><b>Offline : 1</b></a>&nbsp;&nbsp;
-                        <!-- <a href="" class="text-primary" data-toggle="tooltip" data-placement="top"
-                            title="Download Stations Details"><b><i class="fa-solid fa-cloud-arrow-down"></i></b></a> -->
-                    </div>
+                <div class="d-sm-flex align-items-center mt-1 justify-content-between">
+                  <div class="d-sm-flex align-items-center mt-4 justify-content-between">
+                    <!-- <h2 class="me-2 fw-bold">$36,2531.00</h2>
+                            <h4 class="me-2">USD</h4>
+                            <h4 class="text-success">(+1.37%)</h4> -->
+                  </div>
+                  <div class="me-3">
+                    <div id="marketing-overview-legend"></div>
+                  </div>
                 </div>
-                <hr>
-                <div class="row" style="max-height: 700px;overflow-y: scroll;">
-                    <div class="col-lg-12">
-                        <!-- <div class="text-center">
+                <div class="chartjs-bar-wrapper mt-3">
+                  <canvas id="marketingOverview"></canvas>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card"
+      style="box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;border-radius:10px;">
+      <div class="card-body">
+        <div class="row">
+          <div class="col-lg-6">
+            <h5 class="card-title text-primary"><b><i class="fa-solid fa-list"></i> SHARANPUR - YAMUNA STRETCH
+                STATIONS</b></h5>
+          </div>
+          <!-- <div class="col-lg-6 text-right">
+            <a href="" data-toggle="tooltip" data-placement="top" title="Live Stations"
+              class="text-white badge badge-success"><b>Live : 2</b></a>&nbsp;&nbsp;
+            <a href="" data-toggle="tooltip" data-placement="top" title="Delay Stations"
+              class="text-white badge badge-warning"><b>Delay : 0</b></a>&nbsp;&nbsp;
+            <a href="" data-toggle="tooltip" data-placement="top" title="Offline Stations"
+              class="text-white badge badge-danger"><b>Offline : 1</b></a>&nbsp;&nbsp;
+          </div> -->
+        </div>
+        <hr>
+        <div class="row" style="max-height: 700px;overflow-y: scroll;">
+          <div class="col-lg-12">
+            <!-- <div class="text-center">
                             <h4><b>No Station Configured!</b></h4>
                         </div> -->
-                        <table id="" class="table" width="100%">
-                            <thead>
-                                <tr>
-                                    <th class="" width="200">Station
-                                    </th>
-                                    <th class="" width="200">Prefix
-                                    </th>
-                                    <th class="" width="200">Status
-                                    </th>
-                                    <th class="" width="200">Last Reading At
-                                    </th>
-                                    <th class="" width="200">Parameter Values
-                                    </th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td><b><a href="">Station 001</a></b></td>
-                                    <td>System Architect</td>
-                                    <td><a class="text-white badge badge-success"><b>Live</b></a></td>
-                                    <td>2011/04/25</td>
-                                    <td><b>Battery :</b> 23(v) <b>&nbsp;&nbsp;|&nbsp;&nbsp;</b> Water Level : 2.3(m) <b>&nbsp;&nbsp;|&nbsp;&nbsp;</b> Flow Rate : 23(m3/s) <b>&nbsp;&nbsp;|&nbsp;&nbsp;</b> Gate Opening : 15(mm) <b>&nbsp;&nbsp;|&nbsp;&nbsp;</b> ADVM : 23(m/s) </td>
-                                </tr>
-                                <tr>
-                                    <td><b><a href="">Station 002</a></b></td>
-                                    <td>Accountant</td>
-                                    <td><a class="text-white badge badge-success"><b>Live</b></a></td>
-                                    <td>2011/07/25</td>
-                                    <td><b>Battery :</b> 23(v) <b>&nbsp;&nbsp;|&nbsp;&nbsp;</b> Water Level : 2.3(m) <b>&nbsp;&nbsp;|&nbsp;&nbsp;</b> Flow Rate : 23(m3/s) <b>&nbsp;&nbsp;|&nbsp;&nbsp;</b> Gate Opening : 15(mm) <b>&nbsp;&nbsp;|&nbsp;&nbsp;</b> ADVM : 23(m/s) </td>
-                                </tr>
-                                <tr>
-                                    <td><b><a href="">Station 003</a></b></td>
-                                    <td>Junior Technical Author</td>
-                                    <td><a class="text-white badge badge-warning"><b>Delay</b></a></td>
-                                    <td>2009/01/12</td>
-                                    <td><b>Battery :</b> 23(v) <b>&nbsp;&nbsp;|&nbsp;&nbsp;</b> Water Level : 2.3(m) <b>&nbsp;&nbsp;|&nbsp;&nbsp;</b> Flow Rate : 23(m3/s) <b>&nbsp;&nbsp;|&nbsp;&nbsp;</b> Gate Opening : 15(mm) <b>&nbsp;&nbsp;|&nbsp;&nbsp;</b> ADVM : 23(m/s) </td>
-                                </tr>
-                                <tr>
-                                    <td><b><a href="">Station 004</a></b></td>
-                                    <td>Marketing Designer</td>
-                                    <td><a class="text-white badge badge-success"><b>Live</b></a></td>
-                                    <td>2012/11/27</td>
-                                    <td><b>Battery :</b> 23(v) <b>&nbsp;&nbsp;|&nbsp;&nbsp;</b> Water Level : 2.3(m) <b>&nbsp;&nbsp;|&nbsp;&nbsp;</b> Flow Rate : 23(m3/s) <b>&nbsp;&nbsp;|&nbsp;&nbsp;</b> Gate Opening : 15(mm) <b>&nbsp;&nbsp;|&nbsp;&nbsp;</b> ADVM : 23(m/s) </td>
-                                </tr>
-                                <tr>
-                                    <td><b><a href="">Station 005</a></b></td>
-                                    <td>Chief Financial Officer (CFO)</td>
-                                    <td><a class="text-white badge badge-warning"><b>Delay</b></a></td>
-                                    <td>2010/06/09</td>
-                                    <td><b>Battery :</b> 23(v) <b>&nbsp;&nbsp;|&nbsp;&nbsp;</b> Water Level : 2.3(m) <b>&nbsp;&nbsp;|&nbsp;&nbsp;</b> Flow Rate : 23(m3/s) <b>&nbsp;&nbsp;|&nbsp;&nbsp;</b> Gate Opening : 15(mm) <b>&nbsp;&nbsp;|&nbsp;&nbsp;</b> ADVM : 23(m/s) </td>
-                                </tr>
-                                <tr>
-                                    <td><b><a href="">Station 006</a></b></td>
-                                    <td>Development Lead</td>
-                                    <td><a class="text-white badge badge-success"><b>Live</b></a></td>
-                                    <td>2011/09/03</td>
-                                    <td><b>Battery :</b> 23(v) <b>&nbsp;&nbsp;|&nbsp;&nbsp;</b> Water Level : 2.3(m) <b>&nbsp;&nbsp;|&nbsp;&nbsp;</b> Flow Rate : 23(m3/s) <b>&nbsp;&nbsp;|&nbsp;&nbsp;</b> Gate Opening : 15(mm) <b>&nbsp;&nbsp;|&nbsp;&nbsp;</b> ADVM : 23(m/s) </td>
-                                </tr>
-                                <tr>
-                                    <td><b><a href="">Station 007</a></b></td>
-                                    <td>Chief Marketing Officer (CMO)</td>
-                                    <td><a class="text-white badge badge-success"><b>Live</b></a></td>
-                                    <td>2009/06/25</td>
-                                    <td><b>Battery :</b> 23(v) <b>&nbsp;&nbsp;|&nbsp;&nbsp;</b> Water Level : 2.3(m) <b>&nbsp;&nbsp;|&nbsp;&nbsp;</b> Flow Rate : 23(m3/s) <b>&nbsp;&nbsp;|&nbsp;&nbsp;</b> Gate Opening : 15(mm) <b>&nbsp;&nbsp;|&nbsp;&nbsp;</b> ADVM : 23(m/s) </td>
-                                </tr>
-                                <tr>
-                                    <td><b><a href="">Station 008</a></b></td>
-                                    <td>Pre-Sales Support</td>
-                                    <td><a class="text-white badge badge-danger"><b>Offline</b></a></td>
-                                    <td>2011/12/12</td>
-                                    <td><b>Battery :</b> 23(v) <b>&nbsp;&nbsp;|&nbsp;&nbsp;</b> Water Level : 2.3(m) <b>&nbsp;&nbsp;|&nbsp;&nbsp;</b> Flow Rate : 23(m3/s) <b>&nbsp;&nbsp;|&nbsp;&nbsp;</b> Gate Opening : 15(mm) <b>&nbsp;&nbsp;|&nbsp;&nbsp;</b> ADVM : 23(m/s) </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
+            <table id="" class="table" width="100%">
+              <thead>
+                <tr>
+                  <th class="" width="200">Station
+                  </th>
+                  <th class="" width="200">Prefix
+                  </th>
+                  <th class="" width="200">Status
+                  </th>
+                  <th class="" width="200">Last Reading At
+                  </th>
+                  <th class="" width="200">Parameter Values
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><b><a href="">Station 001</a></b></td>
+                  <td>System Architect</td>
+                  <td><a class="text-white badge badge-success"><b>Live</b></a></td>
+                  <td>2011/04/25</td>
+                  <td>Battery : 23(v) <b>&nbsp;&nbsp;|&nbsp;&nbsp;</b> Water Level : 2.3(m)
+                    <b>&nbsp;&nbsp;|&nbsp;&nbsp;</b> Flow Rate : 23(m3/s) <b>&nbsp;&nbsp;|&nbsp;&nbsp;</b> Gate Opening
+                    : 15(mm) <b>&nbsp;&nbsp;|&nbsp;&nbsp;</b> Velocity : 13(m/s)
+                  </td>
+                </tr>
+                <tr>
+                  <td><b><a href="">Station 002</a></b></td>
+                  <td>Accountant</td>
+                  <td><a class="text-white badge badge-success"><b>Live</b></a></td>
+                  <td>2011/07/25</td>
+                  <td>Battery : 23(v) <b>&nbsp;&nbsp;|&nbsp;&nbsp;</b> Water Level : 2.3(m)
+                    <b>&nbsp;&nbsp;|&nbsp;&nbsp;</b> Flow Rate : 23(m3/s) <b>&nbsp;&nbsp;|&nbsp;&nbsp;</b> Gate Opening
+                    : 15(mm) <b>&nbsp;&nbsp;|&nbsp;&nbsp;</b> Velocity : 13(m/s)
+                  </td>
+                </tr>
+                <tr>
+                  <td><b><a href="">Station 003</a></b></td>
+                  <td>Junior Technical Author</td>
+                  <td><a class="text-white badge badge-warning"><b>Delay</b></a></td>
+                  <td>2009/01/12</td>
+                  <td>Battery : 23(v) <b>&nbsp;&nbsp;|&nbsp;&nbsp;</b> Water Level : 2.3(m)
+                    <b>&nbsp;&nbsp;|&nbsp;&nbsp;</b> Flow Rate : 23(m3/s) <b>&nbsp;&nbsp;|&nbsp;&nbsp;</b> Gate Opening
+                    : 15(mm) <b>&nbsp;&nbsp;|&nbsp;&nbsp;</b> Velocity : 13(m/s)
+                  </td>
+                </tr>
+                <tr>
+                  <td><b><a href="">Station 004</a></b></td>
+                  <td>Marketing Designer</td>
+                  <td><a class="text-white badge badge-success"><b>Live</b></a></td>
+                  <td>2012/11/27</td>
+                  <td>Battery : 23(v) <b>&nbsp;&nbsp;|&nbsp;&nbsp;</b> Water Level : 2.3(m)
+                    <b>&nbsp;&nbsp;|&nbsp;&nbsp;</b> Flow Rate : 23(m3/s) <b>&nbsp;&nbsp;|&nbsp;&nbsp;</b> Gate Opening
+                    : 15(mm) <b>&nbsp;&nbsp;|&nbsp;&nbsp;</b> Velocity : 13(m/s)
+                  </td>
+                </tr>
+                <tr>
+                  <td><b><a href="">Station 005</a></b></td>
+                  <td>Chief Financial Officer (CFO)</td>
+                  <td><a class="text-white badge badge-warning"><b>Delay</b></a></td>
+                  <td>2010/06/09</td>
+                  <td>Battery : 23(v) <b>&nbsp;&nbsp;|&nbsp;&nbsp;</b> Water Level : 2.3(m)
+                    <b>&nbsp;&nbsp;|&nbsp;&nbsp;</b> Flow Rate : 23(m3/s) <b>&nbsp;&nbsp;|&nbsp;&nbsp;</b> Gate Opening
+                    : 15(mm) <b>&nbsp;&nbsp;|&nbsp;&nbsp;</b> Velocity : 13(m/s)
+                  </td>
+                </tr>
+                <tr>
+                  <td><b><a href="">Station 006</a></b></td>
+                  <td>Development Lead</td>
+                  <td><a class="text-white badge badge-success"><b>Live</b></a></td>
+                  <td>2011/09/03</td>
+                  <td>Battery : 23(v) <b>&nbsp;&nbsp;|&nbsp;&nbsp;</b> Water Level : 2.3(m)
+                    <b>&nbsp;&nbsp;|&nbsp;&nbsp;</b> Flow Rate : 23(m3/s) <b>&nbsp;&nbsp;|&nbsp;&nbsp;</b> Gate Opening
+                    : 15(mm) <b>&nbsp;&nbsp;|&nbsp;&nbsp;</b> Velocity : 13(m/s)
+                  </td>
+                </tr>
+                <tr>
+                  <td><b><a href="">Station 007</a></b></td>
+                  <td>Chief Marketing Officer (CMO)</td>
+                  <td><a class="text-white badge badge-success"><b>Live</b></a></td>
+                  <td>2009/06/25</td>
+                  <td>Battery : 23(v) <b>&nbsp;&nbsp;|&nbsp;&nbsp;</b> Water Level : 2.3(m)
+                    <b>&nbsp;&nbsp;|&nbsp;&nbsp;</b> Flow Rate : 23(m3/s) <b>&nbsp;&nbsp;|&nbsp;&nbsp;</b> Gate Opening
+                    : 15(mm) <b>&nbsp;&nbsp;|&nbsp;&nbsp;</b> Velocity : 13(m/s)
+                  </td>
+                </tr>
+                <tr>
+                  <td><b><a href="">Station 008</a></b></td>
+                  <td>Pre-Sales Support</td>
+                  <td><a class="text-white badge badge-danger"><b>Offline</b></a></td>
+                  <td>2011/12/12</td>
+                  <td>Battery : 23(v) <b>&nbsp;&nbsp;|&nbsp;&nbsp;</b> Water Level : 2.3(m)
+                    <b>&nbsp;&nbsp;|&nbsp;&nbsp;</b> Flow Rate : 23(m3/s) <b>&nbsp;&nbsp;|&nbsp;&nbsp;</b> Gate Opening
+                    : 15(mm) <b>&nbsp;&nbsp;|&nbsp;&nbsp;</b> Velocity : 13(m/s)
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </div>
+      </div>
     </div>
-    <!-- main-panel ends -->
+  </div>
+  <!-- main-panel ends -->
 </div>
 
 <script>
-    $(document).ready(function () {
-        $('#dtBasicExample').DataTable();
-        $('.dataTables_length').addClass('bs-select');
-    });
+  $(document).ready(function () {
+    $('#dtBasicExample').DataTable();
+    $('.dataTables_length').addClass('bs-select');
+  });
+</script>
+
+<script>
+  carousel();
+
+  function looper() {
+    setTimeout(carousel, 15000); //change every 15 second
+  }
+
+  function carousel() {
+    value = Math.floor(Math.random() * 5) + 1;
+    let data = '<div class="news">\
+                <p><b style="font-size: 40px;">Stn-00'+ value + '</b>&nbsp;&nbsp;<b style="font-size: 15px;">(27-sept-2022\
+                    14:05:00)</b></p>\
+                <marquee class="news-content">\
+                  <b>Battery :</b> 23(v) <b>&nbsp;&nbsp;|&nbsp;&nbsp;</b> <b>Water Level :</b> 2.3(m)\
+                  <b>&nbsp;&nbsp;|&nbsp;&nbsp;</b> <b>Flow Rate :</b> 23(m3/s) <b>&nbsp;&nbsp;|&nbsp;&nbsp;</b> <b>Gate\
+                    Opening :</b> 15(mm) <b>&nbsp;&nbsp;|&nbsp;&nbsp;</b> <b>Velocity :</b> 13(m/s)\
+                </marquee>\
+              </div>';
+    $('#marquee-data-append').html('');
+    $('#marquee-data-append').append(data);
+    looper();
+  }
+</script>
+
+<script>
+  const counters = document.querySelectorAll(".count");
+const speed = 400;
+
+counters.forEach((counter) => {
+const updateCount = () => {
+const target = parseInt(+counter.getAttribute("data-target"));
+const count = parseInt(+counter.innerText);
+const increment = Math.trunc(target / speed);
+console.log(increment);
+
+if (count < target) {
+  counter.innerText = count + increment;
+  setTimeout(updateCount, 1);
+} else {
+  count.innerText = target;
+}
+};
+updateCount();
+});
+
 </script>
 {% endblock content %}

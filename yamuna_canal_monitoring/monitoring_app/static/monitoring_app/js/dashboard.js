@@ -11,9 +11,9 @@
       saleGradientBg2.addColorStop(0, 'rgba(0, 208, 255, 0.19)');
       saleGradientBg2.addColorStop(1, 'rgba(0, 208, 255, 0.03)');
       var salesTopData = {
-          labels: ["SUN","sun", "MON", "mon", "TUE","tue", "WED", "wed", "THU", "thu", "FRI", "fri", "SAT"],
+          labels: ["10:00","11:00", "12:00", "13:00", "14:00","15:00", "16:00", "17:00", "18:00", "19:00", "20:00", "21:00", "22:00"],
           datasets: [{
-              label: 'This week',
+              label: 'stn-001',
               data: [50, 110, 60, 290, 200, 115, 130, 170, 90, 210, 240, 280, 200],
               backgroundColor: saleGradientBg,
               borderColor: [
@@ -27,7 +27,7 @@
               pointBackgroundColor: ['#1F3BB3)', '#1F3BB3', '#1F3BB3', '#1F3BB3','#1F3BB3)', '#1F3BB3', '#1F3BB3', '#1F3BB3','#1F3BB3)', '#1F3BB3', '#1F3BB3', '#1F3BB3','#1F3BB3)'],
               pointBorderColor: ['#fff','#fff','#fff','#fff','#fff','#fff','#fff','#fff','#fff','#fff','#fff','#fff','#fff',],
           },{
-            label: 'Last week',
+            label: 'stn-002',
             data: [30, 150, 190, 250, 120, 150, 130, 20, 30, 15, 40, 95, 180],
             backgroundColor: saleGradientBg2,
             borderColor: [
@@ -40,7 +40,21 @@
             pointHoverRadius: [0, 0, 0, 2, 0],
             pointBackgroundColor: ['#52CDFF)', '#52CDFF', '#52CDFF', '#52CDFF','#52CDFF)', '#52CDFF', '#52CDFF', '#52CDFF','#52CDFF)', '#52CDFF', '#52CDFF', '#52CDFF','#52CDFF)'],
               pointBorderColor: ['#fff','#fff','#fff','#fff','#fff','#fff','#fff','#fff','#fff','#fff','#fff','#fff','#fff',],
-        }]
+        },{
+          label: 'stn-003',
+          data: [10, 15, 90, 50, 20, 10, 30, 200, 300, 10, 40, 86, 80],
+          backgroundColor: saleGradientBg2,
+          borderColor: [
+              '#0F3460',
+          ],
+          borderWidth: 1.5,
+          fill: true, // 3: no fill
+          pointBorderWidth: 1,
+          pointRadius: [0, 0, 0, 4, 0],
+          pointHoverRadius: [0, 0, 0, 2, 0],
+          pointBackgroundColor: ['#0F3460)', '#0F3460', '#0F3460', '#0F3460','#0F3460)', '#0F3460', '#0F3460', '#0F3460','#0F3460)', '#0F3460', '#0F3460', '#0F3460','#0F3460)'],
+            pointBorderColor: ['#0F3460','#0F3460','#0F3460','#0F3460','#0F3460','#0F3460','#0F3460','#0F3460','#0F3460','#0F3460','#0F3460','#0F3460','#0F3460',],
+      }]
       };
   
       var salesTopOptions = {
@@ -369,10 +383,10 @@
     if ($("#marketingOverview").length) {
       var marketingOverviewChart = document.getElementById("marketingOverview").getContext('2d');
       var marketingOverviewData = {
-          labels: ["stn-001","stn-002", "stn-003", "stn-004" , "stn-005", "stn-006", "stn-007"],
+          labels: ["stn-001","stn-002", "stn-003", "stn-004" , "stn-005", "stn-006", "stn-007", "stn-008"],
           datasets: [{
               label: 'Today Water Level(m)',
-              data: [2, 0.3, 2, 0,1,5,3],
+              data: [2, 0.3, 2, 0,1,5,3,6],
               backgroundColor: "#52CDFF",
               borderColor: [
                   '#52CDFF',
@@ -382,7 +396,7 @@
               
           },{
             label: 'Yesterday Water Level(m)',
-            data: [1.5, 0.7, 5, 1,1,2,4],
+            data: [1.5, 0.7, 5, 1,1,2,4,9],
             backgroundColor: "#1F3BB3",
             borderColor: [
                 '#1F3BB3',

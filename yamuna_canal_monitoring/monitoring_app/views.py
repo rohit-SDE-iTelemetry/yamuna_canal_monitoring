@@ -44,6 +44,12 @@ def site_list(request):
         context = {}
         return render(request,'sites/site-list.html')
 
+# view-site view
+def view_site(request):
+    if request.method == 'GET':
+        context = {}
+        return render(request,'sites/view-site.html')
+
 # add-site view
 def add_site(request):
     if request.method == 'GET':
