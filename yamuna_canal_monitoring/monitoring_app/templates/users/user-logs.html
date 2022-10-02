@@ -1,0 +1,77 @@
+{% extends 'utils/base.html' %}
+{% load static %}
+{% block content %}
+<div class="main-panel">
+    <div class="content-wrapper">
+        <div class="card"
+            style="box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;border-radius:10px;">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-lg-10">
+                        <h5 class="card-title text-primary"><b><i class="fa-solid fa-bars"></i> User Logs</b>
+                        </h5>
+                    </div>
+                    <div class="col-lg-2">
+                        <select class="form-select">
+                            <option selected="" class="d-none" value="">Select duration for logs</option>
+                            <option>Today</option>
+                            <option>Yesterday</option>
+                            <option>Last Week</option>
+                            <option>Last Month</option>
+                            <option>Last 6 Months</option>
+                          </select>
+                    </div>
+                </div>
+                <hr>
+                <div class="row" style="max-height: 700px;overflow-y: scroll;">
+                    <div class="col-lg-12">
+                        <!-- <div class="text-center">
+                            <h4><b>No Station Configured!</b></h4>
+                        </div> -->
+                        <table id="" class="table" width="100%">
+                            <thead>
+                                <tr>
+                                    <th class="" width="">Datetime
+                                    </th>
+                                    <th class="" width="">Activity
+                                    </th>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>27-09-2022 12:26:00 AM</td>
+                                    <td>
+                                        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repellat culpa voluptatem aperiam? Reiciendis earum accusantium nostrum ut vel aspernatur illo, eveniet dolore, in dolor modi quasi dicta quod dignissimos. Nostrum!</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>27-09-2022 12:26:00 AM</td>
+                                    <td>
+                                        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repellat culpa voluptatem aperiam? Reiciendis earum accusantium nostrum ut vel aspernatur illo, eveniet dolore, in dolor modi quasi dicta quod dignissimos. Nostrum!</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>27-09-2022 12:26:00 AM</td>
+                                    <td>
+                                        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repellat culpa voluptatem aperiam? Reiciendis earum accusantium nostrum ut vel aspernatur illo, eveniet dolore, in dolor modi quasi dicta quod dignissimos. Nostrum!</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>27-09-2022 12:26:00 AM</td>
+                                    <td>
+                                        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repellat culpa voluptatem aperiam? Reiciendis earum accusantium nostrum ut vel aspernatur illo, eveniet dolore, in dolor modi quasi dicta quod dignissimos. Nostrum!</p>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- main-panel ends -->
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="{% static 'monitoring_app/js/custom_js/validation_js/user-form-validation.js' %}"></script>
+{% endblock content %}

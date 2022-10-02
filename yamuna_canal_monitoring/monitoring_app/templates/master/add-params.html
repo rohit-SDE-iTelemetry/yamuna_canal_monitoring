@@ -1,0 +1,193 @@
+{% extends 'utils/base.html' %}
+{% block content %}
+<div class="main-panel">
+    <div class="content-wrapper">
+        <div class="card"
+            style="box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;border-radius:10px;">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-lg-8">
+                        <h5 class="card-title text-primary"><b><i class="fa-solid fa-circle-plus"></i>
+                                Add New Parameters/Units</b></h5>
+                    </div>
+                    <div class="col-lg-4 text-right">
+                        <a  class="btn btn-sm btn-warning" title="Add new parameter unit" data-toggle="modal" data-target="#exampleModalCenter"><b><i class="fa-solid fa-circle-plus"></i> Add new unit</b></a>
+                    </div>
+                </div>
+                <hr>
+                <div class="row">
+                    <div class="form-group col-md-4">
+                        <label for="inputEmail4"><b>Parameter Name</b></label>
+                        <input type="text" class="form-control" id="inputEmail4" placeholder="Enter parameter name with single space only">
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label for="inputPassword4"><b>Parameter Slug</b></label>
+                        <input type="text" class="form-control" id="inputPassword4" placeholder="-" readonly>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label for="inputPassword4"><b>Parameter Unit</b></label>
+                        <select id="inputState" class="form-control">
+                            <option selected class="d-none" value="">Choose Unit</option>
+                            <option>m</option>
+                            <option>v</option>
+                            <option>m3/s</option>
+                            <option>m/s</option>
+                            <option>mm</option>
+                            <option>cm</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-12 text-right">
+                        <a href="" class="btn btn-sm btn-primary"><b><i class="fa-solid fa-circle-plus"></i>  Add Parameter</b></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card mt-1"
+            style="box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;border-radius:10px;">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <h5 class="card-title text-primary"><b><i class="fa-solid fa-flask"></i>  Station Parameters</b>
+                        </h5>
+                    </div>
+                    {% comment %} <div class="col-lg-6 text-right">
+                        <a href="" class="btn btn-sm btn-warning" data-toggle="tooltip" data-placement="top"
+                            title="Generate category wise station reports"><b><i class="fa-solid fa-file"></i> Generate
+                                Reports</b></a>
+                    </div> {% endcomment %}
+                </div>
+                <hr>
+                <div class="row" style="max-height: 700px;overflow-y: scroll;">
+                    <div class="col-lg-12">
+                        <!-- <div class="text-center">
+                            <h4><b>No Station Configured!</b></h4>
+                        </div> -->
+                        <table id="" class="table" width="100%">
+                            <thead>
+                                <tr>
+                                    <th class="" width="200">Parameter Name
+                                    </th>
+                                    <th class="" width="200">Parameter Slug
+                                    </th>
+                                    <th class="" width="200">Parameter Unit
+                                    </th>
+                                    <th class="" width="200">Created At
+                                    </th>
+                                    <th class="" width="200">Created By
+                                    </th>
+                                    <th class="" width="200">Last Modified At
+                                    </th>
+                                    <th class="" width="200">Last Modified By
+                                    </th>
+                                    <th class="text-center" width="200">Actions
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b class="text-primary">Battery</b></td>
+                                    <td>battery</td>
+                                    <td>v</td>
+                                    <td>12-09-2022 10:20:45 AM</td>
+                                    <td>Super Admin</td>
+                                    <td>27-09-2022 12:26:00 AM</td>
+                                    <td>Super Admin</td>
+                                    <td class="text-center">
+                                        <a href="" class="text-primary" data-toggle="tooltip" data-placement="top"
+                                            title="edit station info."><b><i
+                                                    class="fa-solid fa-pen-to-square"></i></b></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><b class="text-primary">Water Level</b></td>
+                                    <td>waterLevel</td>
+                                    <td>m</td>
+                                    <td>12-09-2022 10:20:45 AM</td>
+                                    <td>Super Admin</td>
+                                    <td>27-09-2022 12:26:00 AM</td>
+                                    <td>Super Admin</td>
+                                    <td class="text-center">
+                                        <a href="" class="text-primary" data-toggle="tooltip" data-placement="top"
+                                            title="edit station info."><b><i
+                                                    class="fa-solid fa-pen-to-square"></i></b></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><b class="text-primary">Flow Rate</b></td>
+                                    <td>flowRate</td>
+                                    <td>m3/s</td>
+                                    <td>12-09-2022 10:20:45 AM</td>
+                                    <td>Super Admin</td>
+                                    <td>27-09-2022 12:26:00 AM</td>
+                                    <td>Super Admin</td>
+                                    <td class="text-center">
+                                        <a href="" class="text-primary" data-toggle="tooltip" data-placement="top"
+                                            title="edit station info."><b><i
+                                                    class="fa-solid fa-pen-to-square"></i></b></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><b class="text-primary">Gate Opening</b></td>
+                                    <td>gateOpening</td>
+                                    <td>mm</td>
+                                    <td>12-09-2022 10:20:45 AM</td>
+                                    <td>Super Admin</td>
+                                    <td>27-09-2022 12:26:00 AM</td>
+                                    <td>Super Admin</td>
+                                    <td class="text-center">
+                                        <a href="" class="text-primary" data-toggle="tooltip" data-placement="top"
+                                            title="edit station info."><b><i
+                                                    class="fa-solid fa-pen-to-square"></i></b></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><b class="text-primary">Velocity</b></td>
+                                    <td>velocity</td>
+                                    <td>m/s</td>
+                                    <td>12-09-2022 10:20:45 AM</td>
+                                    <td>Super Admin</td>
+                                    <td>27-09-2022 12:26:00 AM</td>
+                                    <td>Super Admin</td>
+                                    <td class="text-center">
+                                        <a href="" class="text-primary" data-toggle="tooltip" data-placement="top"
+                                            title="edit station info."><b><i
+                                                    class="fa-solid fa-pen-to-square"></i></b></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- main-panel ends -->
+</div>
+
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          ...
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
+</div>
+{% endblock content %}

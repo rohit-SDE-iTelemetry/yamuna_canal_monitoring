@@ -25,16 +25,28 @@
                 <span class="menu-title">&nbsp;&nbsp;<b>Manage Users</b></span>
             </a>
         </li>
+        <li class="nav-item mt-3">
+            <a class="nav-link" href="{% url 'report' %}">
+                <i class="fa fa-file" aria-hidden="true"></i>
+                <span class="menu-title">&nbsp;&nbsp;<b>Reports</b></span>
+            </a>
+        </li>
+        <li class="nav-item mt-3">
+            <a class="nav-link" href="{% url 'master' %}">
+                <i class="fa-solid fa-star" aria-hidden="true"></i>
+                <span class="menu-title">&nbsp;&nbsp;<b>Masters Pages</b></span>
+            </a>
+        </li>
+        {% comment %} <li class="nav-item mt-3">
+            <a class="nav-link" href="{% url 'add_params' %}">
+                <i class="fa-solid fa-star" aria-hidden="true"></i>
+                <span class="menu-title">&nbsp;&nbsp;<b>Station Parameter Masters</b></span>
+            </a>
+        </li> {% endcomment %}
         {% comment %} <li class="nav-item mt-3">
             <a class="nav-link" href="{% url 'sites' %}">
                 <i class="fa-solid fa-code-compare" aria-hidden="true"></i>
                 <span class="menu-title">&nbsp;&nbsp;<b>Compare Sites</b></span>
-            </a>
-        </li> {% endcomment %}
-        {% comment %} <li class="nav-item mt-3">
-            <a class="nav-link" href="{% url 'reports_dash' %}">
-                <i class="fa fa-file" aria-hidden="true"></i>
-                <span class="menu-title">&nbsp;&nbsp;<b>Reports</b></span>
             </a>
         </li> {% endcomment %}
         <li class="nav-item mt-5"></li>
@@ -43,13 +55,13 @@
         <li class="nav-item mt-5"></li>
         <li class="nav-item mt-3">
             <hr>
-            <a class="nav-link" href="#">
+            <a href="{% url 'guidelines' %}" class="nav-link" href="#">
                 <i class="fa-solid fa-list" aria-hidden="true"></i>
                 <span class="menu-title">&nbsp;&nbsp;<b>Guidelines</b></span>
             </a>
         </li>
         <li class="nav-item mt-3">
-            <a class="nav-link" href="#">
+            <a href="{% url 'user_profile' %}" class="nav-link" href="#">
                 <i class="fa-solid fa-user" aria-hidden="true"></i>
                 <span class="menu-title">&nbsp;&nbsp;<b>User Profile</b></span>
             </a>

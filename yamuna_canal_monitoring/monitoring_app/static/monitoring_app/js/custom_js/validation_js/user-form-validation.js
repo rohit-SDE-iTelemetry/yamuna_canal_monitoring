@@ -5,10 +5,12 @@ let validPincode = true;
 function getPostalAddress() {
     var pincode = $('#pincode').val().trim();
     if (pincode.length == 6) {
+        $('#pincode-spinner').removeClass('d-none');
         $.ajax({
             type: 'GET',
             url: "https://api.postalpincode.in/pincode/"+pincode,
             success: function (response) {
+                $('#pincode-spinner').addClass('d-none');
                 if(response[0]['Status'] == 'Success'){
                     $('#pincode').css('border','');
                     $('#pincode').css('color','black');
