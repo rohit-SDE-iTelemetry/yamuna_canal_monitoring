@@ -52,3 +52,27 @@ class Site(models.Model):
     last_updated_at = models.DateTimeField(default=django.utils.timezone.now)
 
 
+
+
+
+# category master model
+class Category(models.Model):
+    uuid = models.UUIDField(default=uuid.uuid4, primary_key=True,max_length=120)
+    category_name = models.CharField(max_length=100, verbose_name='Category Name')
+    category_slug = models.CharField(max_length=100, verbose_name='Category Slug')
+    site_added_by = models.CharField(default='', verbose_name='Added By',max_length=120,blank=True)
+    last_updated_by = models.CharField(default='', verbose_name='Last Updated By',max_length=120,blank=True)
+    created_at = models.DateTimeField(auto_now=True, blank=True)
+    last_updated_at = models.DateTimeField(default=django.utils.timezone.now)
+
+
+# parameter master model
+class Parameter(models.Model):
+    uuid = models.UUIDField(default=uuid.uuid4, primary_key=True,max_length=120)
+    parameter_name = models.CharField(max_length=100, verbose_name='Parameter Name')
+    parameter_slug = models.CharField(max_length=100, verbose_name='Parameter Slug')
+    site_added_by = models.CharField(default='', verbose_name='Added By',max_length=120,blank=True)
+    last_updated_by = models.CharField(default='', verbose_name='Last Updated By',max_length=120,blank=True)
+    created_at = models.DateTimeField(auto_now=True, blank=True)
+    last_updated_at = models.DateTimeField(default=django.utils.timezone.now)
+

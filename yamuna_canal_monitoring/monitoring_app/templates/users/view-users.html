@@ -8,7 +8,7 @@
             <div class="card-body">
                 <div class="row">
                     <div class="col-lg-12">
-                        <h5 class="card-title text-primary"><b><i class="fa-solid fa-circle-plus"></i> Add New User</b>
+                        <h5 class="card-title text-primary"><b><i class="fa-solid fa-user"></i> User Information</b>
                         </h5>
                     </div>
                 </div>
@@ -20,41 +20,30 @@
                             <div class="col-lg-4 mb-1">
                                 <div class="form-group">
                                     <label for=""><b>Fullname </b></label>
-                                    <input type="text" id="name" maxlength="70" onkeypress="return /[a-zA-Z ]/i.test(event.key)" class="form-control" placeholder="Enter fullname">
+                                    <p> - </p>
                                 </div>
                             </div>
                             <div class="col-lg-4 mb-1">
                                 <div class="form-group">
                                     <label for=""><b>Email <i class="fa-solid fa-envelope"></i></b></label>
-                                    <input type="email" class="form-control" id="email" placeholder="Enter email">
+                                    <p> - </p>
                                 </div>
                             </div>
                             <div class="col-lg-4 mb-1">
                                 <div class="form-group">
                                     <label for=""><b>Contact <i class="fa-solid fa-phone"></i></b></label>
-                                    <input type="email" class="form-control" id="" placeholder="Enter contact">
+                                    <p> - </p>
                                 </div>
                             </div>
                             <div class="col-lg-4 mb-1">
                                 <div class="form-group">
                                     <label for=""><b>User Type <i class="fa-solid fa-user-shield"></i></b></label>
-                                    <select id="" class="form-control">
-                                        <option selected>Customer User (Active User)</option>
-                                        <option>Staff User (Staff User)</option>
-                                        <option>Super Admin (Super User)</option>
-                                    </select>
+                                    <p> - </p>
                                 </div>
                             </div>
                             <div class="col-lg-4 mb-1">
                                 <label for=""><b>Demo User?</b></label><br>
-                                <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
-                                    <label class="form-check-label" for="inlineRadio1"><b>Yes</b></label>
-                                  </div>
-                                  <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" checked name="inlineRadioOptions" id="inlineRadio2" value="option2">
-                                    <label class="form-check-label" for="inlineRadio2"><b>No</b></label>
-                                  </div>
+                                <p> - </p>
                             </div>
                         </div>
                         <hr>
@@ -75,42 +64,37 @@
                             <div class="col-lg-3 mb-1">
                                 <div class="form-group">
                                     <label for=""><b>Pincode</b></label>&nbsp;
-                                    <div class="spinner-border spinner-border-sm text-primary d-none" id="pincode-spinner" role="status">
-                                        <span class="sr-only">Loading...</span>
-                                    </div>
-                                    <input type="text" maxlength="6" onkeypress="return /[0-9]/i.test(event.key)" class="form-control" onkeyup="getPostalAddress()" id="pincode" placeholder="Enter pincode">
+                                    <p> - </p>
                                 </div>
                             </div>
                             <div class="col-lg-3 mb-1">
                                 <div class="form-group">
                                     <label for=""><b>City</b></label>
-                                    <input type="text" class="form-control" id="city" readonly placeholder="-">
+                                    <p> - </p>
                                 </div>
                             </div>
                             <div class="col-lg-3 mb-1">
                                 <div class="form-group">
                                     <label for=""><b>State</b></label>
-                                    <input type="text" class="form-control" id="state" readonly placeholder="-">
+                                    <p> - </p>
                                 </div>
                             </div>
                             <div class="col-lg-3 mb-1">
                                 <div class="form-group">
                                     <label for=""><b>Country</b></label>
-                                    <input type="text" class="form-control" id="country" readonly value="India" placeholder="Enter country">
+                                    <p> - </p>
                                 </div>
                             </div>
                             <div class="col-lg-12 mb-1">
                                 <div class="form-group">
                                     <label for=""><b>Address</b></label>
-                                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                                    <p> - </p>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="col-lg-12 text-right">
-                        <a href="" class="btn btn-sm btn-danger"><b>Cancel</b></a>
-                        <a class="btn btn-sm btn-info text-white" id="submit-btn" onclick="validateUserForm()"><b><i class="fa-solid fa-circle-plus"></i> Add New
-                                User</b></a>
+                        <a href="{% url 'users' %}" class="btn btn-sm btn-danger"><b>Cancel</b></a>
                     </div>
                 </div>
             </div>

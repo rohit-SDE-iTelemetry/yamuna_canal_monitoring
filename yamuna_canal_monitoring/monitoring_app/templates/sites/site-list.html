@@ -37,6 +37,60 @@
                         </div>
                     </div>
                 </div>
+                <hr>
+                <div class="row">
+                    <div class="col-lg-3">
+                        <div class="card"
+                            style="box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;border-radius:10px;background-color:rgb(68, 175, 207);">
+                            <a class="text-white" style="text-decoration:none;">
+                                <div class="card-body">
+                                    <b><i class="fa-solid fa-industry"></i> Total Stations</b>
+                                    <hr>
+                                    <p style="font-size: 30px;"><b>08</b></p>                                
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+        
+                    <div class="col-lg-3">
+                        <div class="card"
+                            style="box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;border-radius:10px;background-color:rgb(93, 219, 68);">
+                            <a class="text-white" style="text-decoration:none;">
+                                <div class="card-body">
+                                    <b><i class="fa-solid fa-thumbs-up"></i> Live Stations</b>
+                                    <hr>
+                                    <p style="font-size: 30px;"><b>05</b></p>                                
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3">
+                        <div class="card"
+                            style="box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;border-radius:10px;background-color:rgb(230, 215, 84);">
+                            <a class="text-white" style="text-decoration:none;">
+                                <div class="card-body">
+                                    <b><i class="fa-solid fa-industry"></i> Delay Stations</b>
+                                    <hr>
+                                    <p style="font-size: 30px;"><b>01</b></p>                                
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3">
+                        <div class="card"
+                            style="box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;border-radius:10px;background-color:rgb(235, 100, 77);">
+                            <a class="text-white" style="text-decoration:none;">
+                                <div class="card-body">
+                                    <b><i class="fa-solid fa-thumbs-down"></i> Offline Stations</b>
+                                    <hr>
+                                    <p style="font-size: 30px;"><b>02</b></p>                                
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -89,7 +143,7 @@
                                 <td class="text-center">
                                     <a href="{% url 'view_site' %}" class="text-warning" data-toggle="tooltip" data-placement="top" title="view station info."><b><i class="fa-solid fa-eye"></i></b></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                     <a href="" class="text-primary" data-toggle="tooltip" data-placement="top" title="edit station info."><b><i class="fa-solid fa-pen-to-square"></i></b></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                    <a href="" class="text-info" data-toggle="tooltip" data-placement="top" title="station logs"><b><i class="fa-solid fa-bars"></i></b></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    {% comment %} <a href="" class="text-info" data-toggle="tooltip" data-placement="top" title="station logs"><b><i class="fa-solid fa-bars"></i></b></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {% endcomment %}
                                 </td>
                               </tr>
                               <tr>
@@ -104,7 +158,7 @@
                                 <td class="text-center">
                                     <a href="{% url 'view_site' %}" class="text-warning" data-toggle="tooltip" data-placement="top" title="view station info."><b><i class="fa-solid fa-eye"></i></b></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                     <a href="" class="text-primary" data-toggle="tooltip" data-placement="top" title="edit station info."><b><i class="fa-solid fa-pen-to-square"></i></b></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                    <a href="" class="text-info" data-toggle="tooltip" data-placement="top" title="station logs"><b><i class="fa-solid fa-bars"></i></b></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    {% comment %} <a href="" class="text-info" data-toggle="tooltip" data-placement="top" title="station logs"><b><i class="fa-solid fa-bars"></i></b></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {% endcomment %}
                                 </td>
                               </tr>
                               <tr>
@@ -119,7 +173,7 @@
                                 <td class="text-center">
                                     <a href="{% url 'view_site' %}" class="text-warning" data-toggle="tooltip" data-placement="top" title="view station info."><b><i class="fa-solid fa-eye"></i></b></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                     <a href="" class="text-primary" data-toggle="tooltip" data-placement="top" title="edit station info."><b><i class="fa-solid fa-pen-to-square"></i></b></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                    <a href="" class="text-info" data-toggle="tooltip" data-placement="top" title="station logs"><b><i class="fa-solid fa-bars"></i></b></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    {% comment %} <a href="" class="text-info" data-toggle="tooltip" data-placement="top" title="station logs"><b><i class="fa-solid fa-bars"></i></b></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {% endcomment %}
                                 </td>
                               </tr>
                               <tr>
@@ -134,7 +188,7 @@
                                 <td class="text-center">
                                     <a href="{% url 'view_site' %}" class="text-warning" data-toggle="tooltip" data-placement="top" title="view station info."><b><i class="fa-solid fa-eye"></i></b></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                     <a href="" class="text-primary" data-toggle="tooltip" data-placement="top" title="edit station info."><b><i class="fa-solid fa-pen-to-square"></i></b></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                    <a href="" class="text-info" data-toggle="tooltip" data-placement="top" title="station logs"><b><i class="fa-solid fa-bars"></i></b></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    {% comment %} <a href="" class="text-info" data-toggle="tooltip" data-placement="top" title="station logs"><b><i class="fa-solid fa-bars"></i></b></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {% endcomment %}
                                 </td>
                               </tr>
                               <tr>
@@ -149,7 +203,7 @@
                                 <td class="text-center">
                                     <a href="{% url 'view_site' %}" class="text-warning" data-toggle="tooltip" data-placement="top" title="view station info."><b><i class="fa-solid fa-eye"></i></b></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                     <a href="" class="text-primary" data-toggle="tooltip" data-placement="top" title="edit station info."><b><i class="fa-solid fa-pen-to-square"></i></b></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                    <a href="" class="text-info" data-toggle="tooltip" data-placement="top" title="station logs"><b><i class="fa-solid fa-bars"></i></b></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    {% comment %} <a href="" class="text-info" data-toggle="tooltip" data-placement="top" title="station logs"><b><i class="fa-solid fa-bars"></i></b></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {% endcomment %}
                                 </td>
                               </tr>
                               <tr>
@@ -164,7 +218,7 @@
                                 <td class="text-center">
                                     <a href="{% url 'view_site' %}" class="text-warning" data-toggle="tooltip" data-placement="top" title="view station info."><b><i class="fa-solid fa-eye"></i></b></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                     <a href="" class="text-primary" data-toggle="tooltip" data-placement="top" title="edit station info."><b><i class="fa-solid fa-pen-to-square"></i></b></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                    <a href="" class="text-info" data-toggle="tooltip" data-placement="top" title="station logs"><b><i class="fa-solid fa-bars"></i></b></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    {% comment %} <a href="" class="text-info" data-toggle="tooltip" data-placement="top" title="station logs"><b><i class="fa-solid fa-bars"></i></b></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {% endcomment %}
                                 </td>
                               </tr>
                               <tr>
@@ -179,7 +233,7 @@
                                 <td class="text-center">
                                     <a href="{% url 'view_site' %}" class="text-warning" data-toggle="tooltip" data-placement="top" title="view station info."><b><i class="fa-solid fa-eye"></i></b></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                     <a href="" class="text-primary" data-toggle="tooltip" data-placement="top" title="edit station info."><b><i class="fa-solid fa-pen-to-square"></i></b></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                    <a href="" class="text-info" data-toggle="tooltip" data-placement="top" title="station logs"><b><i class="fa-solid fa-bars"></i></b></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    {% comment %} <a href="" class="text-info" data-toggle="tooltip" data-placement="top" title="station logs"><b><i class="fa-solid fa-bars"></i></b></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {% endcomment %}
                                 </td>
                               </tr>
                               <tr>
@@ -194,7 +248,7 @@
                                 <td class="text-center">
                                     <a href="{% url 'view_site' %}" class="text-warning" data-toggle="tooltip" data-placement="top" title="view station info."><b><i class="fa-solid fa-eye"></i></b></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                     <a href="" class="text-primary" data-toggle="tooltip" data-placement="top" title="edit station info."><b><i class="fa-solid fa-pen-to-square"></i></b></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                    <a href="" class="text-info" data-toggle="tooltip" data-placement="top" title="station logs"><b><i class="fa-solid fa-bars"></i></b></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    {% comment %} <a href="" class="text-info" data-toggle="tooltip" data-placement="top" title="station logs"><b><i class="fa-solid fa-bars"></i></b></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {% endcomment %}
                                 </td>
                               </tr>
                             </tbody>

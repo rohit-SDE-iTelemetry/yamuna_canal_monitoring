@@ -32,8 +32,28 @@ def add_user(request):
 # edit-user view
 def edit_user(request):
     if request.method == 'GET':
+        permissionObj = Permission.objects.all()
+        
+        context = {'permissionObj':permissionObj,'exlude_permissions':exlude_permissions}
+        return render(request,'users/edit-user.html',context)
+
+# user-view view
+def user_view(request):
+    if request.method == 'GET':
         context = {}
-        return render(request,'users/edit-user.html')
+        return render(request,'users/view-users.html')
+
+# user-log view
+def user_log(request):
+    if request.method == 'GET':
+        context = {}
+        return render(request,'users/user-logs.html')
+
+# user-profile view
+def user_profile(request):
+    if request.method == 'GET':
+        context = {}
+        return render(request,'users/user-profiles.html')
 
 #########################################################################################################
 # site MODULE
@@ -65,15 +85,44 @@ def edit_site(request):
 #########################################################################################################
 # REPORT MODULE
 #########################################################################################################
-def reports_dash(request):
+def report(request):
     if request.method == 'GET':
         context = {}
-        return render(request,'utils/reports.html')
+        return render(request,'reports/report.html')
 
 #########################################################################################################
-# REPORT MODULE
+# GIS MODULE
 #########################################################################################################
 def gis(request):
     if request.method == 'GET':
         context = {}
         return render(request,'gis/gis.html')
+
+#########################################################################################################
+# GUIDELINES MODULE
+#########################################################################################################
+def guidelines(request):
+    if request.method == 'GET':
+        context = {}
+        return render(request,'eyc-guidelines.html')
+
+#########################################################################################################
+# MASTER MODULE
+#########################################################################################################
+# add station category view
+def master(request):
+    if request.method == 'GET':
+        context = {}
+        return render(request,'master/master-view.html')
+
+# add station category view
+def add_category(request):
+    if request.method == 'GET':
+        context = {}
+        return render(request,'master/add-category.html')
+
+# add params view
+def add_param(request):
+    if request.method == 'GET':
+        context = {}
+        return render(request,'master/add-params.html')

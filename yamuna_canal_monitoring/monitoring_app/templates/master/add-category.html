@@ -1,0 +1,112 @@
+{% extends 'utils/base.html' %}
+{% block content %}
+<div class="main-panel">
+    <div class="content-wrapper">
+        <div class="card"
+            style="box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;border-radius:10px;">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-lg-8">
+                        <h5 class="card-title text-primary"><b><i class="fa-solid fa-circle-plus"></i>
+                                Add New Station Category</b></h5>
+                    </div>
+                </div>
+                <hr>
+                <div class="row">
+                    <div class="form-group col-md-4">
+                        <label for="inputEmail4"><b>Station Category Name</b></label>
+                        <input type="text" class="form-control" id="inputEmail4" placeholder="Enter parameter name with single space only">
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label for="inputPassword4"><b>Station Category Slug</b></label>
+                        <input type="text" class="form-control" id="inputPassword4" placeholder="-" readonly>
+                    </div>
+                    <div class="form-group col-md-4 pt-2">
+                        <br>
+                        <a href="" class="btn btn-sm btn-primary"><b><i class="fa-solid fa-circle-plus"></i>  Add Category</b></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card mt-1" style="box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;border-radius:10px;">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <h5 class="card-title text-primary"><b><i class="fa-solid fa-tag"></i> Station Categories</b></h5>
+                    </div>
+                    <div class="col-lg-6 text-right">
+                        <a href="" class="btn btn-sm btn-warning" data-toggle="tooltip" data-placement="top"
+                        title="Generate category wise station reports"><b><i class="fa-solid fa-file"></i> Generate Reports</b></a>
+                    </div>
+                </div>
+                <hr>
+                <div class="row" style="max-height: 700px;overflow-y: scroll;">
+                    <div class="col-lg-12">
+                        <!-- <div class="text-center">
+                            <h4><b>No Station Configured!</b></h4>
+                        </div> -->
+                        <table id="" class="table" width="100%">
+                            <thead>
+                              <tr>
+                                <th class="" width="200">Category Name
+                                </th>
+                                <th class="" width="200">Category Slug
+                                </th>
+                                <th class="" width="200">Created At
+                                </th>
+                                <th class="" width="200">Created By
+                                </th>
+                                <th class="" width="200">Last Modified At
+                                </th>
+                                <th class="" width="200">Last Modified By
+                                </th>
+                                <th class="text-center" width="200">Actions
+                                </th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr>
+                                <td><b class="text-primary">ARG</b></td>
+                                <td>arg</td>
+                                <td>12-09-2022 10:20:45 AM</td>
+                                <td>Super Admin</td>
+                                <td>27-09-2022 12:26:00 AM</td>
+                                <td>Super Admin</td>
+                                <td class="text-center">
+                                    <a href="" class="text-primary" data-toggle="tooltip" data-placement="top" title="edit station info."><b><i class="fa-solid fa-pen-to-square"></i></b></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                </td>
+                              </tr>
+                              <tr>
+                                <td><b class="text-primary">AWLR</b></td>
+                                <td>awlr</td>
+                                <td>12-09-2022 10:20:45 AM</td>
+                                <td>Super Admin</td>
+                                <td>27-09-2022 12:26:00 AM</td>
+                                <td>Super Admin</td>
+                                <td class="text-center">
+                                    <a href="" class="text-primary" data-toggle="tooltip" data-placement="top" title="edit station info."><b><i class="fa-solid fa-pen-to-square"></i></b></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                </td>
+                              </tr>
+                              <tr>
+                                <td><b class="text-primary">AWS</b></td>
+                                <td>aws</td>
+                                <td>12-09-2022 10:20:45 AM</td>
+                                <td>Super Admin</td>
+                                <td>27-09-2022 12:26:00 AM</td>
+                                <td>Super Admin</td>
+                                <td class="text-center">
+                                    <a href="" class="text-primary" data-toggle="tooltip" data-placement="top" title="edit station info."><b><i class="fa-solid fa-pen-to-square"></i></b></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                </td>
+                              </tr>
+                            </tbody>
+                          </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- main-panel ends -->
+</div>
+
+{% endblock content %}

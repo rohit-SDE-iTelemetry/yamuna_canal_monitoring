@@ -1,12 +1,197 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    
-</body>
-</html>
+{% extends 'utils/base.html' %}
+{% block content %}
+{% load static %}
+<div class="main-panel">
+    <div class="content-wrapper">
+        <div class="card"
+            style="box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;border-radius:10px;">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-lg-10">
+                        <h5 class="card-title text-primary"><b><i class="fa-solid fa-file"></i>
+                                Reports</b></h5>
+                    </div>
+                    <div class="col-lg-2">
+                        <select class="form-select" onchange="get_report_type(this)">
+                            <option selected="" class="d-none" value="">Choose Report Type for stats.</option>
+                            <option value="avgerage">Average Report</option>
+                            <option value="category">Category Wise Report</option>
+                            <option value="frequency">Frequency Wise Report</option>
+                            <option value="comparision">Comparision Report</option>
+                          </select>
+                    </div>
+                </div>
+                <hr>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="text-center text-secondary" id="choice-div">
+                            <h4>Choose Report Type!</h4>
+                        </div>
+                        <!-- average report div -->
+                        <div id="avg-report" class="d-none">
+                            <div class="row">
+                                <div class="form-group col-md-3">
+                                    <label for="inputPassword4"><b>Station</b></label>
+                                    <select id="inputState" class="form-control">
+                                        <option selected class="d-none" value="">Choose Station</option>
+                                        <option>Stn001</option>
+                                        <option>Stn002</option>
+                                        <option>Stn003</option>
+                                    </select>
+                                </div>
+                                <div class="form-group col-md-3">
+                                    <label for="inputPassword4"><b>Average</b></label>
+                                    <select id="inputState" class="form-control">
+                                        <option selected class="d-none" value="">Choose Average</option>
+                                        <option>1 Min</option>
+                                        <option>5 Min</option>
+                                        <option>15 Min</option>
+                                        <option>1 Day</option>
+                                        <option>1 Week</option>
+                                        <option>1 Month</option>
+                                        <option>1 Year</option>
+                                    </select>
+                                </div>
+                                <div class="form-group col-md-4">
+                                    <label for="inputPassword4"><b>Date Range</b></label>
+                                    <br>
+                                    <input type="date" name="" id="">
+                                </div>
+                                
+                                <div class="col-lg-1 text-right">
+                                    <br>
+                                    <a class="btn btn-sm btn-primary" onclick="fetch_report()"><b>Fetch Report</b></a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- category report div -->
+                        <div id="category-report" class="d-none">
+                            <div class="row">
+                                <div class="form-group col-md-3">
+                                    <label for="inputPassword4"><b>Category</b></label>
+                                    <select id="inputState" class="form-control">
+                                        <option selected class="d-none" value="">Choose Category</option>
+                                        <option>ARG</option>
+                                        <option>AWLR</option>
+                                        <option>AWS</option>
+                                    </select>
+                                </div>
+                                <div class="form-group col-md-4">
+                                    <label for="inputPassword4"><b>Date Range</b></label>
+                                    <br>
+                                    <input type="date" name="" id="">
+                                </div>
+                                
+                                <div class="col-lg-1 text-right">
+                                    <br>
+                                    <a class="btn btn-sm btn-primary" onclick="fetch_report()"><b>Fetch Report</b></a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- frequency report div -->
+                        <div id="frequency-report" class="d-none">
+                            <div class="row">
+                                <div class="form-group col-md-3">
+                                    <label for="inputPassword4"><b>Station</b></label>
+                                    <select id="inputState" class="form-control">
+                                        <option selected class="d-none" value="">Choose Station</option>
+                                        <option>Stn001</option>
+                                        <option>Stn002</option>
+                                        <option>Stn003</option>
+                                    </select>
+                                </div>
+                                <div class="form-group col-md-3">
+                                    <label for="inputPassword4"><b>Frequency</b></label>
+                                    <select id="inputState" class="form-control">
+                                        <option selected class="d-none" value="">Choose Frequency</option>
+                                        <option>1 Min</option>
+                                        <option>5 Min</option>
+                                        <option>15 Min</option>
+                                        <option>1 Day</option>
+                                        <option>1 Week</option>
+                                        <option>1 Month</option>
+                                        <option>1 Year</option>
+                                    </select>
+                                </div>
+                                <div class="form-group col-md-4">
+                                    <label for="inputPassword4"><b>Date Range</b></label>
+                                    <br>
+                                    <input type="date" name="" id="">
+                                </div>
+                                
+                                <div class="col-lg-1 text-right">
+                                    <br>
+                                    <a class="btn btn-sm btn-primary" onclick="fetch_report()"><b>Fetch Report</b></a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- comparision report div -->
+                        <div id="comparision-report" class="d-none">
+                            <div class="row">
+                                <div class="form-group col-md-3">
+                                    <label for="inputPassword4"><b>Station</b></label>
+                                    <select id="inputState" class="form-control">
+                                        <option selected class="d-none" value="">Choose Stations to compare</option>
+                                        <option>Stn001</option>
+                                        <option>Stn002</option>
+                                        <option>Stn003</option>
+                                    </select>
+                                </div>
+                                <div class="form-group col-md-4">
+                                    <label for="inputPassword4"><b>Date Range</b></label>
+                                    <br>
+                                    <input type="date" name="" id="">
+                                </div>
+                                
+                                <div class="col-lg-1 text-right">
+                                    <br>
+                                    <a class="btn btn-sm btn-primary" onclick="fetch_report()"><b>Fetch Report</b></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card mt-1 d-none analysis-div"
+            style="box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;border-radius:10px;">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <h5 class="card-title text-primary"><b><i class="fa-solid fa-magnifying-glass-chart"></i>
+                                Report Analysis</b></h5>
+                    </div>
+                    <div class="col-lg-6 text-right">
+                        <a href="" class="btn btn-sm btn-info" data-toggle="tooltip" data-placement="top" title="Download report as pdf"><b><i class="fa-solid fa-file-pdf"></i> PDF</b></a>
+                        <a href="" class="btn btn-sm btn-info" data-toggle="tooltip" data-placement="top" title="Download report as excel"><b><i class="fa-solid fa-file-excel"></i> Excel</b></a>
+                    </div>
+                </div>
+                <hr>
+                <div class="row">
+                    <div class="col-lg-12 d-none" id="report-spinner-div">
+                        <div class="text-center">
+                            <p><b>Please  wait .... fetching data</b></p><br>
+                            <div class="d-flex justify-content-center">
+                                <div class="spinner-border text-primary" role="status">
+                                  <span class="sr-only">Loading...</span>
+                                </div>
+                              </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-12" id="report-data-div">
+                        <div class="text-center">
+                            data table here!
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- main-panel ends -->
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="{% static 'monitoring_app/js/custom_js/report_js/reports.js' %}"></script>
+{% endblock content %}
