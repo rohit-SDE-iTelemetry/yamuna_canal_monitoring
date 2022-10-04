@@ -52,7 +52,7 @@
                         </div>
                     </div>
         
-                    <div class="col-lg-3">
+                    {% comment %} <div class="col-lg-3">
                         <div class="card"
                             style="box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;border-radius:10px;">
                             <a class="text-dark" style="text-decoration:none;">
@@ -89,7 +89,7 @@
                                 </div>
                             </a>
                         </div>
-                    </div>
+                    </div> {% endcomment %}
                 </div>
             </div>
         </div>
@@ -132,88 +132,42 @@
                                 </tr>
                             </thead>
                             <tbody>
+                                {% for user in users %}
                                 <tr>
-                                    <td><b><a href="">Demo User - 001</a><br><a href="" data-toggle="tooltip"
-                                                class="mt-1 p-1 text-white badge badge-success"><b>Super Admin</b></a></b></td>
-                                    <td>demo1@gmail.com</td>
-                                    <td>7777777777</td>
-                                    <td>27-09-2022 12:26:00 AM</td>
+                                    <td>
+                                        <b>
+                                            <a href="">{{user.first_name}} {{user.last_name}}</a><br>
+                                            {% if user.is_superuser %}
+                                                <a href="" data-toggle="tooltip"
+                                                class="mt-1 p-1 text-white badge badge-danger"><b>Super Admin</b>
+                                                </a>
+                                            {% elif user.is_staff %}
+                                                <a href="" data-toggle="tooltip"
+                                                class="mt-1 p-1 text-white badge badge-success"><b>Staff User</b>
+                                                </a>
+                                            {% elif user.is_active %}
+                                                <a href="" data-toggle="tooltip"
+                                                class="mt-1 p-1 text-white badge badge-info"><b>Base User</b>
+                                                </a>
+                                            {% endif %}
+                                        </b>
+                                    </td>
+                                    <td>{{user.email}}</td>
+                                    <td>{% if user.contact %}{{user.contact}}{% else %}-{% endif %}</td>
+                                    <td>{{user.last_login}}</td>
                                     <td>
                                         <a href="{% url 'user_view' %}" class="text-warning" data-toggle="tooltip" data-placement="top" title="view user info."><b><i class="fa-solid fa-eye"></i></b></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                         <a href="{% url 'edit_user' %}" class="text-primary" data-toggle="tooltip" data-placement="top" title="edit user info."><b><i class="fa-solid fa-user-pen"></i></b></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                        {% comment %} <a href="" class="text-danger" data-toggle="tooltip" data-placement="top" title="delete user" onclick="return confirm('Are you sure you want to delete this user?');"><b><i class="fa-solid fa-trash"></i></b></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {% endcomment %}
-                                        {% comment %} <a href="{% url 'user_log' %}" class="text-info" data-toggle="tooltip" data-placement="top" title="logs"><b><i class="fa-solid fa-bars"></i></b></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {% endcomment %}
                                         <a href="" class="text-success" data-toggle="tooltip" data-placement="top" title="reset password"><b><i class="fa-solid fa-key"></i></b></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                     </td>
                                     <td class="text-center">
                                         <div class="form-check form-switch" data-toggle="tooltip"
                                         data-placement="top" title="User Enabled">             
-                                            <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" checked="" empid="" onchange="">
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td><b><a href="">Demo User - 002</a><br><a href="" data-toggle="tooltip"
-                                                class="mt-1 p-1 text-white badge badge-primary"><b>Staff User</b></a></b></td>
-                                    <td>demo2@gmail.com</td>
-                                    <td>7777777777</td>
-                                    <td>27-09-2022 12:26:00 AM</td>
-                                    <td>
-                                        <a href="{% url 'user_view' %}" class="text-warning" data-toggle="tooltip" data-placement="top" title="view user info."><b><i class="fa-solid fa-eye"></i></b></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                        <a href="{% url 'edit_user' %}" class="text-primary" data-toggle="tooltip" data-placement="top" title="edit user info."><b><i class="fa-solid fa-user-pen"></i></b></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                        {% comment %} <a href="" class="text-danger" data-toggle="tooltip" data-placement="top" title="delete user" onclick="return confirm('Are you sure you want to delete this user?');"><b><i class="fa-solid fa-trash"></i></b></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {% endcomment %}
-                                        {% comment %} <a href="{% url 'user_log' %}" class="text-info" data-toggle="tooltip" data-placement="top" title="logs"><b><i class="fa-solid fa-bars"></i></b></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {% endcomment %}
-                                        <a href="" class="text-success" data-toggle="tooltip" data-placement="top" title="reset password"><b><i class="fa-solid fa-key"></i></b></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                    </td>
-                                    <td class="text-center">
-                                        <div class="form-check form-switch" data-toggle="tooltip"
-                                        data-placement="top" title="User Enabled">             
-                                            <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" checked="" empid="" onchange="">
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td><b><a href="">Demo User - 003</a><br><a href="" data-toggle="tooltip"
-                                                class="mt-1 p-1 text-white badge badge-warning"><b>Customer User</b></a></b>
-                                    </td>
-                                    <td>demo3@gmail.com</td>
-                                    <td>7777777777</td>
-                                    <td>27-09-2022 12:26:00 AM</td>
-                                    <td>
-                                        <a href="{% url 'user_view' %}" class="text-warning" data-toggle="tooltip" data-placement="top" title="view user info."><b><i class="fa-solid fa-eye"></i></b></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                        <a href="{% url 'edit_user' %}" class="text-primary" data-toggle="tooltip" data-placement="top" title="edit user info."><b><i class="fa-solid fa-user-pen"></i></b></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                        {% comment %} <a href="" class="text-danger" data-toggle="tooltip" data-placement="top" title="delete user" onclick="return confirm('Are you sure you want to delete this user?');"><b><i class="fa-solid fa-trash"></i></b></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {% endcomment %}
-                                        {% comment %} <a href="{% url 'user_log' %}" class="text-info" data-toggle="tooltip" data-placement="top" title="logs"><b><i class="fa-solid fa-bars"></i></b></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {% endcomment %}
-                                        <a href="" class="text-success" data-toggle="tooltip" data-placement="top" title="reset password"><b><i class="fa-solid fa-key"></i></b></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                    </td>
-                                    <td class="text-center">
-                                        <div class="form-check form-switch" data-toggle="tooltip"
-                                        data-placement="top" title="User Enabled">             
-                                            <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" checked="" empid="" onchange="">
-                                        </div>   
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td><b><a href="">Demo User - 004</a><br><a href="" data-toggle="tooltip"
-                                                class="mt-1 p-1 text-white badge badge-warning"><b>Customer User</b></a></b>
-                                    </td>
-                                    <td>demo4@gmail.com</td>
-                                    <td>7777777777</td>
-                                    <td>27-09-2022 12:26:00 AM</td>
-                                    <td>
-                                        <a href="{% url 'user_view' %}" class="text-warning" data-toggle="tooltip" data-placement="top" title="view user info."><b><i class="fa-solid fa-eye"></i></b></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                        <a href="{% url 'edit_user' %}" class="text-primary" data-toggle="tooltip" data-placement="top" title="edit user info."><b><i class="fa-solid fa-user-pen"></i></b></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                        {% comment %} <a href="" class="text-danger" data-toggle="tooltip" data-placement="top" title="delete user" onclick="return confirm('Are you sure you want to delete this user?');"><b><i class="fa-solid fa-trash"></i></b></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {% endcomment %}
-                                        {% comment %} <a href="{% url 'user_log' %}" class="text-info" data-toggle="tooltip" data-placement="top" title="logs"><b><i class="fa-solid fa-bars"></i></b></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {% endcomment %}
-                                        <a href="" class="text-success" data-toggle="tooltip" data-placement="top" title="reset password"><b><i class="fa-solid fa-key"></i></b></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                    </td>
-                                    <td class="text-center">
-                                        <div class="form-check form-switch" data-toggle="tooltip"
-                                        data-placement="top" title="User Enabled">             
-                                            <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" checked="" empid="" onchange="">
-                                        </div>   
-                                    </td>
-                                </tr>
+                                        <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" checked="" empid="" onchange="">
+                                    </div>
+                                </td>
+                            </tr>
+                            {% endfor %}
                             </tbody>
                         </table>
                     </div>
