@@ -1,3 +1,13 @@
+from django.contrib.auth.models import Permission
+
+# permission object for views
+permissionObj = Permission.objects.all()
+
+# filter permissions for current loged in user
+def get_permissions(request):
+    permissions = Permission.objects.filter(user=request.user)
+    return permissions
+
 # excluded permissions for add users
 exlude_permissions = ['Can add log entry',
                       'Can change log entry',
@@ -18,4 +28,5 @@ exlude_permissions = ['Can add log entry',
                       'Can add session',
                       'Can change session',
                       'Can delete session',
-                      'Can view session']
+                      'Can view session'
+                    ]
