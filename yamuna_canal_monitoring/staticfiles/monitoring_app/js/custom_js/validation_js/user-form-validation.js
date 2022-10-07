@@ -12,7 +12,6 @@ function getPostalAddress() {
             success: function (response) {
                 $('#pincode-spinner').addClass('d-none');
                 if(response[0]['Status'] == 'Success'){
-                    $('#valid-pincode').css('display','none');
                     $('#pincode').css('border','');
                     $('#pincode').css('color','black');
 
@@ -27,7 +26,6 @@ function getPostalAddress() {
                 }else{
                     $('#pincode').css('border','2px solid red');
                     $('#pincode').css('color','red');
-                    $('#valid-pincode').css('display','');
                     $('#city').val('');
                     $('#state').val('');
                     validPincode = false;
