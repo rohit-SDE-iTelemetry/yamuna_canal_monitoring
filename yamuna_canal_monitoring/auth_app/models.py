@@ -7,29 +7,28 @@ from monitoring_app.models import Site
 
 PERMISSIONS = ()
 USER_CHOICES = (
-('CUSTOMER', 'Customer'),
-('CPCB', 'CPCB'),
-('ADMIN', 'Super Admin'),
-('STAFF', 'Staff User'),
+('1', 'Active User'),
+('2', 'Staff User'),
+('3', 'Super Admin'),
 )
 # user profile model
 class UserProfile(models.Model):
 
     uuid = models.UUIDField(default=uuid.uuid4, primary_key=True)
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    site = models.ManyToManyField(Site, default=None)
-    email = models.EmailField(max_length=60, default=None, null=True,unique=True)
+    # site = models.ManyToManyField(Site, default=None)
+    # email = models.EmailField(max_length=60, default=None, null=True,unique=True)
     name = models.CharField(max_length=60, null=False, verbose_name='Name')
     phone = models.CharField(max_length=10, null=True)
     created = models.DateTimeField(auto_now_add=True, blank=True,verbose_name='Created On')
-    last_login = models.DateTimeField(auto_now_add=True, blank=True)
+    # last_login = models.DateTimeField(auto_now_add=True, blank=True)
     last_pwd_updated = models.DateField(auto_now=True,verbose_name='Password Updated On')
     # TODO: remove old image file if updated new logo
     # logo = models.ImageField(upload_to='logos/',default=settings.DEFAULT_LOGO)
     user_type = models.CharField(max_length=20, null=False, choices=USER_CHOICES)
 
     # for customers
-    on_trial = models.BooleanField(default=False)
+    demo_user = models.BooleanField(default=False)
     address = models.TextField(default=None, null=True)
     zipcode = models.IntegerField(default=None, null=True)
     state = models.CharField(max_length=80, null=True)
