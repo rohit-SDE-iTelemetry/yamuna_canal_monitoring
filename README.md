@@ -1,1 +1,2 @@
-# yamuna_canal_monitoring
+# All About EYC (EASt YAMUNA CANAL) MONITORING Project Modules
+# ====================================================================================
