@@ -1,0 +1,1 @@
+{"station_id": "station003", "timestamp": 1665399344, "data": {"battery": {"value": 39.8, "unit": "v"}, "waterLevel": {"value": 2.24, "unit": "m"}, "flowRate": {"value": 4.81, "unit": "m3/s"}, "gateOpening": {"value": 92.81, "unit": "mm"}, "velocity": {"value": 9.97, "unit": "m/s"}}}

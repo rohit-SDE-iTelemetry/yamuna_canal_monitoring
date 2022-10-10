@@ -14,101 +14,219 @@
                     </div> {% endcomment %}
                 </div>
                 <hr>
-                <div class="row" style="max-height: 700px;overflow-y: scroll;">
+                <div class="row" style="">
                     <div class="col-lg-12">
-                        <p class="card-headings-text"><i class="fa-solid fa-circle-info"></i> Station Basic Information</p>
+                        <p class="card-headings-text" style="background-color: #6db8e6;padding: 10px;border-radius: 5px;"><i class="fa-solid fa-circle-info"></i> Station Basic Information</p>
                         <div class="row">
-                            <div class="col-lg-4 mb-1">
-                                station name
+                            <div class="col-lg-3 mb-1">
+                                <div class="form-group">
+                                    <label for=""><b>Station Name &nbsp;&nbsp;
+                                        <small id="valid-name" style="display: none;color: red;"><strong>Enter valid station name!</strong></small></b></label>
+                                    <input type="text" id="name" maxlength="70" onkeypress="return /[a-zA-Z ]/i.test(event.key)" class="form-control" placeholder="Enter fullname">
+                                </div>
                             </div>
-                            <div class="col-lg-4 mb-1">
-                                station name
+                            <div class="col-lg-3 mb-1">
+                                <div class="form-group">
+                                    <label for=""><b>Station Prefix &nbsp;&nbsp;
+                                        <small id="valid-prefix" style="display: none;color: red;"><strong>Enter valid station prefix!</strong></small></b></label>
+                                    <input type="text" id="prefix" maxlength="70" onkeypress="return /[a-zA-Z ]/i.test(event.key)" class="form-control" placeholder="Enter prefix in lower case">
+                                </div>
                             </div>
-                            <div class="col-lg-4 mb-1">
-                                station name
+                            <div class="col-lg-3 mb-1">
+                                <div class="form-group">
+                                    <label for=""><b>Station ID (Site ID) &nbsp;&nbsp;
+                                        <small id="valid-site-id" style="display: none;color: red;"><strong>Enter valid station site-id!</strong></small></b></label>
+                                    <input type="text" id="site-id" maxlength="70" onkeypress="return /[a-zA-Z ]/i.test(event.key)" class="form-control" placeholder="Enter site-id in lower case" readonly value="site-001">
+                                </div>
                             </div>
-                            <div class="col-lg-4 mb-1">
-                                station name
+                            <div class="col-lg-3 mb-1">
+                                <div class="form-group">
+                                    <label for=""><b>Version &nbsp;&nbsp;
+                                        <small id="valid-version" style="display: none;color: red;"><strong>Enter valid station version!</strong></small></b></label>
+                                    <input type="text" id="version" maxlength="70" onkeypress="return /[a-zA-Z ]/i.test(event.key)" class="form-control" placeholder="Enter version in lower case" readonly value="1.0">
+                                </div>
                             </div>
-                            <div class="col-lg-4 mb-1">
-                                station name
+                            <div class="col-lg-3 mb-1">
+                                <div class="form-group">
+                                    <label for=""><b>Station Email <i class="fa-solid fa-envelope"></i>  &nbsp;&nbsp;
+                                        <small id="valid-email" style="display: none;color: red;"><strong>Enter valid station email!</strong></small></b></label>
+                                    <input type="email" class="form-control" id="email" placeholder="Enter email">
+                                </div>
+                            </div>
+                            <div class="col-lg-3 mb-1">
+                                <div class="form-group">
+                                    <label for=""><b>Station Contact <i class="fa-solid fa-phone"></i>  &nbsp;&nbsp;
+                                        <small id="valid-contact" style="display: none;color: red;"><strong>Enter valid station contact!</strong></small></b></label>
+                                    <input type="email" maxlength="10" onkeypress="return /[0-9]/i.test(event.key)" class="form-control" id="contact" placeholder="Enter contact">
+                                </div>
+                            </div>
+                            <div class="col-lg-3 mb-1">
+                                <div class="form-group">
+                                    <label for=""><b>Station Secondary Email <i class="fa-solid fa-envelope"></i>  &nbsp;&nbsp;
+                                        <small id="valid-secondary-email" style="display: none;color: red;"><strong>Enter valid station email!</strong></small></b></label>
+                                    <input type="email" class="form-control" id="email" placeholder="Enter secondary email">
+                                </div>
+                            </div>
+                            <div class="col-lg-3 mb-1">
+                                <div class="form-group">
+                                    <label for=""><b>Station Secondary Contact <i class="fa-solid fa-phone"></i>  &nbsp;&nbsp;
+                                        <small id="valid-secondary-contact" style="display: none;color: red;"><strong>Enter valid station contact!</strong></small></b></label>
+                                    <input type="email" maxlength="10" onkeypress="return /[0-9]/i.test(event.key)" class="form-control" id="contact" placeholder="Enter secondary contact">
+                                </div>
+                            </div>
+                            <div class="col-lg-3 mb-1">
+                                <div class="form-group">
+                                    <label for=""><b>Station Type <i class="fa-solid fa-industry"></i>  &nbsp;&nbsp;
+                                        <small id="valid-user-type" style="display: none;color: red;"><strong>Select valid station type!</strong></small></b></label>
+                                    <select id="user-type" class="form-control">
+                                        <option selected value="" class="d-none">Choose station type</option>
+                                        <option value='1'>ARG</option>
+                                        <option value='2'>AWLR</option>
+                                        <option value='3'>AWS</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-lg-3 mb-1">
+                                <label for=""><b>Demo Station?</b></label><br>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="demo-user" id="inlineRadio1" value="1">
+                                    <label class="form-check-label" for="inlineRadio1"><b>Yes</b></label>
+                                  </div>
+                                  <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" checked name="demo-user" id="inlineRadio2" value="0">
+                                    <label class="form-check-label" for="inlineRadio2"><b>No</b></label>
+                                  </div>
                             </div>
                         </div>
-                        <hr>
-                        <p class="card-headings-text"><i class="fa-solid fa-circle-info"></i> Station Basic Information</p>
+                        <!-- <hr> -->
+                        <p class="card-headings-text"  style="background-color: #6db8e6;padding: 10px;border-radius: 5px;"><i class="fa-solid fa-location-dot"></i> Station Address Information</p>
                         <div class="row">
-                            <div class="col-lg-4 mb-1">
-                                station name
+                            <div class="col-lg-3 mb-1">
+                                <div class="form-group">
+                                    <label for=""><b>Pincode &nbsp;&nbsp;
+                                        <small id="valid-pincode" style="display: none;color: red;"><strong>Enter valid pincode!</strong></small></b></label>&nbsp;
+                                    <div class="spinner-border spinner-border-sm text-primary d-none" id="pincode-spinner" role="status">
+                                        <span class="sr-only">Loading...</span>
+                                    </div>
+                                    <input type="text" maxlength="6" onkeypress="return /[0-9]/i.test(event.key)" class="form-control" onkeyup="getPostalAddress()" id="pincode" placeholder="Enter pincode">
+                                </div>
                             </div>
-                            <div class="col-lg-4 mb-1">
-                                station name
+                            <div class="col-lg-3 mb-1">
+                                <div class="form-group">
+                                    <label for=""><b>City</b></label>
+                                    <input type="text" class="form-control" id="city" readonly placeholder="-">
+                                </div>
                             </div>
-                            <div class="col-lg-4 mb-1">
-                                station name
+                            <div class="col-lg-3 mb-1">
+                                <div class="form-group">
+                                    <label for=""><b>State</b></label>
+                                    <input type="text" class="form-control" id="state" readonly placeholder="-">
+                                </div>
                             </div>
-                            <div class="col-lg-4 mb-1">
-                                station name
+                            <div class="col-lg-3 mb-1">
+                                <div class="form-group">
+                                    <label for=""><b>Country</b></label>
+                                    <input type="text" class="form-control" id="country" readonly value="India" placeholder="Enter country">
+                                </div>
                             </div>
-                            <div class="col-lg-4 mb-1">
-                                station name
+                            <div class="col-lg-6 mb-1">
+                                <div class="form-group">
+                                    <label for=""><b>Address &nbsp;&nbsp;
+                                        <small id="valid-address" style="display: none;color: red;"><strong>Enter valid pincode!</strong></small></b></label>
+                                    <textarea class="form-control" id="address" rows="3"></textarea>
+                                </div>
+                            </div>
+                            <div class="col-lg-3 mb-1">
+                                <div class="form-group">
+                                    <label for=""><b>Lattitude</b></label>
+                                    <input type="text" class="form-control" id="lattitude" placeholder="Enter lattitude">
+                                </div>
+                            </div>
+                            <div class="col-lg-3 mb-1">
+                                <div class="form-group">
+                                    <label for=""><b>Longitude</b></label>
+                                    <input type="text" class="form-control" id="longitude" placeholder="Enter longitude">
+                                </div>
                             </div>
                         </div>
-                        <hr>
-                        <p class="card-headings-text"><i class="fa-solid fa-circle-info"></i> Station Basic Information</p>
-                        <div class="row">
-                            <div class="col-lg-4 mb-1">
-                                station name
+                        <!-- <hr> -->
+                        <p class="card-headings-text"  style="background-color: #6db8e6;padding: 10px;border-radius: 5px;"><i class="fa-solid fa-server"></i> Station Data Transmission Information</p>
+                        <div class="row mb-4">
+                            <div class="col-lg-3 mb-1">
+                                <input type="checkbox" class="" value="" checked>
+                                <strong class="text-secondary">Data To NIC (National Informatics Centre)</strong>
                             </div>
-                            <div class="col-lg-4 mb-1">
-                                station name
+
+                            <div class="col-lg-3 mb-1">
+                                <input type="checkbox" class="" value="" checked>
+                                <strong class="text-secondary">Data To SDC (State Data Center, Lucknow)</strong>
                             </div>
-                            <div class="col-lg-4 mb-1">
-                                station name
+
+                            <div class="col-lg-3 mb-1">
+                                <input type="checkbox" class="" value="" checked>
+                                <strong class="text-secondary">Data To CE Okhla , Delhi</strong>
                             </div>
-                            <div class="col-lg-4 mb-1">
-                                station name
-                            </div>
-                            <div class="col-lg-4 mb-1">
-                                station name
-                            </div>
-                        </div>
-                        <hr>
-                        <p class="card-headings-text"><i class="fa-solid fa-circle-info"></i> Station Basic Information</p>
-                        <div class="row">
-                            <div class="col-lg-4 mb-1">
-                                station name
-                            </div>
-                            <div class="col-lg-4 mb-1">
-                                station name
-                            </div>
-                            <div class="col-lg-4 mb-1">
-                                station name
-                            </div>
-                            <div class="col-lg-4 mb-1">
-                                station name
-                            </div>
-                            <div class="col-lg-4 mb-1">
-                                station name
+
+                            <div class="col-lg-3 mb-1">
+                                <input type="checkbox" class="" value="" >
+                                <strong class="text-secondary">Data To WIMS (Water Information Management System)</strong>
                             </div>
                         </div>
-                        <hr>
-                        <p class="card-headings-text"><i class="fa-solid fa-circle-info"></i> Station Basic Information</p>
+                        <!-- <hr> -->
+                        <p class="card-headings-text"  style="background-color: #6db8e6;padding: 10px;border-radius: 5px;"><i class="fa-solid fa-lock"></i> Station Data Encryption Information</p>
                         <div class="row">
                             <div class="col-lg-4 mb-1">
-                                station name
+                                <div class="form-group">
+                                    <label for=""><b>Data Encryption Key</b></label>
+                                    <input type="text" class="form-control" id="enc-key" placeholder="Enter data encryption key (if any)">
+                                </div>
                             </div>
                             <div class="col-lg-4 mb-1">
-                                station name
+                                <div class="form-group">
+                                    <label for=""><b>Private Key</b></label>
+                                    <input type="text" class="form-control" id="prv-key" placeholder="Enter private key (if any)">
+                                </div>
                             </div>
                             <div class="col-lg-4 mb-1">
-                                station name
+                                <div class="form-group">
+                                    <label for=""><b>Public Key</b></label>
+                                    <input type="text" class="form-control" id="pub-key" placeholder="Enter public key (if any)">
+                                </div>
+                            </div>
+                        </div>
+                        <!-- <hr> -->
+                        <p class="card-headings-text"  style="background-color: #6db8e6;padding: 10px;border-radius: 5px;"><i class="fa-solid fa-database"></i> Station Other Information</p>
+                        <div class="row mb-2">
+                            <div class="col-lg-4 mb-1">
+                                <label for=""><b> Sinage Available</b></label><br>
+                                <input type="checkbox" class="" value="" checked>
+                                <strong class="text-secondary">Sinage (LED) available for this station</strong>
                             </div>
                             <div class="col-lg-4 mb-1">
-                                station name
+                                <label for=""><b> SMS Alerts</b></label><br>
+                                <input type="checkbox" class="" value="" checked>
+                                <strong class="text-secondary">Send SMS Alerts for this station</strong>
                             </div>
                             <div class="col-lg-4 mb-1">
-                                station name
+                                <label for=""><b> Email Alerts</b></label><br>
+                                <input type="checkbox" class="" value="" checked>
+                                <strong class="text-secondary">Send Email Alerts for this station</strong>
                             </div>
+                        </div>
+                        <!-- <hr> -->
+                        <div class="row mt-4">
+                            <div class="col-lg-4 mb-1">
+                                <div class="form-group">
+                                    <label for=""><b> Station Delay After (Hrs.)</b></label>
+                                    <input type="number"  value="4" class="form-control" id="enc-key" placeholder="Enter data encryption key (if any)">
+                                </div>
+                            </div>
+                            <div class="col-lg-4 mb-1">
+                                <div class="form-group">
+                                    <label for=""><b> Station Offline After (Hrs.)</b></label>
+                                    <input type="number" value="48" class="form-control" id="enc-key" placeholder="Enter data encryption key (if any)">
+                                </div>
+                            </div> 
                         </div>
                     </div>
                     <div class="col-lg-12 text-right">
