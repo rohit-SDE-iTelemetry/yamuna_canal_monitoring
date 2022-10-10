@@ -39,33 +39,33 @@
                 </div>
                 <hr>
                 <div class="row">
-                    <div class="col-lg-3">
+                    <div class="col-lg-6">
                         <div class="card"
                             style="box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;border-radius:10px;background-color:rgb(68, 175, 207);">
                             <a class="text-white" style="text-decoration:none;">
                                 <div class="card-body">
                                     <b><i class="fa-solid fa-industry"></i> Total Stations</b>
                                     <hr>
-                                    <p style="font-size: 30px;"><b>08</b></p>                                
+                                    <p style="font-size: 30px;"><b>08</b></p>                             
                                 </div>
                             </a>
                         </div>
                     </div>
         
-                    <div class="col-lg-3">
+                    <!-- <div class="col-lg-3">
                         <div class="card"
                             style="box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;border-radius:10px;background-color:rgb(93, 219, 68);">
                             <a class="text-white" style="text-decoration:none;">
                                 <div class="card-body">
-                                    <b><i class="fa-solid fa-thumbs-up"></i> Live Stations</b>
+                                    <b><i class="fa-solid fa-thumbs-down"></i> Offline Stations</b>
                                     <hr>
                                     <p style="font-size: 30px;"><b>05</b></p>                                
                                 </div>
                             </a>
                         </div>
-                    </div>
+                    </div> -->
 
-                    <div class="col-lg-3">
+                    <!-- <div class="col-lg-3">
                         <div class="card"
                             style="box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;border-radius:10px;background-color:rgb(230, 215, 84);">
                             <a class="text-white" style="text-decoration:none;">
@@ -76,16 +76,16 @@
                                 </div>
                             </a>
                         </div>
-                    </div>
+                    </div> -->
 
-                    <div class="col-lg-3">
+                    <div class="col-lg-6">
                         <div class="card"
                             style="box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;border-radius:10px;background-color:rgb(235, 100, 77);">
-                            <a class="text-white" style="text-decoration:none;">
+                            <a href="" class="text-white" style="text-decoration:none;">
                                 <div class="card-body">
-                                    <b><i class="fa-solid fa-thumbs-down"></i> Offline Stations</b>
+                                    <b><i class="fa-solid fa-bell"></i> Today Exceedence Alerts</b>
                                     <hr>
-                                    <p style="font-size: 30px;"><b>02</b></p>                                
+                                    <p style="font-size: 30px;"><b>02</b><span></p>                                
                                 </div>
                             </a>
                         </div>
@@ -99,6 +99,16 @@
                 <div class="row">
                     <div class="col-lg-6">
                         <h5 class="card-title text-primary"><b><i class="fa-sharp fa-solid fa-location-dot" aria-hidden="true"></i> Manage Station</b></h5>
+                        <div class="text-left">
+                            <a href="" data-toggle="tooltip" data-placement="top" title="Live Stations"
+                              class="text-white badge badge-success"><b>Live : 5</b></a>&nbsp;&nbsp;
+                            <a href="" data-toggle="tooltip" data-placement="top" title="Delay Stations"
+                              class="text-white badge badge-warning"><b>Delay : 2</b></a>&nbsp;&nbsp;
+                            <a href="" data-toggle="tooltip" data-placement="top" title="Offline Stations"
+                              class="text-white badge badge-danger"><b>Offline : 1</b></a>&nbsp;&nbsp;
+                            <a href="" data-toggle="tooltip" data-placement="top" title="Disabled Stations"
+                              class="text-white badge badge-info"><b><i class="fa-solid fa-ban text-warning"></i> Disabled : 1</b></a>&nbsp;&nbsp;
+                          </div>   
                     </div>
                     <div class="col-lg-6 text-right">
                         <a href="" class="btn btn-sm btn-warning" data-toggle="tooltip" data-placement="top"
@@ -126,7 +136,9 @@
                                 </th>
                                 <th class="" width="200">Parameter Values
                                 </th>
-                                <th class="text-center" width="200">Station Logs
+                                <th class="text-center" width="200">Station Actions
+                                </th>
+                                <th class="text-center" width="200">Station Enable/Disable
                                 </th>
                               </tr>
                             </thead>
@@ -145,6 +157,12 @@
                                     <a href="" class="text-primary" data-toggle="tooltip" data-placement="top" title="edit station info."><b><i class="fa-solid fa-pen-to-square"></i></b></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                     {% comment %} <a href="" class="text-info" data-toggle="tooltip" data-placement="top" title="station logs"><b><i class="fa-solid fa-bars"></i></b></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {% endcomment %}
                                 </td>
+                                <td class="text-center">
+                                   <div class="form-check form-switch" data-toggle="tooltip"
+                                        data-placement="top" title="Station Enabled">             
+                                        <input class="form-check-input bg-success" type="checkbox" id="flexSwitchCheckChecked" checked="" empid="" onchange="">
+                                    </div>
+                                </td>
                               </tr>
                               <tr>
                                 <td><b><a href="">Station 002</a></b></td>
@@ -160,11 +178,17 @@
                                     <a href="" class="text-primary" data-toggle="tooltip" data-placement="top" title="edit station info."><b><i class="fa-solid fa-pen-to-square"></i></b></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                     {% comment %} <a href="" class="text-info" data-toggle="tooltip" data-placement="top" title="station logs"><b><i class="fa-solid fa-bars"></i></b></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {% endcomment %}
                                 </td>
+                                <td class="text-center">
+                                   <div class="form-check form-switch" data-toggle="tooltip"
+                                        data-placement="top" title="Station Enabled">             
+                                        <input class="form-check-input bg-success" type="checkbox" id="flexSwitchCheckChecked" checked="" empid="" onchange="">
+                                    </div>
+                                </td>
                               </tr>
                               <tr>
                                 <td><b><a href="">Station 003</a></b></td>
                                 <td>Junior Technical Author</td>
-                                <td><a class="text-white badge badge-warning"><b>Delay</b></a></td>
+                                <td><a class="text-white badge badge-info"><b> <i class="fa-solid fa-ban text-warning"></i> Disabled</b></a></td>
                                 <td>27-09-2022 12:26:00 AM</td>
                                 <td>Battery : 23(v) <b>&nbsp;&nbsp;|&nbsp;&nbsp;</b> Water Level : 2.3(m)
                                   <b>&nbsp;&nbsp;|&nbsp;&nbsp;</b> Flow Rate : 23(m3/s) <b>&nbsp;&nbsp;|&nbsp;&nbsp;</b> Gate Opening
@@ -174,6 +198,12 @@
                                     <a href="{% url 'view_site' %}" class="text-warning" data-toggle="tooltip" data-placement="top" title="view station info."><b><i class="fa-solid fa-eye"></i></b></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                     <a href="" class="text-primary" data-toggle="tooltip" data-placement="top" title="edit station info."><b><i class="fa-solid fa-pen-to-square"></i></b></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                     {% comment %} <a href="" class="text-info" data-toggle="tooltip" data-placement="top" title="station logs"><b><i class="fa-solid fa-bars"></i></b></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {% endcomment %}
+                                </td>
+                                <td class="text-center">
+                                   <div class="form-check form-switch" data-toggle="tooltip"
+                                        data-placement="top" title="Station Disabled">             
+                                        <input class="form-check-input bg-danger" type="checkbox" id="flexSwitchCheckChecked" empid="" onchange="">
+                                    </div>
                                 </td>
                               </tr>
                               <tr>
@@ -190,6 +220,12 @@
                                     <a href="" class="text-primary" data-toggle="tooltip" data-placement="top" title="edit station info."><b><i class="fa-solid fa-pen-to-square"></i></b></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                     {% comment %} <a href="" class="text-info" data-toggle="tooltip" data-placement="top" title="station logs"><b><i class="fa-solid fa-bars"></i></b></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {% endcomment %}
                                 </td>
+                                <td class="text-center">
+                                   <div class="form-check form-switch" data-toggle="tooltip"
+                                        data-placement="top" title="Station Enabled">             
+                                        <input class="form-check-input bg-success" type="checkbox" id="flexSwitchCheckChecked" checked="" empid="" onchange="">
+                                    </div>
+                                </td>
                               </tr>
                               <tr>
                                 <td><b><a href="">Station 005</a></b></td>
@@ -204,6 +240,12 @@
                                     <a href="{% url 'view_site' %}" class="text-warning" data-toggle="tooltip" data-placement="top" title="view station info."><b><i class="fa-solid fa-eye"></i></b></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                     <a href="" class="text-primary" data-toggle="tooltip" data-placement="top" title="edit station info."><b><i class="fa-solid fa-pen-to-square"></i></b></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                     {% comment %} <a href="" class="text-info" data-toggle="tooltip" data-placement="top" title="station logs"><b><i class="fa-solid fa-bars"></i></b></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {% endcomment %}
+                                </td>
+                                <td class="text-center">
+                                   <div class="form-check form-switch" data-toggle="tooltip"
+                                        data-placement="top" title="Station Enabled">             
+                                        <input class="form-check-input bg-success" type="checkbox" id="flexSwitchCheckChecked" checked="" empid="" onchange="">
+                                    </div>
                                 </td>
                               </tr>
                               <tr>
@@ -220,6 +262,12 @@
                                     <a href="" class="text-primary" data-toggle="tooltip" data-placement="top" title="edit station info."><b><i class="fa-solid fa-pen-to-square"></i></b></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                     {% comment %} <a href="" class="text-info" data-toggle="tooltip" data-placement="top" title="station logs"><b><i class="fa-solid fa-bars"></i></b></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {% endcomment %}
                                 </td>
+                                <td class="text-center">
+                                   <div class="form-check form-switch" data-toggle="tooltip"
+                                        data-placement="top" title="Station Enabled">             
+                                        <input class="form-check-input bg-success" type="checkbox" id="flexSwitchCheckChecked" checked="" empid="" onchange="">
+                                    </div>
+                                </td>
                               </tr>
                               <tr>
                                 <td><b><a href="">Station 007</a></b></td>
@@ -235,6 +283,12 @@
                                     <a href="" class="text-primary" data-toggle="tooltip" data-placement="top" title="edit station info."><b><i class="fa-solid fa-pen-to-square"></i></b></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                     {% comment %} <a href="" class="text-info" data-toggle="tooltip" data-placement="top" title="station logs"><b><i class="fa-solid fa-bars"></i></b></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {% endcomment %}
                                 </td>
+                                <td class="text-center">
+                                   <div class="form-check form-switch" data-toggle="tooltip"
+                                        data-placement="top" title="Station Enabled">             
+                                        <input class="form-check-input bg-success" type="checkbox" id="flexSwitchCheckChecked" checked="" empid="" onchange="">
+                                    </div>
+                                </td>
                               </tr>
                               <tr>
                                 <td><b><a href="">Station 008</a></b></td>
@@ -249,6 +303,12 @@
                                     <a href="{% url 'view_site' %}" class="text-warning" data-toggle="tooltip" data-placement="top" title="view station info."><b><i class="fa-solid fa-eye"></i></b></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                     <a href="" class="text-primary" data-toggle="tooltip" data-placement="top" title="edit station info."><b><i class="fa-solid fa-pen-to-square"></i></b></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                     {% comment %} <a href="" class="text-info" data-toggle="tooltip" data-placement="top" title="station logs"><b><i class="fa-solid fa-bars"></i></b></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {% endcomment %}
+                                </td>
+                                <td class="text-center">
+                                   <div class="form-check form-switch" data-toggle="tooltip"
+                                        data-placement="top" title="Station Enabled">             
+                                        <input class="form-check-input bg-success" type="checkbox" id="flexSwitchCheckChecked" checked="" empid="" onchange="">
+                                    </div>
                                 </td>
                               </tr>
                             </tbody>
