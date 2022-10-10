@@ -6,11 +6,11 @@
             style="box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;border-radius:10px;">
             <div class="card-body">
                 <div class="row">
-                    <div class="col-lg-8">
+                    <div class="col-lg-6">
                         <h5 class="card-title text-primary"><b><i class="fa-solid fa-chart-simple" aria-hidden="true"></i>
                                 Station Stats</b></h5>
                     </div>
-                    <div class="col-lg-2">
+                    <!-- <div class="col-lg-2">
                         <select class="form-select">
                             <option selected="" class="d-none" value="">Choose parameter for stats.</option>
                             <option>Battery</option>
@@ -19,29 +19,26 @@
                             <option>Gate Opening</option>
                             <option>Velocity</option>
                           </select>
-                    </div>
-                    <div class="col-lg-2">
-                        <select class="form-select">
-                            <option selected="" class="d-none" value="">Choose chart type</option>
-                            <option>Line Chart</option>
-                            <option>Pie Chart</option>
-                            <option>Bar Chart</option>
-                          </select>
-                    </div>
-                </div>
-                <hr>
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="text-center">
-                            <h4>Live chart</h4>
+                    </div> -->
+                    <div class="col-lg-6 text-right">
+                        <div class="spinner-grow spinner-grow-sm text-danger" role="status">
+                            <span class="sr-only">Loading...</span>
                         </div>
-                    </div>
+                        <a href="" data-toggle="tooltip" data-placement="top" title="50 Exceedances Alert"
+                            class="text-white badge badge-danger"><b>Exceedances Alert : 50</b></a>&nbsp;
+                        <a href="" data-toggle="tooltip" data-placement="top" title="20 Gates Alert"
+                            class="text-white badge badge-danger"><b>Gates Opening Alert : 20</b></a>&nbsp;  
+                        <a href="" data-toggle="tooltip" data-placement="top" title="2 Water Scheduling Alert"
+                            class="text-white badge badge-danger"><b>Water Scheduling Alert : 2</b></a>
+                        <a href="" data-toggle="tooltip" data-placement="top" title="0 Flood Alert"
+                            class="text-white badge badge-danger"><b>Flood Alert : 0</b></a></p>       
+                    </div> 
                 </div>
                 <hr>
                 <div class="row">
-                    <div class="col-lg-6">
+                    <div class="col-lg-4">
                         <div class="card"
-                            style="box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;border-radius:10px;background-color:rgb(68, 175, 207);">
+                            style="box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;border-radius:10px;background-color:rgb(46, 88, 167);">
                             <a class="text-white" style="text-decoration:none;">
                                 <div class="card-body">
                                     <b><i class="fa-solid fa-industry"></i> Total Stations</b>
@@ -52,44 +49,62 @@
                         </div>
                     </div>
         
-                    <!-- <div class="col-lg-3">
+                    <div class="col-lg-4">
                         <div class="card"
-                            style="box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;border-radius:10px;background-color:rgb(93, 219, 68);">
+                            style="box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;border-radius:10px;background-color:rgb(183, 185, 46);">
                             <a class="text-white" style="text-decoration:none;">
                                 <div class="card-body">
-                                    <b><i class="fa-solid fa-thumbs-down"></i> Offline Stations</b>
+                                    <b><i class="fa-solid fa-download"></i> Received Files</b>
                                     <hr>
                                     <p style="font-size: 30px;"><b>05</b></p>                                
                                 </div>
                             </a>
                         </div>
-                    </div> -->
+                    </div>
 
-                    <!-- <div class="col-lg-3">
+                    <div class="col-lg-4">
                         <div class="card"
-                            style="box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;border-radius:10px;background-color:rgb(230, 215, 84);">
+                            style="box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;border-radius:10px;background-color:rgb(29, 109, 112);">
                             <a class="text-white" style="text-decoration:none;">
                                 <div class="card-body">
-                                    <b><i class="fa-solid fa-industry"></i> Delay Stations</b>
+                                    <b><i class="fa-solid fa-thumbs-up"></i> Processed Files</b>
                                     <hr>
-                                    <p style="font-size: 30px;"><b>01</b></p>                                
-                                </div>
-                            </a>
-                        </div>
-                    </div> -->
-
-                    <div class="col-lg-6">
-                        <div class="card"
-                            style="box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;border-radius:10px;background-color:rgb(235, 100, 77);">
-                            <a href="" class="text-white" style="text-decoration:none;">
-                                <div class="card-body">
-                                    <b><i class="fa-solid fa-bell"></i> Today Exceedence Alerts</b>
-                                    <hr>
-                                    <p style="font-size: 30px;"><b>02</b><span></p>                                
+                                    <p style="font-size: 18px;">
+                                        <a href="" data-toggle="tooltip" data-placement="top" title="5000 file uploaded"
+                                            class="text-white badge badge-success"><b>Total Uploaded Files : 5000</b></a>&nbsp;&nbsp;
+                                        <a href="" data-toggle="tooltip" data-placement="top" title="200 bad files dumped"
+                                            class="text-white badge badge-danger"><b>Total Bad Files : 200</b></a>&nbsp;&nbsp;</p>                                
                                 </div>
                             </a>
                         </div>
                     </div>
+
+                    <!-- <div class="col-lg-3">
+                        <div class="card"
+                            style="box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;border-radius:10px;background-color:rgb(136, 28, 69);">
+                            <a href="" class="text-white" style="text-decoration:none;">
+                                <div class="card-body">
+                                    <b><i class="fa-solid fa-bell"></i> Today Alerts</b>
+                                    <hr>
+                                    <p style="font-size: 18px;">
+                                        <a href="" data-toggle="tooltip" data-placement="top" title="50 Exceedances Alert"
+                                            class="text-white badge badge-danger"><small><b>Exceedances : 50</b></small></a>&nbsp;
+                                        <a href="" data-toggle="tooltip" data-placement="top" title="20 Gates Alert"
+                                            class="text-white badge badge-danger"><small><b>Gates Alert : 20</b></small></a>&nbsp;  
+                                        <a href="" data-toggle="tooltip" data-placement="top" title="2 Water Scheduling Alert"
+                                            class="text-white badge badge-danger"><small><b>Water Scheduling Alert : 2</b></small></a></p>                               
+                                </div>
+                            </a>
+                        </div>
+                    </div> -->
+                    <div class="row mt-4">
+                        <div class="col-lg-12">
+                            <div class="text-center">
+                                <h4>Live chart</h4>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </div>

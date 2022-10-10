@@ -1,0 +1,144 @@
+{% extends 'utils/base.html' %}
+{% block content %}
+<div class="main-panel">
+    <div class="content-wrapper">
+        <div class="card"
+            style="box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;border-radius:10px;">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h5 class="card-title text-primary"><b><i class="fa-solid fa-chart-simple" aria-hidden="true"></i>
+                                Alert Stats on <small>{% now "jS F Y" %}</small></b></h5>
+                    </div>
+                    <!-- <div class="col-lg-6 text-right">
+                        <div class="spinner-grow spinner-grow-sm text-danger" role="status">
+                            <span class="sr-only">Loading...</span>
+                        </div>
+                        <a href="" data-toggle="tooltip" data-placement="top" title="50 Exceedances Alert"
+                            class="text-white badge badge-danger"><b>Exceedances Alert : 50</b></a>&nbsp;
+                        <a href="" data-toggle="tooltip" data-placement="top" title="20 Gates Alert"
+                            class="text-white badge badge-danger"><b>Gates Opening Alert : 20</b></a>&nbsp;  
+                        <a href="" data-toggle="tooltip" data-placement="top" title="2 Water Scheduling Alert"
+                            class="text-white badge badge-danger"><b>Water Scheduling Alert : 2</b></a>
+                        <a href="" data-toggle="tooltip" data-placement="top" title="0 Flood Alert"
+                            class="text-white badge badge-danger"><b>Flood Alert : 0</b></a></p>       
+                    </div>  -->
+                </div>
+                <hr>
+                <div class="row">
+                    <div class="col-lg-3">
+                        <div class="card"
+                            style="box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;border-radius:10px;background-color:rgb(46, 88, 167);">
+                            <a class="text-white" style="text-decoration:none;">
+                                <div class="card-body">
+                                    <b><i class="fa-brands fa-stack-overflow"></i> Exceedances Alert</b>
+                                    <hr>
+                                    <p style="font-size: 30px;"><b>50</b></p>                             
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+        
+                    <div class="col-lg-3">
+                        <div class="card"
+                            style="box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;border-radius:10px;background-color:rgb(35, 121, 124);">
+                            <a class="text-white" style="text-decoration:none;">
+                                <div class="card-body">
+                                    <b><i class="fa-solid fa-door-open"></i> Gates Opening Alert</b>
+                                    <hr>
+                                    <p style="font-size: 30px;"><b>20</b></p>                                
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3">
+                        <div class="card"
+                            style="box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;border-radius:10px;background-color:rgb(146, 62, 14);">
+                            <a class="text-white" style="text-decoration:none;">
+                                <div class="card-body">
+                                    <b><i class="fa-solid fa-clock"></i> Water Scheduling Alert</b>
+                                    <hr>
+                                    <p style="font-size: 30px;"><b>2</b></p>                                                             
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3">
+                        <div class="card"
+                            style="box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;border-radius:10px;background-color:rgb(136, 28, 69);">
+                            <a href="" class="text-white" style="text-decoration:none;">
+                                <div class="card-body">
+                                    <b><i class="fa-solid fa-house-flood-water"></i> Flood Alert</b>
+                                    <hr>
+                                    <p style="font-size: 30px;"><b>0</b></p>                                                                                     
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card mt-1" style="box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;border-radius:10px;">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <h5 class="card-title text-primary"><b><i class="fa-solid fa-file"></i> Alerts Report</b></h5>
+                    </div>
+                    <div class="col-lg-6 text-right">
+                        <a href="" class="btn btn-sm btn-warning" data-toggle="tooltip" data-placement="top"
+                        title="Generate reports"><b><i class="fa-solid fa-file"></i> Generate Reports</b></a>
+                    </div>
+                </div>
+                <hr>
+                <div class="row" style="max-height: 700px;overflow-y: scroll;">
+                    <div class="col-lg-12">
+                        <!-- <div class="text-center">
+                            <h4><b>No Station Configured!</b></h4>
+                        </div> -->
+                        <table id="" class="table" width="100%">
+                            <thead>
+                              <tr>
+                                <th class="" width="200">-
+                                </th>
+                                <th class="" width="200">-
+                                </th>
+                                <th class="" width="200">-
+                                </th>
+                                <th class="" width="200">-
+                                </th>
+                                <th class="" width="200">-
+                                </th>
+                                <th class="text-center" width="200">-
+                                </th>
+                                <th class="text-center" width="200">-
+                                </th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr>
+                                <td><b><a href="">-</a></b></td>
+                                <td>-</td>
+                                <td>-</td>
+                                <td>-</td>
+                                <td>-</td>
+                                <td class="text-center">
+                                    -
+                                </td>
+                                <td class="text-center">
+                                   -
+                                </td>
+                              </tr>
+                            </tbody>
+                          </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- main-panel ends -->
+</div>
+
+{% endblock content %}
