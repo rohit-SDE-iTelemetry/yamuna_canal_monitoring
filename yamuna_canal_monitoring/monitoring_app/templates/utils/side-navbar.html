@@ -37,6 +37,12 @@
                 <span class="menu-title">&nbsp;&nbsp;<b>Masters Pages</b></span>
             </a>
         </li>
+        <li class="nav-item mt-3">
+            <a class="nav-link" href="{% url 'alerts' %}">
+                <i class="fa-solid fa-bell" aria-hidden="true"></i>
+                <span class="menu-title">&nbsp;&nbsp;<b>Alerts</b></span>
+            </a>
+        </li>
         {% comment %} <li class="nav-item mt-3">
             <a class="nav-link" href="{% url 'add_params' %}">
                 <i class="fa-solid fa-star" aria-hidden="true"></i>
@@ -51,30 +57,29 @@
         </li> {% endcomment %}
         <li class="nav-item mt-5"></li>
         <li class="nav-item mt-5"></li>
-        <li class="nav-item mt-3">
+        <li class="nav-item mt-2">
             <hr>
-            <a href="" class="nav-link" href="#">
+            <a class="nav-link" href="{% url 'decision_support_system' %}">
                 <i class="fa-solid fa-brain" aria-hidden="true"></i>
                 <span class="menu-title">&nbsp;&nbsp;<b>Decision Support System</b></span>
             </a>
         </li>
         <li class="nav-item mt-3">
-            <a href="" class="nav-link" href="#">
+            <a class="nav-link" href="{% url 'water_scheduling' %}">
                 <i class="fa-brands fa-red-river" aria-hidden="true"></i>
                 <span class="menu-title">&nbsp;&nbsp;<b>Water Scheduling</b></span>
             </a>
         </li>
         <li class="nav-item mt-5"></li>
-        <li class="nav-item mt-5"></li>
         <li class="nav-item mt-3">
             <hr>
-            <a href="{% url 'guidelines' %}" class="nav-link" href="#">
+            <a href="{% url 'guidelines' %}" class="nav-link">
                 <i class="fa-solid fa-list" aria-hidden="true"></i>
                 <span class="menu-title">&nbsp;&nbsp;<b>Guidelines</b></span>
             </a>
         </li>
         <li class="nav-item mt-3">
-            <a href="{% url 'user_profile' %}" class="nav-link" href="#">
+            <a href="{% url 'user_profile' %}" class="nav-link">
                 <i class="fa-solid fa-user" aria-hidden="true"></i>
                 <span class="menu-title">&nbsp;&nbsp;<b>User Profile</b></span>
             </a>

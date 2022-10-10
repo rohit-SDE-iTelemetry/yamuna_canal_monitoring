@@ -141,3 +141,15 @@ def guidelines(request):
         context = {}
         return render(request,'eyc-guidelines.html',context)
 
+#########################################################################################################
+# ALERTS MODULE
+#########################################################################################################
+@login_required(login_url='/')
+def alerts(request):
+    if request.method == 'GET':
+        context = {}
+        return render(request,'alerts.html',context)
+
+
+
+

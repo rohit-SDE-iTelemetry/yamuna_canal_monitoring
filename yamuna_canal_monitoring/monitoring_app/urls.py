@@ -2,6 +2,7 @@ from django.urls import path
 from monitoring_app.views.views import *
 from monitoring_app.views.report_view import *
 from monitoring_app.views.master_view import *
+from monitoring_app.views.dss_ws_view import *
 
 urlpatterns = [
     path('dashboard', dashboard,name = "dashboard"),
@@ -29,9 +30,18 @@ urlpatterns = [
     # guidelines urls
     path('eyc-guidelines', guidelines,name = "guidelines"),
 
+    # alerts urls
+    path('alerts', alerts,name = "alerts"),
+
     # master urls
     path('master-pages', master,name = "master"),
     path('add-category', add_category,name = "add_category"),
     path('add-parameter', add_param,name = "add_params"),
+
+    # water scheduling urls
+    path('water-scheduling', water_scheduling,name = "water_scheduling"),
+
+    # dss urls
+    path('decision-support-system', decision_support_system,name = "decision_support_system"),
 
 ]
