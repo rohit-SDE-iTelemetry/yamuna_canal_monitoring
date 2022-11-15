@@ -7,12 +7,12 @@
         <div class="spinner-grow spinner-grow-sm text-danger" role="status">
             <span class="sr-only">Loading...</span>
         </div>
-        <a href="" data-toggle="tooltip" data-placement="top" title="50 Exceedances Alert"
-            class="text-white badge badge-danger"><b>Exceedances Alert : 50</b></a>&nbsp;
+        {% comment %} <a href="" data-toggle="tooltip" data-placement="top" title="50 Exceedances Alert"
+            class="text-white badge badge-danger"><b>Exceedances Alert : 0</b></a>&nbsp; {% endcomment %}
         <a href="" data-toggle="tooltip" data-placement="top" title="20 Gates Alert"
-            class="text-white badge badge-danger"><b>Gates Opening Alert : 20</b></a>&nbsp;  
+            class="text-white badge badge-danger"><b>Gates Opening Alert : 0</b></a>&nbsp;  
         <a href="" data-toggle="tooltip" data-placement="top" title="2 Water Scheduling Alert"
-            class="text-white badge badge-danger"><b>Water Scheduling Alert : 2</b></a>
+            class="text-white badge badge-danger"><b>Water Scheduling Alert : 0</b></a>
         <a href="" data-toggle="tooltip" data-placement="top" title="0 Flood Alert"
             class="text-white badge badge-danger"><b>Flood Alert : 0</b></a></p>       
     </div> 
@@ -22,16 +22,16 @@
         <div class="card" style="background-color: #8109ac;color:white;">
           <div class="card-body">
             <h4 class="card-title"><b><i class="fa-solid fa-industry"></i> Total Stations</b></h4>
-            <p style="font-size: 40px;"><b data-target="8" class="count">08</b></p>
+            <p style="font-size: 40px;"><b data-target="8" class="count">{{sites.count}}</b></p>
             <div class="text-left">
               <a href="" data-toggle="tooltip" data-placement="top" title="Live Stations"
-                class="text-white badge badge-success"><b>Live : 5</b></a>&nbsp;&nbsp;
+                class="text-white badge badge-success"><b>Live : 1</b></a>&nbsp;&nbsp;
               <a href="" data-toggle="tooltip" data-placement="top" title="Delay Stations"
-                class="text-white badge badge-warning"><b>Delay : 2</b></a>&nbsp;&nbsp;
+                class="text-white badge badge-warning"><b>Delay : 0</b></a>&nbsp;&nbsp;
               <a href="" data-toggle="tooltip" data-placement="top" title="Offline Stations"
-                class="text-white badge badge-danger"><b>Offline : 1</b></a>&nbsp;&nbsp;
+                class="text-white badge badge-danger"><b>Offline : 0</b></a>&nbsp;&nbsp;
               <a href="" data-toggle="tooltip" data-placement="top" title="Disabled Stations"
-                class="text-white badge badge-info"><b><i class="fa-solid fa-ban text-warning"></i> Disabled : 1</b></a>&nbsp;&nbsp;
+                class="text-white badge badge-info"><b><i class="fa-solid fa-ban text-warning"></i> Disabled : 0</b></a>&nbsp;&nbsp;
             </div>
           </div>
         </div>
@@ -63,8 +63,8 @@
       <div class="col-md-4 grid-margin stretch-card">
         <div class="card" style="background-color: #15b326;color:white;">
           <div class="card-body">
-            <h4 class="card-title"><i class="fa-solid fa-water"></i> Total Water Discharged (cusec)</h4>
-            <p style="font-size: 40px;"><b data-target="34000" class="count">0</b></p>
+            <h4 class="card-title"><i class="fa-solid fa-water"></i> Total Water Discharged</h4>
+            <p ><b style="font-size: 40px;" data-target="400" class="count">0</b> cusec</p>
             <!-- <div id="demo" class="carousel slide" data-ride="carousel">
               <div class="carousel-inner"> -->
             <!-- <div class="carousel-item active">
@@ -95,10 +95,6 @@
     </div>
 
 
-
-
-
-
     <div class="row">
       <div class="col-lg-6 d-flex flex-column">
         <div class="row flex-grow">
@@ -120,7 +116,7 @@
             </div>
           </div>
         </div>
-      </div>
+      </div> 
       <!-- </div> -->
 
       <!-- <div class="row"> -->
@@ -210,9 +206,10 @@
                 </tr>
               </thead>
               <tbody>
+                {% for site in sites %}
                 <tr>
-                  <td><b><a href="">Station 001</a></b></td>
-                  <td>System Architect</td>
+                  <td><b><a href="{% url 'view_site' %}">{{site.name}}</a></b></td>
+                  <td>{{site.prefix}}</td>
                   <td><a class="text-white badge badge-success"><b>Live</b></a></td>
                   <td>2011/04/25</td>
                   <td>Battery : 23(v) <b>&nbsp;&nbsp;|&nbsp;&nbsp;</b> Water Level : 2.3(m)
@@ -220,7 +217,8 @@
                     : 15(mm) <b>&nbsp;&nbsp;|&nbsp;&nbsp;</b> Velocity : 13(m/s)
                   </td>
                 </tr>
-                <tr>
+                {% endfor %}
+                {% comment %} <tr>
                   <td><b><a href="">Station 002</a></b></td>
                   <td>Accountant</td>
                   <td><a class="text-white badge badge-success"><b>Live</b></a></td>
@@ -289,7 +287,7 @@
                     <b>&nbsp;&nbsp;|&nbsp;&nbsp;</b> Flow Rate : 23(m3/s) <b>&nbsp;&nbsp;|&nbsp;&nbsp;</b> Gate Opening
                     : 15(mm) <b>&nbsp;&nbsp;|&nbsp;&nbsp;</b> Velocity : 13(m/s)
                   </td>
-                </tr>
+                </tr> {% endcomment %}
               </tbody>
             </table>
           </div>

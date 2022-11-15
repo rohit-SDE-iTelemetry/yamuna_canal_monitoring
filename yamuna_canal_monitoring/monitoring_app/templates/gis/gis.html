@@ -27,11 +27,11 @@
                 <div class="row" style="max-height: 700px;overflow-y: scroll;">
                     <div class="col-lg-12">
                         <div class="row">
-                            <div class="col-lg-4">
+                            <div class="col-lg-12">
                                 <div class="card">
                                     <div class="card-body">
                                         <h5 class="card-title text-secondary"><i class="fa-solid fa-industry"></i> Select Station</h5>
-                                        <div class="form-group col-md-12">
+                                        <div class="form-group col-md-6">
                                             <select id="inputState" class="form-control">
                                                 <option selected>Choose station</option>
                                                 <option>Station001</option>
@@ -44,37 +44,37 @@
                                         <hr>
                                         <h5 class="card-title text-secondary"><i class="fa-solid fa-circle-info"></i> Selected Station Information</h5>
                                         <div class="row">
-                                            <div class="col-lg-6">
+                                            <div class="col-lg-2">
                                                 <label for=""><b>Station Name</b></label>
                                                 <p>Station001</p>
                                             </div>
-                                            <div class="col-lg-6">
+                                            <div class="col-lg-2">
                                                 <label for=""><b>Station Status</b></label>
                                                 <p><span class="badge badge-success">Live</span></p>
                                             </div>
-                                            <div class="col-lg-6">
+                                            <div class="col-lg-2">
                                                 <label for=""><b>Station Longitude</b></label>
-                                                <p>736.873247826387</p>
+                                                <p>722.872247826287</p>
                                             </div>
-                                            <div class="col-lg-6">
+                                            <div class="col-lg-2">
                                                 <label for=""><b>Station Lattitude</b></label>
-                                                <p>456.873247826387</p>
+                                                <p>456.872247826287</p>
                                             </div>
-                                            <div class="col-lg-6">
-                                                <hr>
+                                            <div class="col-lg-2">
+                                                {% comment %} <hr> {% endcomment %}
                                                 <label for=""><b>Current Water Level</b></label>
-                                                <p>3.4 (m)</p>
+                                                <p>2.4 (m)</p>
                                             </div>
-                                            <div class="col-lg-6">
-                                                <hr>
+                                            <div class="col-lg-2">
+                                                {% comment %} <hr> {% endcomment %}
                                                 <label for=""><b>Current Flow Rate</b></label>
                                                 <p>12 (m3/s)</p>
                                             </div>
-                                            <div class="col-lg-6">
+                                            <div class="col-lg-2">
                                                 <label for=""><b>Current Velocity</b></label>
                                                 <p>14 (m/s)</p>
                                             </div>
-                                            <div class="col-lg-6">
+                                            <div class="col-lg-2">
                                                 <label for=""><b>Gate Opening</b></label>
                                                 <p>19 (mm)</p>
                                             </div>
@@ -82,13 +82,12 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-lg-8">
+                            <div class="col-lg-12 mt-1">
                                 <div class="card">
                                     <div class="card-body">
                                         <h5 class="card-title text-secondary"><i class="fa-solid fa-map"></i> Station on Map</h5>
                                         <!-- <p class="card-text">add saharanpur yamuna stretch map view here!</p> -->
                                         <div id="map"></div>
-
                                     </div>
                                 </div>
                             </div>

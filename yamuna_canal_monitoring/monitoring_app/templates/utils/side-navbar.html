@@ -13,30 +13,30 @@
                 <span class="menu-title">&nbsp;&nbsp;<b>Map View</b></span>
             </a>
         </li>
-        <li class="nav-item mt-3">
+        {% comment %} <li class="nav-item mt-3">
             <a class="nav-link" href="{% url 'sites' %}">
                 <i class="fa-sharp fa-solid fa-location-dot" aria-hidden="true"></i>
                 <span class="menu-title">&nbsp;&nbsp;<b>Manage Station</b></span>
             </a>
-        </li>
-        <li class="nav-item mt-3">
+        </li> {% endcomment %}
+        {% comment %} <li class="nav-item mt-3">
             <a class="nav-link" href="{% url 'users' %}">
                 <i class="fa-solid fa-users" aria-hidden="true"></i>
                 <span class="menu-title">&nbsp;&nbsp;<b>Manage Users</b></span>
             </a>
-        </li>
+        </li> {% endcomment %}
         <li class="nav-item mt-3">
             <a class="nav-link" href="{% url 'report' %}">
                 <i class="fa fa-file" aria-hidden="true"></i>
                 <span class="menu-title">&nbsp;&nbsp;<b>Reports</b></span>
             </a>
         </li>
-        <li class="nav-item mt-3">
+        {% comment %} <li class="nav-item mt-3">
             <a class="nav-link" href="{% url 'master' %}">
                 <i class="fa-solid fa-star" aria-hidden="true"></i>
                 <span class="menu-title">&nbsp;&nbsp;<b>Masters Pages</b></span>
             </a>
-        </li>
+        </li> {% endcomment %}
         <li class="nav-item mt-3">
             <a class="nav-link" href="{% url 'alerts' %}">
                 <i class="fa-solid fa-bell" aria-hidden="true"></i>
@@ -78,12 +78,12 @@
                 <span class="menu-title">&nbsp;&nbsp;<b>Guidelines</b></span>
             </a>
         </li>
-        <li class="nav-item mt-3">
+        {% comment %} <li class="nav-item mt-3">
             <a href="{% url 'user_profile' %}" class="nav-link">
                 <i class="fa-solid fa-user" aria-hidden="true"></i>
                 <span class="menu-title">&nbsp;&nbsp;<b>User Profile</b></span>
             </a>
-        </li>
+        </li> {% endcomment %}
         <li class="nav-item mt-3">
             <a class="nav-link" href="{% url 'logout_view' %}">
                 <i class="fa-solid fa-power-off" aria-hidden="true"></i>
