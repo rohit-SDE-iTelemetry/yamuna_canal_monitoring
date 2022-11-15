@@ -1,17 +1,19 @@
 from multiprocessing import context
-from django.shortcuts import render
+from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponse,JsonResponse
-from django.contrib.auth.models import User
+from django.contrib.auth.models import User, Permission
 from django.contrib.auth.decorators import login_required
 
 from monitoring_app.utils.GLOBALS import permissionObj,exlude_permissions,get_permissions
 from auth_app.models import UserProfile
+from monitoring_app.models import *
 
 # dashboard view
 @login_required(login_url='/')
 def dashboard(request):
     if request.method == 'GET':
         context = {}
+        context['sites'] = Site.objects.all()
         return render(request,'dashboard.html',context)
 
 #########################################################################################################
@@ -21,7 +23,8 @@ def dashboard(request):
 @login_required(login_url='/')
 def user_list(request):
     if request.method == 'GET':
-        users = User.objects.all()
+        # users = User.objects.all()
+        users = UserProfile.objects.all()
         context = {'users':users}
         return render(request,'users/user-list.html',context)
 
@@ -33,34 +36,74 @@ def add_user(request):
         return render(request,'users/add-user.html',context)
     
     if request.method == 'POST':
-        fullname = request.POST.get('fullname')
-        email = request.POST.get('email')
-        contact = request.POST.get('contact')
-        contact = request.POST.get('contact')
-        userType = request.POST.get('userType')
-        demoUser = request.POST.get('demoUser')
-        permissions = request.POST.get('permissions[]')
-        pincode = request.POST.get('pincode')
-        city = request.POST.get('city')
-        state = request.POST.get('state')
-        country = request.POST.get('country')
-        address = request.POST.get('address')
+        user_fullname = request.POST.get('fullname')
+        user_email = request.POST.get('email')
+        user_contact = request.POST.get('contact')
+        user_userType = request.POST.get('userType')
+        user_demoUser = request.POST.get('demoUser')
+        user_permissions = request.POST.get('permissions[]')
+        user_pincode = request.POST.get('pincode')
+        user_city = request.POST.get('city')
+        user_state = request.POST.get('state')
+        user_country = request.POST.get('country')
+        user_address = request.POST.get('address')
 
-        print('fullname >>> ',fullname)
-        print('email >>> ',email)
-        print('contact >>> ',contact)
-        print('contact >>> ',contact)
-        print('userType >>> ',userType)
-        print('demoUser >>> ',demoUser)
-        print('permissions >>> ',permissions)
-        print('pincode >>> ',pincode)
-        print('city >>> ',city)
-        print('state >>> ',state)
-        print('country >>> ',country)
-        print('address >>> ',address)
+        user_permissions = user_permissions.split(',')
+
+        print('fullname >>> ',user_fullname)
+        print('email >>> ',user_email)
+        print('contact >>> ',user_contact)
+        print('contact >>> ',user_contact)
+        print('userType >>> ',user_userType)
+        print('demoUser >>> ',user_demoUser)
+        print('permissions >>> ',user_permissions)
+        print('pincode >>> ',user_pincode)
+        print('city >>> ',user_city)
+        print('state >>> ',user_state)
+        print('country >>> ',user_country)
+        print('address >>> ',user_address)
+        message = 'success'
+
+        # try:
+
+        if(user_userType == '2'):
+            demoUser = True
+            userObj = User.objects.create(first_name = user_fullname,username = user_email,email = user_email,password = 'Eyc@12345',is_staff = True,is_active = True)
+            userObj.save()
+
+            new_user = UserProfile.objects.create(user=userObj,
+                                                name=user_fullname,
+                                                phone=user_contact,
+                                                user_type=user_userType,
+                                                demo_user=demoUser,
+                                                address=user_address,
+                                                zipcode=user_pincode,
+                                                state=user_state,
+                                                city=user_city,
+                                                country=user_country
+                                                )
+        elif(user_userType == '1'):
+            demoUser = False
+            userObj = User.objects.create(first_name = user_fullname,username = user_email,email = user_email,password = 'Eyc@12345',is_staff = False,is_active = True)
+            userObj.save()
+
+            new_user = UserProfile.objects.create(user=userObj,
+                                                name=user_fullname,
+                                                phone=user_contact,
+                                                user_type=user_userType,
+                                                demo_user=demoUser,
+                                                address=user_address,
+                                                zipcode=user_pincode,
+                                                state=user_state,
+                                                city=user_city,
+                                                country=user_country
+                                                )
+
+        print('message >>>> ',message)
+        return JsonResponse({'message':message})
 
 
-        exit()
+
 
 # edit-user view
 @login_required(login_url='/')
@@ -71,9 +114,11 @@ def edit_user(request):
 
 # user-view view
 @login_required(login_url='/')
-def user_view(request):
+def user_view(request,uuid):
     if request.method == 'GET':
-        context = {}
+        print('uuid >>>> ',uuid)
+        userinfo = get_object_or_404(UserProfile, uuid=uuid)
+        context = {'userinfo':userinfo}
         return render(request,'users/view-users.html',context)
 
 # user-log view
@@ -98,6 +143,7 @@ def user_profile(request):
 def site_list(request):
     if request.method == 'GET':
         context = {}
+        context['sites'] = Site.objects.all()
         return render(request,'sites/site-list.html',context)
 
 # view-site view
@@ -112,7 +158,106 @@ def view_site(request):
 def add_site(request):
     if request.method == 'GET':
         context = {}
+        context['site_category'] = Category.objects.all()
         return render(request,'sites/add-site.html',context)
+    
+    if request.method == 'POST':
+        station_name = request.POST.get('station_name')
+        email = request.POST.get('email')
+        site_id = request.POST.get('site_id')
+        version = request.POST.get('version')
+        contact = request.POST.get('contact')
+        prefix = request.POST.get('prefix')
+        sec_email = request.POST.get('sec_email')
+        sec_contact = request.POST.get('sec_contact')
+        siteType = request.POST.get('siteType')
+        demosite = request.POST.get('demosite')
+        pincode = request.POST.get('pincode')
+        city = request.POST.get('city')
+        state = request.POST.get('state')
+        country = request.POST.get('country')
+        address = request.POST.get('address')
+        lattitude = request.POST.get('lattitude')
+        longitude = request.POST.get('longitude')
+        data2nic = request.POST.get('data2nic')
+        nic_alert_email = request.POST.get('nic_alert_email')
+        data2sdc = request.POST.get('data2sdc')
+        sdc_alert_email = request.POST.get('sdc_alert_email')
+        data2ce = request.POST.get('data2ce')
+        ce_alert_email = request.POST.get('ce_alert_email')
+        data2wims = request.POST.get('data2wims')
+        enc_key = request.POST.get('enc_key')
+        prv_key = request.POST.get('prv_key')
+        pub_key = request.POST.get('pub_key')
+        sinage = request.POST.get('sinage')
+        sms_alert = request.POST.get('sms_alert')
+        email_alert = request.POST.get('email_alert')
+        watsapp_alert = request.POST.get('watsapp_alert')
+        delay_hr = request.POST.get('delay_hr')
+        offline_hr = request.POST.get('offline_hr')
+
+        print("station_name", station_name)
+        print("email", email)
+        print("site_id", site_id)
+        print("version", version)
+        print("contact", contact)
+        print("prefix", prefix)
+        print("sec_email", sec_email)
+        print("sec_contact", sec_contact)
+        print("siteType", siteType)
+        print("demosite", demosite)
+        
+        print("pincode", pincode)
+        print("city", city)
+        print("state", state)
+        print("country", country)
+        print("address", address)
+        print("lattitude", lattitude)
+        print("longitude", longitude)
+
+        print("data2nic", data2nic)
+        print("nic_alert_email", nic_alert_email)
+        print("data2sdc", data2sdc)
+        print("sdc_alert_email", sdc_alert_email)
+        print("data2ce", data2ce)
+        print("ce_alert_email", ce_alert_email)
+        print("data2wims", address)
+
+        print("enc_key", enc_key)
+        print("prv_key", prv_key)
+        print("pub_key", pub_key)
+
+        print("sinage", sinage)
+        print("sms_alert", sms_alert)
+        print("email_alert", email_alert)
+        print("watsapp_alert", watsapp_alert)
+        print("delay_hr", delay_hr)
+        print("offline_hr", offline_hr)
+
+
+        message = 'success'
+
+        try:
+            if(len(Site.objects.filter(site_id = site_id))):
+                return JsonResponse({'message':'Site Id already registered with different station'})
+
+            # new_user = UserProfile.objects.create(user=userObj,
+            #                                     name=user_fullname,
+            #                                     phone=user_contact,
+            #                                     user_type=user_userType,
+            #                                     demo_user=demoUser,
+            #                                     address=user_address,
+            #                                     zipcode=user_pincode,
+            #                                     state=user_state,
+            #                                     city=user_city,
+            #                                     country=user_country
+            #                                     )
+        except Exception as err:
+            message = str(err)
+
+        print('message >>> ',message)
+
+        return JsonResponse({'message':message})
 
 # edit-site view
 @login_required(login_url='/')

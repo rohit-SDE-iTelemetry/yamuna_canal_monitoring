@@ -1,5 +1,6 @@
 {% extends 'utils/base.html' %}
 {% block content %}
+{% load static %}
 <div class="main-panel">
     <div class="content-wrapper">
         <div class="card" style="box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;border-radius:10px;">
@@ -28,72 +29,72 @@
                             <div class="col-lg-3 mb-1">
                                 <div class="form-group">
                                     <label for=""><b>Station Prefix &nbsp;&nbsp;
-                                        <small id="valid-prefix" style="display: none;color: red;"><strong>Enter valid station prefix!</strong></small></b></label>
+                                        <small id="valid-prefix" style="display: none;color: red;"><strong>Enter valid prefix!</strong></small></b></label>
                                     <input type="text" id="prefix" maxlength="70" onkeypress="return /[a-zA-Z ]/i.test(event.key)" class="form-control" placeholder="Enter prefix in lower case">
                                 </div>
                             </div>
                             <div class="col-lg-3 mb-1">
                                 <div class="form-group">
                                     <label for=""><b>Station ID (Site ID) &nbsp;&nbsp;
-                                        <small id="valid-site-id" style="display: none;color: red;"><strong>Enter valid station site-id!</strong></small></b></label>
-                                    <input type="text" id="site-id" maxlength="70" onkeypress="return /[a-zA-Z ]/i.test(event.key)" class="form-control" placeholder="Enter site-id in lower case" readonly value="site-001">
+                                        <small id="valid-site-id" style="display: none;color: red;"><strong>Enter valid site-id!</strong></small></b></label>
+                                    <input type="text" id="site-id" maxlength="70" onkeypress="return /[a-zA-Z ]/i.test(event.key)" class="form-control" placeholder="Enter site-id in lower case" value="site-001" readonly>
                                 </div>
                             </div>
                             <div class="col-lg-3 mb-1">
                                 <div class="form-group">
                                     <label for=""><b>Version &nbsp;&nbsp;
-                                        <small id="valid-version" style="display: none;color: red;"><strong>Enter valid station version!</strong></small></b></label>
+                                        <small id="valid-version" style="display: none;color: red;"><strong>Enter valid version!</strong></small></b></label>
                                     <input type="text" id="version" maxlength="70" onkeypress="return /[a-zA-Z ]/i.test(event.key)" class="form-control" placeholder="Enter version in lower case" readonly value="1.0">
                                 </div>
                             </div>
                             <div class="col-lg-3 mb-1">
                                 <div class="form-group">
                                     <label for=""><b>Station Email <i class="fa-solid fa-envelope"></i>  &nbsp;&nbsp;
-                                        <small id="valid-email" style="display: none;color: red;"><strong>Enter valid station email!</strong></small></b></label>
+                                        <small id="valid-email" style="display: none;color: red;"><strong>Enter valid email!</strong></small></b></label>
                                     <input type="email" class="form-control" id="email" placeholder="Enter email">
                                 </div>
                             </div>
                             <div class="col-lg-3 mb-1">
                                 <div class="form-group">
                                     <label for=""><b>Station Contact <i class="fa-solid fa-phone"></i>  &nbsp;&nbsp;
-                                        <small id="valid-contact" style="display: none;color: red;"><strong>Enter valid station contact!</strong></small></b></label>
-                                    <input type="email" maxlength="10" onkeypress="return /[0-9]/i.test(event.key)" class="form-control" id="contact" placeholder="Enter contact">
+                                        <small id="valid-contact" style="display: none;color: red;"><strong>Enter valid contact!</strong></small></b></label>
+                                    <input type="text" maxlength="10" onkeypress="return /[0-9]/i.test(event.key)" class="form-control" id="contact" placeholder="Enter contact">
                                 </div>
                             </div>
                             <div class="col-lg-3 mb-1">
                                 <div class="form-group">
                                     <label for=""><b>Station Secondary Email <i class="fa-solid fa-envelope"></i>  &nbsp;&nbsp;
-                                        <small id="valid-secondary-email" style="display: none;color: red;"><strong>Enter valid station email!</strong></small></b></label>
-                                    <input type="email" class="form-control" id="email" placeholder="Enter secondary email">
+                                        <small id="valid-secondary-email" style="display: none;color: red;"><strong>Enter valid email!</strong></small></b></label>
+                                    <input type="email" class="form-control" id="sec-email" placeholder="Enter secondary email">
                                 </div>
                             </div>
                             <div class="col-lg-3 mb-1">
                                 <div class="form-group">
                                     <label for=""><b>Station Secondary Contact <i class="fa-solid fa-phone"></i>  &nbsp;&nbsp;
                                         <small id="valid-secondary-contact" style="display: none;color: red;"><strong>Enter valid station contact!</strong></small></b></label>
-                                    <input type="email" maxlength="10" onkeypress="return /[0-9]/i.test(event.key)" class="form-control" id="contact" placeholder="Enter secondary contact">
+                                    <input type="text" maxlength="10" onkeypress="return /[0-9]/i.test(event.key)" class="form-control" id="sec-contact" placeholder="Enter secondary contact">
                                 </div>
                             </div>
                             <div class="col-lg-3 mb-1">
                                 <div class="form-group">
-                                    <label for=""><b>Station Type <i class="fa-solid fa-industry"></i>  &nbsp;&nbsp;
-                                        <small id="valid-user-type" style="display: none;color: red;"><strong>Select valid station type!</strong></small></b></label>
-                                    <select id="user-type" class="form-control">
+                                    <label for=""><b>Station Type/Category <i class="fa-solid fa-industry"></i>  &nbsp;&nbsp;
+                                        <small id="valid-site-type" style="display: none;color: red;"><strong>Select valid station type!</strong></small></b></label>
+                                    <select id="site-type" class="form-control">
                                         <option selected value="" class="d-none">Choose station type</option>
-                                        <option value='1'>ARG</option>
-                                        <option value='2'>AWLR</option>
-                                        <option value='3'>AWS</option>
+                                        {% for category in site_category %}
+                                            <option value='{{category.uuid}}'>{{category.category_name}}</option>
+                                        {% endfor %}
                                     </select>
                                 </div>
                             </div>
                             <div class="col-lg-3 mb-1">
                                 <label for=""><b>Demo Station?</b></label><br>
                                 <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="demo-user" id="inlineRadio1" value="1">
+                                    <input class="form-check-input" type="radio" name="demo-site" id="inlineRadio1" value="1">
                                     <label class="form-check-label" for="inlineRadio1"><b>Yes</b></label>
                                   </div>
                                   <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" checked name="demo-user" id="inlineRadio2" value="0">
+                                    <input class="form-check-input" type="radio" checked name="demo-site" id="inlineRadio2" value="0">
                                     <label class="form-check-label" for="inlineRadio2"><b>No</b></label>
                                   </div>
                             </div>
@@ -150,26 +151,53 @@
                             </div>
                         </div>
                         <!-- <hr> -->
-                        <p class="card-headings-text"  style="background-color: #6db8e6;padding: 10px;border-radius: 5px;"><i class="fa-solid fa-server"></i> Station Data Transmission Information</p>
+                        <p class="card-headings-text"  style="background-color: #6db8e6;padding: 10px;border-radius: 5px;"><i class="fa-solid fa-server"></i> Station Data Transmission & Alerts Services</p>
                         <div class="row mb-4">
                             <div class="col-lg-3 mb-1">
-                                <input type="checkbox" class="" value="" checked>
+                                <input type="checkbox" id="data2nic" class="" value="" checked>
                                 <strong class="text-secondary">Data To NIC (National Informatics Centre)</strong>
                             </div>
 
                             <div class="col-lg-3 mb-1">
-                                <input type="checkbox" class="" value="" checked>
+                                <input type="checkbox" id="data2sdc" class="" value="" checked>
                                 <strong class="text-secondary">Data To SDC (State Data Center, Lucknow)</strong>
                             </div>
 
                             <div class="col-lg-3 mb-1">
-                                <input type="checkbox" class="" value="" checked>
+                                <input type="checkbox" id="data2ce" class="" value="" checked>
                                 <strong class="text-secondary">Data To CE Okhla , Delhi</strong>
                             </div>
 
                             <div class="col-lg-3 mb-1">
-                                <input type="checkbox" class="" value="" >
-                                <strong class="text-secondary">Data To WIMS (Water Information Management System)</strong>
+                                <input type="checkbox" id="data2wims" class="" value="" >
+                                <strong class="text-secondary">Data To WIMS</strong>
+                            </div>
+
+                            <div class="col-lg-3 mb-1 mt-1">
+                                <div class="form-group">
+                                    <label for=""><b>NIC Alert Email <i class="fa-solid fa-envelope"></i>  &nbsp;&nbsp;
+                                        <small id="valid-nic-email" style="display: none;color: red;"><strong>Enter valid NIC email!</strong></small></b>
+                                    </label>
+                                    <input type="nic-email" class="form-control" id="email" placeholder="Enter NIC email">
+                                </div>
+                            </div>
+
+                            <div class="col-lg-3 mb-1 mt-1">
+                                <div class="form-group">
+                                    <label for=""><b>SDC Alert Email <i class="fa-solid fa-envelope"></i>  &nbsp;&nbsp;
+                                        <small id="valid-sdc-email" style="display: none;color: red;"><strong>Enter valid SDC email!</strong></small></b>
+                                    </label>
+                                    <input type="sdc-email" class="form-control" id="email" placeholder="Enter SDC email">
+                                </div>
+                            </div>
+
+                            <div class="col-lg-3 mb-1 mt-1">
+                                <div class="form-group">
+                                    <label for=""><b>CE-Okhla Alert Email <i class="fa-solid fa-envelope"></i>  &nbsp;&nbsp;
+                                        <small id="valid-ce-email" style="display: none;color: red;"><strong>Enter valid CE-Okhla email!</strong></small></b>
+                                    </label>
+                                    <input type="ce-email" class="form-control" id="email" placeholder="Enter CE-Okhla email">
+                                </div>
                             </div>
                         </div>
                         <!-- <hr> -->
@@ -197,41 +225,47 @@
                         <!-- <hr> -->
                         <p class="card-headings-text"  style="background-color: #6db8e6;padding: 10px;border-radius: 5px;"><i class="fa-solid fa-database"></i> Station Other Information</p>
                         <div class="row mb-2">
-                            <div class="col-lg-4 mb-1">
+                            <div class="col-lg-3 mb-1">
                                 <label for=""><b> Sinage Available</b></label><br>
-                                <input type="checkbox" class="" value="" checked>
+                                <input type="checkbox"id="sinage" class="" value="">
                                 <strong class="text-secondary">Sinage (LED) available for this station</strong>
                             </div>
-                            <div class="col-lg-4 mb-1">
+                            <div class="col-lg-3 mb-1">
                                 <label for=""><b> SMS Alerts</b></label><br>
-                                <input type="checkbox" class="" value="" checked>
+                                <input type="checkbox" id="sms-alert" class="" value="">
                                 <strong class="text-secondary">Send SMS Alerts for this station</strong>
                             </div>
-                            <div class="col-lg-4 mb-1">
+                            <div class="col-lg-3 mb-1">
                                 <label for=""><b> Email Alerts</b></label><br>
-                                <input type="checkbox" class="" value="" checked>
+                                <input type="checkbox" id="email-alert" class="" value="">
                                 <strong class="text-secondary">Send Email Alerts for this station</strong>
+                            </div>
+                            <div class="col-lg-3 mb-1">
+                                <label for=""><b> Watsapp Alerts</b></label><br>
+                                <input type="checkbox" id="watsapp-alert" class="" value="">
+                                <strong class="text-secondary">Send Watsapp Alerts for this station</strong>
+                                <p style="font-size:10px;font-weight:600;" class="text-danger">**Station primary or secondary contact should be available on watsapp.</p>
                             </div>
                         </div>
                         <!-- <hr> -->
-                        <div class="row mt-4">
+                        <div class="row mt-2">
                             <div class="col-lg-4 mb-1">
                                 <div class="form-group">
                                     <label for=""><b> Station Delay After (Hrs.)</b></label>
-                                    <input type="number"  value="4" class="form-control" id="enc-key" placeholder="Enter data encryption key (if any)">
+                                    <input type="text" maxlength="2" onkeypress="return /[0-9]/i.test(event.key)"  value="4" class="form-control" id="delay-time" placeholder="Enter delay hrs.">
                                 </div>
                             </div>
                             <div class="col-lg-4 mb-1">
                                 <div class="form-group">
                                     <label for=""><b> Station Offline After (Hrs.)</b></label>
-                                    <input type="number" value="48" class="form-control" id="enc-key" placeholder="Enter data encryption key (if any)">
+                                    <input type="text" maxlength="2" onkeypress="return /[0-9]/i.test(event.key)" value="48" class="form-control" id="offline-time" placeholder="Enter offline hrs.">
                                 </div>
                             </div> 
                         </div>
                     </div>
                     <div class="col-lg-12 text-right">
-                        <a href="" class="btn btn-sm btn-danger"><b>Cancel</b></a>
-                        <a href="" class="btn btn-sm btn-info"><b><i class="fa-solid fa-circle-plus"></i> Add New Station</b></a>
+                        <a href="{% url 'sites' %}" class="btn btn-sm btn-danger"><b>Cancel</b></a>
+                        <a class="btn btn-sm btn-info"  onclick="submit_site_data()"><b><i class="fa-solid fa-circle-plus"></i> Add New Station</b></a>
                     </div>
                 </div>
             </div>
@@ -239,4 +273,8 @@
     </div>
     <!-- main-panel ends -->
 </div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="{% static 'monitoring_app/js/custom_js/validation_js/user-form-validation.js' %}"></script>
+<script src="{% static 'monitoring_app/js/custom_js/validation_js/site-form-validation.js' %}"></script>
+<script src="{% static 'monitoring_app/js/custom_js/site_JS/add-site.js' %}"></script>
 {% endblock content %}

@@ -136,29 +136,29 @@
                                 <tr>
                                     <td>
                                         <b>
-                                            <a href="">{{user.first_name}} {{user.last_name}}</a><br>
-                                            {% if user.is_superuser %}
-                                                <a href="" data-toggle="tooltip"
+                                            <a href="{% url 'user_view' user.uuid %}">{{user.name|title}}</a><br>
+                                            {% if user.user.is_superuser %}
+                                                <a href="{% url 'user_view' user.uuid %}" data-toggle="tooltip"
                                                 class="mt-1 p-1 text-white badge badge-danger"><b>Super Admin</b>
                                                 </a>
-                                            {% elif user.is_staff %}
-                                                <a href="" data-toggle="tooltip"
+                                            {% elif user.user.is_staff %}
+                                                <a href="{% url 'user_view' user.uuid %}" data-toggle="tooltip"
                                                 class="mt-1 p-1 text-white badge badge-success"><b>Staff User</b>
                                                 </a>
-                                            {% elif user.is_active %}
-                                                <a href="" data-toggle="tooltip"
+                                            {% elif user.user.is_active %}
+                                                <a href="{% url 'user_view' user.uuid %}" data-toggle="tooltip"
                                                 class="mt-1 p-1 text-white badge badge-info"><b>Base User</b>
                                                 </a>
                                             {% endif %}
                                         </b>
                                     </td>
-                                    <td>{{user.email}}</td>
-                                    <td>{% if user.contact %}{{user.contact}}{% else %}-{% endif %}</td>
-                                    <td>{{user.last_login}}</td>
+                                    <td>{{user.user.email}}</td>
+                                    <td>{% if user.phone %}{{user.phone}}{% else %}-{% endif %}</td>
+                                    <td>{{user.user.last_login}}</td>
                                     <td>
-                                        <a href="{% url 'user_view' %}" class="text-warning" data-toggle="tooltip" data-placement="top" title="view user info."><b><i class="fa-solid fa-eye"></i></b></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                        <a href="{% url 'edit_user' %}" class="text-primary" data-toggle="tooltip" data-placement="top" title="edit user info."><b><i class="fa-solid fa-user-pen"></i></b></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                        <a href="" class="text-success" data-toggle="tooltip" data-placement="top" title="reset password"><b><i class="fa-solid fa-key"></i></b></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                        <a href="{% url 'user_view' user.uuid %}" class="text-warning" data-toggle="tooltip" data-placement="top" title="view user info."><b><i class="fa-solid fa-eye"></i></b></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                        {% comment %} <a href="{% url 'edit_user' %}" class="text-primary" data-toggle="tooltip" data-placement="top" title="edit user info."><b><i class="fa-solid fa-user-pen"></i></b></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                        <a href="" class="text-success" data-toggle="tooltip" data-placement="top" title="reset password"><b><i class="fa-solid fa-key"></i></b></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {% endcomment %}
                                     </td>
                                     <td class="text-center">
                                         <div class="form-check form-switch" data-toggle="tooltip"

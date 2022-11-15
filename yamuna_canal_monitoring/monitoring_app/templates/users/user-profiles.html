@@ -11,6 +11,9 @@
                         <h5 class="card-title text-primary"><b><i class="fa-solid fa-user"></i> User Profile</b>
                         </h5>
                     </div>
+                    {% comment %} <div class="col-lg-6 text-right">
+                        <a href="{% url 'users' %}" class="btn btn-sm btn-primary"><b><i class="fa-solid fa-list"></i> User List</b></a>
+                    </div> {% endcomment %}
                 </div>
                 <hr>
                 <div class="row" style="max-height: 700px;overflow-y: scroll;">
@@ -20,43 +23,68 @@
                             <div class="col-lg-4 mb-1">
                                 <div class="form-group">
                                     <label for=""><b>Fullname </b></label>
-                                    <p> - </p>
+                                    <p> {% if userinfo.name %}{{userinfo.name|title}}{% else %}-{% endif %} </p>
                                 </div>
                             </div>
                             <div class="col-lg-4 mb-1">
                                 <div class="form-group">
                                     <label for=""><b>Email <i class="fa-solid fa-envelope"></i></b></label>
-                                    <p> - </p>
+                                    <p> {% if userinfo.user.email %}{{userinfo.user.email}}{% else %}-{% endif %}  </p>
                                 </div>
                             </div>
                             <div class="col-lg-4 mb-1">
                                 <div class="form-group">
                                     <label for=""><b>Contact <i class="fa-solid fa-phone"></i></b></label>
-                                    <p> - </p>
+                                    <p> {% if userinfo.phone %}{{userinfo.phone}}{% else %}-{% endif %} </p>
                                 </div>
                             </div>
                             <div class="col-lg-4 mb-1">
                                 <div class="form-group">
                                     <label for=""><b>User Type <i class="fa-solid fa-user-shield"></i></b></label>
-                                    <p> - </p>
+                                    <p>
+                                        {% if userinfo.user.is_superuser and userinfo.user.is_staff and userinfo.user.is_active %}
+                                            <a class="mt-1 p-1 text-white badge badge-danger"><b>Super Admin</b></a>
+                                        {% elif uuserinfoser.user.is_staff and userinfo.user.is_active%}
+                                            <a class="mt-1 p-1 text-white badge badge-success"><b>Staff User</b></a>
+                                        {% elif userinfo.user.is_active %}
+                                            <a class="mt-1 p-1 text-white badge badge-info"><b>Base User</b></a>
+                                        {% endif %} 
+                                    </p>
                                 </div>
                             </div>
                             <div class="col-lg-4 mb-1">
                                 <label for=""><b>Demo User?</b></label><br>
-                                <p> - </p>
+                                <p>
+                                    {% if userinfo.demo_user %}
+                                        <a class="mt-1 p-1 text-white badge badge-success"><b>Yes, User is a demo user</b></a>
+                                    {% else%}
+                                        <a class="mt-1 p-1 text-white badge badge-secondary"><b>No, User is not a demo user</b></a>
+                                    {% endif %} 
+                                </p>
                             </div>
                         </div>
                         <hr>
                         <p class="card-headings-text"><i class="fa-solid fa-shield-halved"></i> User Permissions</p>
                         <div class="row">
-                            {% for i in permissionObj %}
+                            {% comment %} {% for i in permissionObj %}
                                 {% if i.name not in exlude_permissions %}
                                     <div class="col-lg-3 mb-1">
                                         <input type="checkbox">
                                         <strong class="text-secondary">{{i.name}}</strong>
                                     </div>
                                 {% endif %}
-                            {% endfor %}
+                            {% endfor %} {% endcomment %}
+                            {% if userinfo.permissions.all.count %}
+                                {% for permissions in userinfo.permissions.all %}
+                                    <div class="col-lg-2 mb-1">
+                                        <strong class="text-secondary">&#10004;<small>{{permissions.name}}</small></strong>
+                                    </div>
+                                {% endfor %}
+                            {% else %}
+                                <div class="col-lg-12 mb-1 text-center">
+                                    <strong class="text-secondary"><i class="fa-solid fa-triangle-exclamation"></i> No Permission Assigned!</strong>
+                                </div>
+                            {% endif %}
                         </div>
                         <hr>
                         <p class="card-headings-text"><i class="fa-solid fa-address-card"></i> User Address Information</p>
@@ -64,35 +92,38 @@
                             <div class="col-lg-3 mb-1">
                                 <div class="form-group">
                                     <label for=""><b>Pincode</b></label>&nbsp;
-                                    <p> - </p>
+                                    <p> {% if userinfo.zipcode %}{{userinfo.zipcode}}{% else %}-{% endif %} </p>
                                 </div>
                             </div>
                             <div class="col-lg-3 mb-1">
                                 <div class="form-group">
                                     <label for=""><b>City</b></label>
-                                    <p> - </p>
+                                    <p> {% if userinfo.city %}{{userinfo.city}}{% else %}-{% endif %} </p>
                                 </div>
                             </div>
                             <div class="col-lg-3 mb-1">
                                 <div class="form-group">
                                     <label for=""><b>State</b></label>
-                                    <p> - </p>
+                                    <p> {% if userinfo.state %}{{userinfo.state}}{% else %}-{% endif %} </p>
                                 </div>
                             </div>
                             <div class="col-lg-3 mb-1">
                                 <div class="form-group">
                                     <label for=""><b>Country</b></label>
-                                    <p> - </p>
+                                    <p> {% if userinfo.country %}{{userinfo.country}}{% else %}-{% endif %} </p>
                                 </div>
                             </div>
                             <div class="col-lg-12 mb-1">
                                 <div class="form-group">
                                     <label for=""><b>Address</b></label>
-                                    <p> - </p>
+                                    <p> {% if userinfo.address %}{{userinfo.address}}{% else %}-{% endif %} </p>
                                 </div>
                             </div>
                         </div>
                     </div>
+                    {% comment %} <div class="col-lg-12 text-right">
+                        <a href="{% url 'users' %}" class="btn btn-sm btn-danger"><b>Cancel</b></a>
+                    </div> {% endcomment %}
                 </div>
             </div>
         </div>

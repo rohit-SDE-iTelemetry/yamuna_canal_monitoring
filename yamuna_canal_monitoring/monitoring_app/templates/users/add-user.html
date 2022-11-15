@@ -46,7 +46,6 @@
                                         <option selected value="" class="d-none">Choose user type</option>
                                         <option value='1'>Customer User (Active User)</option>
                                         <option value='2'>Staff User (Staff User)</option>
-                                        <option value='3'>Super Admin (Super User)</option>
                                     </select>
                                 </div>
                             </div>
@@ -69,8 +68,10 @@
                             {% for i in permissionObj %}
                                 {% if i.name not in exlude_permissions %}
                                     <div class="col-lg-3 mb-1">
-                                        <input type="checkbox" class="permissions" value="{{i.id}}">
-                                        <strong class="text-secondary">{{i.name}}</strong>
+                                        <label for="">
+                                            <input type="checkbox" class="permissions" value="{{i.id}}" checked>
+                                            <strong class="text-secondary">{{i.name}}</strong>
+                                        </label>
                                     </div>
                                 {% endif %}
                             {% endfor %}

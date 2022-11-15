@@ -14,7 +14,7 @@ urlpatterns = [
     path('user-management/add-user', add_user,name = "add_user"),
     path('user-management/edit-user', edit_user,name = "edit_user"),
     path('user-management/users', user_list,name = "users"),
-    path('user-management/view-user', user_view,name = "user_view"),
+    path('user-management/view-user/<str:uuid>', user_view,name = "user_view"),
     path('user-management/user-log', user_log,name = "user_log"),
     path('user-management/user-profile', user_profile,name = "user_profile"),
 
