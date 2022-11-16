@@ -2,8 +2,6 @@ from django.db import models
 import uuid
 import django
 
-
-
 # category master model
 class Category(models.Model):
     uuid = models.UUIDField(default=uuid.uuid4, primary_key=True,max_length=120)
@@ -71,9 +69,6 @@ class Site(models.Model):
 
 
 
-
-
-
 # parameter master model
 class Parameter(models.Model):
     uuid = models.UUIDField(default=uuid.uuid4, primary_key=True,max_length=120)
@@ -85,4 +80,34 @@ class Parameter(models.Model):
     last_updated_at = models.DateTimeField(default=django.utils.timezone.now)
 
 
+
 # site readings model
+class Reading2022(models.Model):
+    uuid = models.UUIDField(default=uuid.uuid4,primary_key=True)
+    site = models.ForeignKey(Site, null=False,related_name='readings2022',on_delete=models.CASCADE)
+    timestamp = models.DateTimeField(db_index=True, null=False)
+    readings = models.TextField(max_length=999, blank=True)
+
+    class Meta:
+        unique_together = (('site', 'timestamp'),)
+
+
+
+# this holds all info site specific
+class SiteInfo(models.Model):
+    site = models.OneToOneField(Site,on_delete=models.CASCADE,primary_key=True)
+    last_seen = models.DateTimeField(verbose_name='Last Seen',auto_now_add=True,null=True)
+    # mail_interval = models.IntegerField(default=12,null=True,verbose_name='Mail Alert Intervals')
+    # sms_interval = models.IntegerField(default=12,null=True,verbose_name='SMS Alert Intervals')
+    last_upload_info = models.TextField(max_length=256,blank=True,default='')
+    readings = models.TextField(max_length=999, blank=True)
+    file_info = models.TextField(default=None, null=True)
+    # rename later
+    cpcb_status = models.BooleanField(default=False,verbose_name='CPCB Upload Status')
+    pcb_status = models.BooleanField(default=False,verbose_name='PCB Upload Status')
+    received_at = models.DateTimeField(auto_now_add=True, blank=True,null=True)
+    freq = models.CharField(max_length=256, blank=True,verbose_name='File Frequency')
+    var5 = models.CharField(max_length=256, blank=True)
+
+    def __str__(self):
+        return "%s, seen on: %s" % (self.site.name,self.last_seen.strftime("%b %d %Y, %H:%M %p"))
