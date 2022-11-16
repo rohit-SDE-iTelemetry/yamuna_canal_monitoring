@@ -84,3 +84,5 @@ class Parameter(models.Model):
     created_at = models.DateTimeField(auto_now=True, blank=True)
     last_updated_at = models.DateTimeField(default=django.utils.timezone.now)
 
+
+# site readings model

@@ -43,12 +43,12 @@
             <!-- <p style="font-size: 40px;"><b>08</b></p> -->
             <div id="marquee-data-append">
               <div class="news">
-                <p><b style="font-size: 40px;">Stn-001</b>&nbsp;&nbsp;<b style="font-size: 15px;">(27-sept-2022
-                    14:05:00)</b></p>
+                <p><b style="font-size: 35px;">Demo Station</b>&nbsp;&nbsp;<b style="font-size: 15px;">(dd-mm-yyyy
+                    hh:mm:ss)</b></p>
                 <marquee class="news-content">
-                  <b>Battery :</b> 23(v) <b>&nbsp;&nbsp;|&nbsp;&nbsp;</b> <b>Water Level :</b> 2.3(m)
-                  <b>&nbsp;&nbsp;|&nbsp;&nbsp;</b> <b>Flow Rate :</b> 23(m3/s) <b>&nbsp;&nbsp;|&nbsp;&nbsp;</b> <b>Gate
-                    Opening :</b> 15(mm) <b>&nbsp;&nbsp;|&nbsp;&nbsp;</b> <b>Velocity :</b> 13(m/s)
+                  <b>Battery :</b> -(v) <b>&nbsp;&nbsp;|&nbsp;&nbsp;</b> <b>Water Level :</b> -(m)
+                  <b>&nbsp;&nbsp;|&nbsp;&nbsp;</b> <b>Flow Rate :</b> -(m3/s) <b>&nbsp;&nbsp;|&nbsp;&nbsp;</b> <b>Gate
+                    Opening :</b> -(mm) <b>&nbsp;&nbsp;|&nbsp;&nbsp;</b> <b>Velocity :</b> -(m/s)
                 </marquee>
                 <!-- <span class="m-1 p-1" style="border: 1px solid white;padding:5px;border-radius:4px;"><b>Battery : 23(v)</b> </span>&nbsp;&nbsp;
                 <span class="m-1 p-1" style="border: 1px solid white;padding:5px;border-radius:4px;"><b>Flow Rate : 12(m3/s)</b> </span>&nbsp;&nbsp;
@@ -64,7 +64,7 @@
         <div class="card" style="background-color: #15b326;color:white;">
           <div class="card-body">
             <h4 class="card-title"><i class="fa-solid fa-water"></i> Total Water Discharged</h4>
-            <p ><b style="font-size: 40px;" data-target="400" class="count">0</b> cusec</p>
+            <p ><b style="font-size: 40px;" data-target="0" class="count">0</b> cusec</p>
             <!-- <div id="demo" class="carousel slide" data-ride="carousel">
               <div class="carousel-inner"> -->
             <!-- <div class="carousel-item active">
@@ -83,9 +83,9 @@
             </div> -->
             <div class="text-left">
               <a href="" data-toggle="tooltip" data-placement="top" title="Opened Gates"
-                class="mt-2 p-2 text-white badge badge-secondary"><b>Opened Gates : 15</b></a>&nbsp;&nbsp;
+                class="mt-2 p-2 text-white badge badge-secondary"><b>Opened Gates : -</b></a>&nbsp;&nbsp;
               <a href="" data-toggle="tooltip" data-placement="top" title="Closed Gates"
-                class="mt-2 p-2 text-white badge badge-primary"><b>Closed Gates : 20</b></a>&nbsp;&nbsp;
+                class="mt-2 p-2 text-white badge badge-primary"><b>Closed Gates : -</b></a>&nbsp;&nbsp;
               <!-- <a href="" class="text-primary" data-toggle="tooltip" data-placement="top"
                               title="Download Stations Details"><b><i class="fa-solid fa-cloud-arrow-down"></i></b></a> -->
             </div>
@@ -218,7 +218,8 @@
                   </td>
                 </tr>
                 {% endfor %}
-                {% comment %} <tr>
+                {% comment %} 
+                <tr>
                   <td><b><a href="">Station 002</a></b></td>
                   <td>Accountant</td>
                   <td><a class="text-white badge badge-success"><b>Live</b></a></td>
@@ -313,19 +314,19 @@
   }
 
   function carousel() {
-    value = Math.floor(Math.random() * 5) + 1;
-    let data = '<div class="news">\
-                <p><b style="font-size: 40px;">Stn-00'+ value + '</b>&nbsp;&nbsp;<b style="font-size: 15px;">(27-sept-2022\
-                    14:05:00)</b></p>\
-                <marquee class="news-content">\
-                  <b>Battery :</b> 23(v) <b>&nbsp;&nbsp;|&nbsp;&nbsp;</b> <b>Water Level :</b> 2.3(m)\
-                  <b>&nbsp;&nbsp;|&nbsp;&nbsp;</b> <b>Flow Rate :</b> 23(m3/s) <b>&nbsp;&nbsp;|&nbsp;&nbsp;</b> <b>Gate\
-                    Opening :</b> 15(mm) <b>&nbsp;&nbsp;|&nbsp;&nbsp;</b> <b>Velocity :</b> 13(m/s)\
-                </marquee>\
-              </div>';
-    $('#marquee-data-append').html('');
-    $('#marquee-data-append').append(data);
-    looper();
+    // value = Math.floor(Math.random() * 5) + 1;
+    // let data = '<div class="news">\
+    //             <p><b style="font-size: 40px;">Stn-00'+ value + '</b>&nbsp;&nbsp;<b style="font-size: 15px;">(27-sept-2022\
+    //                 14:05:00)</b></p>\
+    //             <marquee class="news-content">\
+    //               <b>Battery :</b> 23(v) <b>&nbsp;&nbsp;|&nbsp;&nbsp;</b> <b>Water Level :</b> 2.3(m)\
+    //               <b>&nbsp;&nbsp;|&nbsp;&nbsp;</b> <b>Flow Rate :</b> 23(m3/s) <b>&nbsp;&nbsp;|&nbsp;&nbsp;</b> <b>Gate\
+    //                 Opening :</b> 15(mm) <b>&nbsp;&nbsp;|&nbsp;&nbsp;</b> <b>Velocity :</b> 13(m/s)\
+    //             </marquee>\
+    //           </div>';
+    // $('#marquee-data-append').html('');
+    // $('#marquee-data-append').append(data);
+    // looper();
   }
 </script>
 
