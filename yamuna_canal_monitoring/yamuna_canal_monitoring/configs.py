@@ -19,19 +19,19 @@ EMAIL_PASSWORD = 'jsdhye#@#456'
 # OTP_RECVR_CC = ['sms.cpcb@nic.in']
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
-
     # 'default': {
-    #     'ENGINE': 'django.db.backends.postgresql',
-    #     'NAME': 'mydb',
-    #     'USER': 'postgres',
-    #     'PASSWORD': '',
-    #     'HOST': 'localhost',
-    #     'PORT': 5432,
+    #     'ENGINE': 'django.db.backends.sqlite3',
+    #     'NAME': BASE_DIR / 'db.sqlite3',
     # }
+
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'eyc-test-db',
+        'USER': 'postgres',
+        'PASSWORD': 'Kumar@1997',
+        'HOST': '65.0.106.169',
+        'PORT': 5432,
+    }
 }
 
 _LOGGING = {

@@ -6,7 +6,8 @@
         }
 
     .card-hover:hover {
-        background-color: rgb(24, 117, 192);
+        /* background-color: rgb(24, 117, 192);
+        border-radius:3px; */
     }
 </style>
 <div class="main-panel">
@@ -17,18 +18,33 @@
         <div class="row">
           <div class="col-lg-12">
             <p class="card-headings-text" style="background-color: #6db8e6;padding: 10px;border-radius: 5px;"><i
-                class="fa-solid fa-circle-info"></i> Station Information</p>
+                class="fa-solid fa-circle-info"></i> Station Information 
+                <span class="float-right">
+                  <marquee class="news-content">
+                    <b>Battery :</b> 23(v) <b>&nbsp;&nbsp;|&nbsp;&nbsp;</b> <b>Water Level :</b> 2.3(m)
+                    <b>&nbsp;&nbsp;|&nbsp;&nbsp;</b> <b>Flow Rate :</b> 23(m3/s) <b>&nbsp;&nbsp;|&nbsp;&nbsp;</b> <b>Gate
+                      Opening :</b> 15(mm) <b>&nbsp;&nbsp;|&nbsp;&nbsp;</b> <b>Velocity :</b> 13(m/s) <small class="text-danger">( <strong>last updated at : 15-Nov-2022 15:53:98</strong> )</small>
+                  </marquee>
+                </span>
+              </p> 
           </div>
         </div>
         <div class="row">
           <div class="col-lg-4">
             <div class="card"
               style="box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;border-radius:10px;">
+              <!-- <div class="card-header" style="background-color: rgb(112, 179, 196);">
+                <strong>Battery <i class="fa-solid fa-battery-full"></i></strong>
+                <div class="float-right">
+                  <small><b>Last updated at : </b></small>
+                </div>
+                <h4><small>Station basic info with image</small></h4>
+              </div> -->
               <div class="card-body">
                 <div class="row">
                   <div class="col-lg-12">
                     <div class="text-center">
-                      <h4><small>Station basic info with image</small></h4>
+                      <img src="https://www.indiawaterportal.org/sites/default/files/styles/node_lead_image/public/iwp/munak-clc1.jpg?itok=v_r-STuV" alt="" style="height: 100%;width:100%;">
                     </div>
                   </div>
                 </div>
@@ -54,6 +70,7 @@
       </div>
     </div>
 
+
     <div class="card mt-1"
       style="box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;border-radius:10px;">
       <div class="card-body">
@@ -67,9 +84,15 @@
           <div class="col-lg-12">
             <div class="row">
               <div class="col-lg-4 p-1">
-                <div class="card card-hover"
+                <div class="card"
                   style="box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;border-radius:10px;">
-                  <div class="card-body hover-effect">
+                  <div class="card-header" style="background-color: rgb(112, 179, 196);">
+                    <strong>Battery <i class="fa-solid fa-battery-full"></i></strong>
+                    <div class="float-right">
+                      <small><b>Last updated at : </b></small>
+                    </div>
+                  </div>
+                  <div class="card-body hover-effect card-hover">
                     <div class="row">
                       <div class="col-lg-12">
                         <div class="text-center">
@@ -82,9 +105,15 @@
               </div>
 
               <div class="col-lg-4 p-1">
-                <div class="card card-hover"
+                <div class="card"
                   style="box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;border-radius:10px;">
-                  <div class="card-body hover-effect">
+                  <div class="card-header" style="background-color: rgb(112, 179, 196);">
+                    <strong>Water Level <i class="fa-solid fa-water"></i></strong>
+                    <div class="float-right">
+                      <small><b>Last updated at : </b></small>
+                    </div>
+                  </div>
+                  <div class="card-body hover-effect card-hover">
                     <div class="row">
                       <div class="col-lg-12">
                         <div class="text-center">
@@ -97,9 +126,15 @@
               </div>
 
               <div class="col-lg-4 p-1">
-                <div class="card card-hover"
+                <div class="card"
                   style="box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;border-radius:10px;">
-                  <div class="card-body hover-effect">
+                  <div class="card-header" style="background-color: rgb(112, 179, 196);">
+                    <strong>Flow Rate <i class="fa-solid fa-bars-staggered"></i></strong>
+                    <div class="float-right">
+                      <small><b>Last updated at : </b></small>
+                    </div>
+                  </div>
+                  <div class="card-body hover-effect card-hover">
                     <div class="row">
                       <div class="col-lg-12">
                         <div class="text-center">
@@ -112,9 +147,15 @@
               </div>
 
               <div class="col-lg-4 p-1">
-                <div class="card card-hover"
+                <div class="card"
                   style="box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;border-radius:10px;">
-                  <div class="card-body hover-effect">
+                  <div class="card-header" style="background-color: rgb(112, 179, 196);">
+                    <strong>Gate Opening <i class="fa-solid fa-door-open"></i></strong>
+                    <div class="float-right">
+                      <small><b>Last updated at : </b></small>
+                    </div>
+                  </div>
+                  <div class="card-body hover-effect card-hover">
                     <div class="row">
                       <div class="col-lg-12">
                         <div class="text-center">
@@ -127,9 +168,15 @@
               </div>
 
               <div class="col-lg-4 p-1">
-                <div class="card card-hover"
+                <div class="card"
                   style="box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;border-radius:10px;">
-                  <div class="card-body hover-effect">
+                  <div class="card-header" style="background-color: rgb(112, 179, 196);">
+                    <strong>Velocity <i class="fa-solid fa-gauge"></i></strong>
+                    <div class="float-right">
+                      <small><b>Last updated at : </b></small>
+                    </div>
+                  </div>
+                  <div class="card-body hover-effect card-hover">
                     <div class="row">
                       <div class="col-lg-12">
                         <div class="text-center">
@@ -142,9 +189,15 @@
               </div>
 
               <div class="col-lg-4 p-1">
-                <div class="card card-hover"
+                <div class="card"
                   style="box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;border-radius:10px;">
-                  <div class="card-body hover-effect">
+                  <div class="card-header" style="background-color: rgb(112, 179, 196);">
+                    <strong>Totalizer <i class="fa-solid fa-layer-group"></i></strong>
+                    <div class="float-right">
+                      <small><b>Last updated at : </b></small>
+                    </div>
+                  </div>
+                  <div class="card-body hover-effect card-hover">
                     <div class="row">
                       <div class="col-lg-12">
                         <div class="text-center">
