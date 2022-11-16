@@ -1,9 +1,6 @@
 from django.db import models
 import uuid
 import django
-from django.contrib.postgres.fields import HStoreField
-
-
 
 # category master model
 class Category(models.Model):
@@ -89,7 +86,7 @@ class Reading2022(models.Model):
     uuid = models.UUIDField(default=uuid.uuid4,primary_key=True)
     site = models.ForeignKey(Site, null=False,related_name='readings2022',on_delete=models.CASCADE)
     timestamp = models.DateTimeField(db_index=True, null=False)
-    reading = HStoreField(max_length=1024, blank=False, null=False)
+    readings = models.TextField(max_length=999, blank=True)
 
     class Meta:
         unique_together = (('site', 'timestamp'),)
