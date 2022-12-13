@@ -24,6 +24,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites',
     # Apps
     'auth_app',
     'monitoring_app',
@@ -88,7 +89,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Kolkata'
 
 USE_I18N = True
 
