@@ -10,3 +10,20 @@ Module 003 : Project Specifications
 
 
 =============================================================
+
+# django settings
+# sys.path.append('/home/rohit/Desktop/eyc/yamuna_canal_monitoring/yamuna_canal_monitoring')
+# from box import setting_type
+# _ = setting_type()
+# os.environ.setdefault("DJANGO_SETTINGS_MODULE", _.get('settings'))
+# sys.path.append(_.get('path'))
+# sys.path.append(_.get('env'))
+# django.setup()
+
+# os.environ['DJANGO_SETTINGS_MODULE'] = 'yamuna_canal_monitoring.settings'
+# django.setup()
+
+# from django.conf import settings
+# from yamuna_canal_monitoring.settings import DATABASES, INSTALLED_APPS
+# settings.configure(DATABASES=DATABASES, INSTALLED_APPS=INSTALLED_APPS)
+# django.setup()
