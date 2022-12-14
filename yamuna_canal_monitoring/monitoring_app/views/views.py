@@ -3,18 +3,35 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponse,JsonResponse
 from django.contrib.auth.models import User, Permission
 from django.contrib.auth.decorators import login_required
-
+from django.core import serializers
+import json
 from monitoring_app.utils.GLOBALS import permissionObj,exlude_permissions,get_permissions
 from auth_app.models import UserProfile
 from monitoring_app.models import *
-
+from monitoring_app.utils import utils
 # dashboard view
 @login_required(login_url='/')
 def dashboard(request):
     if request.method == 'GET':
         context = {}
-        context['sites'] = Site.objects.all()
+        if request.user.is_superuser:
+            for i in SiteInfo.objects.all():
+                status = utils.check_site_status(i)
+                i.site_status = status
+                i.save()
+            context['sites'] = SiteInfo.objects.all()
+
         return render(request,'dashboard.html',context)
+
+
+@login_required(login_url='/')
+def siteinfo_data(request,uuid):
+    if request.method == 'GET':
+        context = {}
+        if request.user.is_superuser:
+            SiteInfo_list = serializers.serialize('json', SiteInfo.objects.filter(uuid=uuid))
+            return JsonResponse({"response" : json.loads(SiteInfo_list)})
+
 
 #########################################################################################################
 # USER MODULE
