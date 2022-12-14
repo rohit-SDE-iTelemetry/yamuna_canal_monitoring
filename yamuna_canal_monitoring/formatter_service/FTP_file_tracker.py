@@ -23,11 +23,8 @@ import threading
 import enum
 import shutil
 
-from yamuna_canal_monitoring.GLOBAL_DEV import TODAYS_BASE,\
+from yamuna_canal_monitoring.GLOBALS import TODAYS_BASE,\
     BUFFER_BASE,  TODAYS_JUNK, LAST_FILE_BASE, PROCESSED_BASE
-
-# from yamuna_canal_monitoring.GLOBALS import TODAYS_BASE,\
-#     BUFFER_BASE,  TODAYS_JUNK, LAST_FILE_BASE, PROCESSED_BASE
 # from formatter_service import formatter
 import formatter_service
 

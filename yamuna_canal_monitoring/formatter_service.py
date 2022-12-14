@@ -4,16 +4,14 @@ import json
 import logging
 from os.path import basename
 from monitoring_app.models import *
-from yamuna_canal_monitoring.GLOBAL_DEV import SITE_DETAILS, READING_DB_FILE,\
+from yamuna_canal_monitoring.GLOBALS import SITE_DETAILS, READING_DB_FILE,\
     LOG_DT_FORMAT
-# from yamuna_canal_monitoring.GLOBALS import SITE_DETAILS, READING_DB_FILE,\
-#     LOG_DT_FORMAT
 import celerytasks
 from monitoring_app.models import Site, SiteInfo, Reading2022
 
-logging.basicConfig(filename='/home/rohit/Desktop/eyc/yamuna_canal_monitoring/yamuna_canal_monitoring/formatter.log', filemode='a', format=LOG_DT_FORMAT)
-log = logging.getLogger()
-log.setLevel(logging.INFO)
+# logging.basicConfig(filename='/home/rohit/Desktop/eyc/yamuna_canal_monitoring/yamuna_canal_monitoring/formatter.log', filemode='a', format=LOG_DT_FORMAT)
+# log = logging.getLogger()
+# log.setLevel(logging.INFO)
 
 
 class FTPRequest:
@@ -81,9 +79,23 @@ class FTPRequest:
             site_obj = Site.objects.get(prefix__iexact = self.prefix)
             db_record = Reading2022(site=site_obj, readings=self.db_reading, timestamp=datetime.now())
             db_record.save()
+            try:
+                siteinfo = SiteInfo.objects.get(site = site_obj)
+                siteinfo.last_seen = datetime.now()
+                siteinfo.last_upload_info = f"laste reading received at : {self.timeStamp}"
+                siteinfo.readings = self.db_reading
+                siteinfo.received_at = datetime.now()
+                siteinfo.save()
+            except:
+                siteinfo = SiteInfo(site = site_obj, last_seen = datetime.now(), 
+                                    last_upload_info = f"laste reading received at : {self.timeStamp}", 
+                                    readings = self.db_reading, 
+                                    received_at = datetime.now()) 
+                siteinfo.save()
             print('reading saved!')
         except:
             print('%s prefix site not found', self.prefix)
+
 
 
 

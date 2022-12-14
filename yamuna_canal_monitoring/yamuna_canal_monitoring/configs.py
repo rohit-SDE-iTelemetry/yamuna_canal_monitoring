@@ -16,7 +16,6 @@ ROOT_URLCONF = 'yamuna_canal_monitoring.urls'
 LOG_PATH = os.path.join('/var/log/', 'eyc')
 EMAIL_USER = 'notifications@aaxisnano.com'
 EMAIL_PASSWORD = 'jsdhye#@#456'
-# OTP_RECVR_CC = ['sms.cpcb@nic.in']
 
 DATABASES = {
     # 'default': {
