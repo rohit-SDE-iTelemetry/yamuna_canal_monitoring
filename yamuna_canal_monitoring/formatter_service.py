@@ -4,16 +4,14 @@ import json
 import logging
 from os.path import basename
 from monitoring_app.models import *
-from yamuna_canal_monitoring.GLOBAL_DEV import SITE_DETAILS, READING_DB_FILE,\
+from yamuna_canal_monitoring.GLOBALS import SITE_DETAILS, READING_DB_FILE,\
     LOG_DT_FORMAT
-# from yamuna_canal_monitoring.GLOBALS import SITE_DETAILS, READING_DB_FILE,\
-#     LOG_DT_FORMAT
 import celerytasks
 from monitoring_app.models import Site, SiteInfo, Reading2022
 
-logging.basicConfig(filename='/home/rohit/Desktop/eyc/yamuna_canal_monitoring/yamuna_canal_monitoring/formatter.log', filemode='a', format=LOG_DT_FORMAT)
-log = logging.getLogger()
-log.setLevel(logging.INFO)
+# logging.basicConfig(filename='/home/rohit/Desktop/eyc/yamuna_canal_monitoring/yamuna_canal_monitoring/formatter.log', filemode='a', format=LOG_DT_FORMAT)
+# log = logging.getLogger()
+# log.setLevel(logging.INFO)
 
 
 class FTPRequest:
@@ -84,6 +82,7 @@ class FTPRequest:
             print('reading saved!')
         except:
             print('%s prefix site not found', self.prefix)
+
 
 
 
