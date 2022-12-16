@@ -2,13 +2,13 @@
 {% block content %}
 <style>
   .hover-effect:hover {
-        color: white;
-        }
+    color: white;
+  }
 
-    .card-hover:hover {
-        /* background-color: rgb(24, 117, 192);
+  .card-hover:hover {
+    /* background-color: rgb(24, 117, 192);
         border-radius:3px; */
-    }
+  }
 </style>
 <div class="main-panel">
   <div class="content-wrapper">
@@ -17,16 +17,22 @@
       <div class="card-body">
         <div class="row">
           <div class="col-lg-12">
-            <p class="card-headings-text" style="background-color: #6db8e6;padding: 10px;border-radius: 5px;"><i
-                class="fa-solid fa-circle-info"></i> Station Information 
-                <span class="float-right">
-                  <marquee class="news-content">
-                    <b>Battery :</b> 23(v) <b>&nbsp;&nbsp;|&nbsp;&nbsp;</b> <b>Water Level :</b> 2.3(m)
+            <p class="card-headings-text" style="background-color: #3790c6;padding: 10px;border-radius: 5px;"><i
+                class="fa-solid fa-circle-info"></i> Station Information
+              <span class="float-right text-white">
+                <marquee class="news-content" scrollamount="4">
+                  <!-- <b>{{site.readings|safe}} <small class="" style="color: rgb(124, 10, 10);">( <strong>last updated at :
+                        {{site.received_at}}</strong> )</small></b> -->
+                  {% for k, v in reading_dict.items %}
+                    <b><a class="badge badge-success">{{k|title}} : {{v}}</a></b>
+                  {% endfor %}
+                  <small style="color: rgb(124, 10, 10);">( <strong>last updated at : {{site.received_at}}</strong> )</small>
+                  <!-- <b>Battery :</b> 23(v) <b>&nbsp;&nbsp;|&nbsp;&nbsp;</b> <b>Water Level :</b> 2.3(m)
                     <b>&nbsp;&nbsp;|&nbsp;&nbsp;</b> <b>Flow Rate :</b> 23(m3/s) <b>&nbsp;&nbsp;|&nbsp;&nbsp;</b> <b>Gate
-                      Opening :</b> 15(mm) <b>&nbsp;&nbsp;|&nbsp;&nbsp;</b> <b>Velocity :</b> 13(m/s) <small class="text-danger">( <strong>last updated at : 15-Nov-2022 15:53:98</strong> )</small>
-                  </marquee>
-                </span>
-              </p> 
+                      Opening :</b> 15(mm) <b>&nbsp;&nbsp;|&nbsp;&nbsp;</b> <b>Velocity :</b> 13(m/s) <small class="text-danger">( <strong>last updated at : 15-Nov-2022 15:53:98</strong> )</small> -->
+                </marquee>
+              </span>
+            </p>
           </div>
         </div>
         <div class="row">
@@ -44,7 +50,9 @@
                 <div class="row">
                   <div class="col-lg-12">
                     <div class="text-center">
-                      <img src="https://www.indiawaterportal.org/sites/default/files/styles/node_lead_image/public/iwp/munak-clc1.jpg?itok=v_r-STuV" alt="" style="height: 100%;width:100%;">
+                      <img
+                        src="https://www.indiawaterportal.org/sites/default/files/styles/node_lead_image/public/iwp/munak-clc1.jpg?itok=v_r-STuV"
+                        alt="" style="height: 100%;width:100%;">
                     </div>
                   </div>
                 </div>
@@ -58,8 +66,16 @@
               <div class="card-body">
                 <div class="row">
                   <div class="col-lg-12">
-                    <div class="text-center">
-                      <h4><small>Current station data</small></h4>
+                    <div class="text-left">
+                      <div class="row">
+                        <div class="col-lg-5">
+                          <h5><strong style="text-decoration:underline;">{{site.site.name}}</strong></h5>
+                        </div>
+                        <div class="col-lg-7 text-right">
+                          <p><strong class="text-secondary">{{site.site.address}}, {{site.site.city}},
+                              {{site.site.state}}, {{site.site.zipcode}}</strong></p>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -76,7 +92,7 @@
       <div class="card-body">
         <div class="row">
           <div class="col-lg-12">
-            <p class="card-headings-text" style="background-color: #6db8e6;padding: 10px;border-radius: 5px;"><i
+            <p class="card-headings-text" style="background-color: #3790c6;padding: 10px;border-radius: 5px;"><i
                 class="fa-solid fa-chart-simple" aria-hidden="true"></i> Station Stats</p>
           </div>
         </div>
@@ -215,15 +231,16 @@
     </div>
 
     <div class="card mt-1"
-        style="box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;border-radius:10px;">
-        <div class="card-body">
-          <div class="row">
-            <div class="col-lg-12">
-              <p class="card-headings-text" style="background-color: #6db8e6;padding: 10px;border-radius: 5px;"><i class="fa-solid fa-arrow-trend-up"></i> Live Trends </p>
-            </div>
+      style="box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;border-radius:10px;">
+      <div class="card-body">
+        <div class="row">
+          <div class="col-lg-12">
+            <p class="card-headings-text" style="background-color: #3790c6;padding: 10px;border-radius: 5px;"><i
+                class="fa-solid fa-arrow-trend-up"></i> Live Trends </p>
           </div>
-          <div class="row">
-            <!-- <div class="col-lg-10">
+        </div>
+        <div class="row">
+          <!-- <div class="col-lg-10">
               <select class="form-select">
                 <option selected="" class="d-none" value="">Choose parameter for stats.</option>
                 <option>Battery</option>
@@ -241,16 +258,16 @@
                 <option>Bar Chart</option>
               </select>
             </div> -->
-          </div>
-          <div class="row">
-            <div class="col-lg-12">
-              <div class="text-center">
-                <h4>Live chart</h4>
-              </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="text-center">
+              <h4>Live chart</h4>
             </div>
           </div>
         </div>
       </div>
+    </div>
     <!-- main-panel ends -->
   </div>
 

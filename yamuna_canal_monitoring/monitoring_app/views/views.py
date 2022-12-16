@@ -16,16 +16,10 @@ def dashboard(request):
         context = {}
         if request.user.is_superuser:
             for i in SiteInfo.objects.all():
-                status = utils.check_site_status(i)
-                i.site_status = status
-                i.save()
-            context['sites'] = SiteInfo.objects.all()
-            context['live_sites'] = Site.objects.filter(site_status='Live').count()
-            context['delay_sites'] = Site.objects.filter(site_status='Delay').count()
-            context['offline_sites'] = Site.objects.filter(site_status='Offline').count()
-            context['disabled_sites'] = Site.objects.filter(site_status='Disabled').count()
-            context['nat_sites'] = Site.objects.filter(site_status='No Record Availabe').count()
-            context['last_reading'] = Reading2022.objects.latest('timestamp')
+                utils.check_site_status(i)
+                # i.site_status = status
+                # i.save()
+            utils.site_details(context)
 
         return render(request,'dashboard.html',context)
 
@@ -171,9 +165,27 @@ def site_list(request):
 
 # view-site view
 @login_required(login_url='/')
-def view_site(request):
+def view_site(request,uuid):
     if request.method == 'GET':
         context = {}
+        try:
+            site_obj = SiteInfo.objects.get(uuid=uuid)
+            print('site_obj >>>> ', site_obj)
+            print('latest reading >>>> ', site_obj.readings)
+            # "battery"=>"18.94","waterLevel"=>"1.69","flowRate"=>"1.87","gateOpening"=>"97.25","velocity"=>"4.55"
+            reading_dict = {}
+            if(site_obj.readings):
+                convert_lst = site_obj.readings.replace('"','').split(",")
+                for i in convert_lst:
+                    reading_dict[i.split('=>')[0]] = i.split('=>')[1]
+                print('reading_dict >>> ', reading_dict)
+
+            context['site'] = site_obj
+            context['reading_dict'] = reading_dict
+        except Site.DoesNotExist:
+            print("site doesnot exist")
+        except Exception as e:
+            print("Error while fetching site using uuid: {}".format(e))
         return render(request,'sites/view-site.html',context)
 
 # add-site view
