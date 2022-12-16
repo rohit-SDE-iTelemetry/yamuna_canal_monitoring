@@ -1,6 +1,7 @@
 {% extends 'utils/base.html' %}
 {% block content %}
 {% load custom_tags %}
+<meta http-equiv="refresh" content="30">
 <div class="main-panel">
   <div class="content-wrapper">
     <div class="row">
@@ -26,17 +27,17 @@
             <p style="font-size: 40px;"><b data-target="8" class="count">{{sites.count}}</b></p>
             <div class="text-left">
               <a href="" data-toggle="tooltip" data-placement="top" title="Live"
-                class="text-white badge badge-success"><b>Live : 1</b></a>&nbsp;&nbsp;
+                class="text-white badge badge-success"><b>Live : {{live_sites}}</b></a>&nbsp;&nbsp;
               <a href="" data-toggle="tooltip" data-placement="top" title="Delay"
-                class="text-white badge badge-warning"><b>Delay : 0</b></a>&nbsp;&nbsp;
+                class="text-white badge badge-warning"><b>Delay : {{delay_sites}}</b></a>&nbsp;&nbsp;
               <a href="" data-toggle="tooltip" data-placement="top" title="Offline"
-                class="text-white badge badge-danger"><b>Offline : 0</b></a>&nbsp;&nbsp;
+                class="text-white badge badge-danger"><b>Offline : {{offline_sites}}</b></a>&nbsp;&nbsp;
               <a href="" data-toggle="tooltip" data-placement="top" title="Disabled"
                 class="text-white badge badge-info"><b><i class="fa-solid fa-ban text-warning"></i> Disabled :
-                  0</b></a>&nbsp;&nbsp;
+                  {{disabled_sites}}</b></a>&nbsp;&nbsp;
               <a href="" data-toggle="tooltip" data-placement="top" title="No Record Available"
                 class="text-white badge badge-primary"><b> NAT :
-                  0</b></a>&nbsp;&nbsp;
+                  {{nat_sites}}</b></a>&nbsp;&nbsp;
             </div>
           </div>
         </div>
@@ -44,16 +45,16 @@
       <div class="col-md-4 grid-margin stretch-card">
         <div class="card" style="background-color: #393ce3;color:white;">
           <div class="card-body">
-            <h4 class="card-title"><i class="fa-solid fa-circle-info"></i> Current Reading Received</h4>
+            <h4 class="card-title"><i class="fa-solid fa-circle-info"></i> Last Reading Received</h4>
             <!-- <p style="font-size: 40px;"><b>08</b></p> -->
             <div id="marquee-data-append">
               <div class="news">
-                <p><b style="font-size: 35px;">Demo Station</b>&nbsp;&nbsp;<b style="font-size: 15px;">(dd-mm-yyyy
-                    hh:mm:ss)</b></p>
+                <p><b style="font-size: 35px;">{{last_reading.site.name}}</b>&nbsp;&nbsp;<b style="font-size: 15px;">- {{last_reading.timestamp}}</b></p>
                 <marquee class="news-content">
-                  <b>Battery :</b> -(v) <b>&nbsp;&nbsp;|&nbsp;&nbsp;</b> <b>Water Level :</b> -(m)
+                  <b>{{last_reading.readings}}</b>
+                  <!-- <b>Battery :</b> -(v) <b>&nbsp;&nbsp;|&nbsp;&nbsp;</b> <b>Water Level :</b> -(m)
                   <b>&nbsp;&nbsp;|&nbsp;&nbsp;</b> <b>Flow Rate :</b> -(m3/s) <b>&nbsp;&nbsp;|&nbsp;&nbsp;</b> <b>Gate
-                    Opening :</b> -(mm) <b>&nbsp;&nbsp;|&nbsp;&nbsp;</b> <b>Velocity :</b> -(m/s)
+                    Opening :</b> -(mm) <b>&nbsp;&nbsp;|&nbsp;&nbsp;</b> <b>Velocity :</b> -(m/s) -->
                 </marquee>
                 <!-- <span class="m-1 p-1" style="border: 1px solid white;padding:5px;border-radius:4px;"><b>Battery : 23(v)</b> </span>&nbsp;&nbsp;
                 <span class="m-1 p-1" style="border: 1px solid white;padding:5px;border-radius:4px;"><b>Flow Rate : 12(m3/s)</b> </span>&nbsp;&nbsp;
@@ -68,7 +69,19 @@
       <div class="col-md-4 grid-margin stretch-card">
         <div class="card" style="background-color: #15b326;color:white;">
           <div class="card-body">
-            <h4 class="card-title"><i class="fa-solid fa-water"></i> Total Water Discharged</h4>
+            <div class="row">
+              <div class="col-lg-8">
+                <h4 class="card-title"><i class="fa-solid fa-water"></i> Total Water Discharged</h4>
+              </div>
+              <div class="col-lg-4 text-right">
+                <select name="" id="" class="">
+                  <option value=""><small>Today</small></option>
+                  <option value=""><small>Current Month</small></option>
+                  <option value=""><small>Last Month</small></option>
+                  <option value=""><small>Till Date</small></option>
+                </select>
+              </div>
+            </div>
             <p><b style="font-size: 40px;" data-target="0" class="count">0</b> cusec</p>
             <!-- <div id="demo" class="carousel slide" data-ride="carousel">
               <div class="carousel-inner"> -->
@@ -108,11 +121,11 @@
               <div class="card-body">
                 <div class="d-sm-flex justify-content-between align-items-start">
                   <div>
-                    <h4 class="card-title card-title-dash">Stationwise Flow Rate</h4>
+                    <h4 class="card-title card-title-dash">SHARANPUR - Yamuna Stretch Details</h4>
                     <!-- <h5 class="card-subtitle card-subtitle-dash">Lorem Ipsum is simply dummy text of the
                               printing</h5> -->
                   </div>
-                  <div id="performance-line-legend"></div>
+                  <!-- <div id="performance-line-legend"></div> -->
                 </div>
                 <div class="chartjs-wrapper mt-5">
                   <canvas id="performaneLine"></canvas>
