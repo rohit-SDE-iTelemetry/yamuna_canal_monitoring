@@ -21,7 +21,7 @@ urlpatterns = [
 
     # site urls
     path('add-site', add_site,name = "add_site"),
-    path('view-site', view_site,name = "view_site"),
+    path('view-site/<uuid:uuid>', view_site,name = "view_site"),
     path('edit-site', edit_site,name = "edit_site"),
     path('sites', site_list,name = "sites"),
 
