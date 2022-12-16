@@ -105,8 +105,8 @@ class SiteInfo(models.Model):
     readings = models.TextField(max_length=999, blank=True, null=True)
     file_info = models.TextField(default=None, null=True)
     # rename later
-    cpcb_status = models.BooleanField(default=False,verbose_name='CPCB Upload Status')
-    pcb_status = models.BooleanField(default=False,verbose_name='PCB Upload Status')
+    nic_status = models.BooleanField(default=False,verbose_name='NIC Upload Status')
+    sdc_status = models.BooleanField(default=False,verbose_name='SDC Upload Status')
     received_at = models.DateTimeField(blank=True,null=True)
     freq = models.CharField(max_length=256, blank=True,verbose_name='File Frequency')
     var5 = models.CharField(max_length=256, blank=True)
