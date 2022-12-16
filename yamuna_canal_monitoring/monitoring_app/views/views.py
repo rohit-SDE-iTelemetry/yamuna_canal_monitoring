@@ -20,6 +20,12 @@ def dashboard(request):
                 i.site_status = status
                 i.save()
             context['sites'] = SiteInfo.objects.all()
+            context['live_sites'] = Site.objects.filter(site_status='Live').count()
+            context['delay_sites'] = Site.objects.filter(site_status='Delay').count()
+            context['offline_sites'] = Site.objects.filter(site_status='Offline').count()
+            context['disabled_sites'] = Site.objects.filter(site_status='Disabled').count()
+            context['nat_sites'] = Site.objects.filter(site_status='No Record Availabe').count()
+            context['last_reading'] = Reading2022.objects.latest('timestamp')
 
         return render(request,'dashboard.html',context)
 

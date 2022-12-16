@@ -79,6 +79,8 @@ class FTPRequest:
             site_obj = Site.objects.get(prefix__iexact = self.prefix)
             db_record = Reading2022(site=site_obj, readings=self.db_reading, timestamp=datetime.now())
             db_record.save()
+            site_obj.site_status = 'Live'
+            site_obj.save()
             try:
                 siteinfo = SiteInfo.objects.get(site = site_obj)
                 siteinfo.last_seen = datetime.now()
