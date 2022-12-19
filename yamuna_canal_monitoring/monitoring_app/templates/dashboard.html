@@ -204,12 +204,14 @@
                   <td>
                     {% if site.site_status == 'Live' %}
                       <a class="text-white badge badge-success"><b>{{site.site_status}}</b></a>
+                    {% elif site.site_status == 'Delay' %}
+                      <a class="text-white badge badge-warning"><b>{{site.site_status}}</b></a>
                     {% elif site.site_status == 'Offline' %}
                       <a class="text-white badge badge-danger"><b>{{site.site_status}}</b></a>
-                    {% elif site.site_status == 'Offline' %}
-                      <a class="text-white badge badge-delay"><b>{{site.site_status}}</b></a>
+                    {% elif site.site_status == 'Disabled' %}
+                      <a class="text-white badge badge-info"><b>{{site.site_status}}</b></a>
                     {% else %}
-                    <a class="text-danger"><b>{{site.site_status}}</b></a>
+                      <a class="text-danger"><small><b>{{site.site_status}}</b></small></a>
                     {% endif %}
                   </td>
                   <td>

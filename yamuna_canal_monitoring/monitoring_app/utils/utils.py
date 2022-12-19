@@ -6,14 +6,14 @@ def check_site_status(site_obj):
     last_record = Reading2022.objects.filter(site = site_obj.site).last()
     if(last_record):
         hours = get_tdifference(datetime.now(timezone.utc),last_record.timestamp)
-        if(hours >= 0 and hours < site_obj.hours2delay):
+        if(hours >= 0 and hours < site_obj.site.hours2delay):
             status = 'Live'
         elif(hours < 0):
             status = 'Live'
-        elif(hours >= site_obj.hours2delay and hours < site_obj.hours2offline):
+        elif(hours >= site_obj.site.hours2delay and hours < site_obj.site.hours2offline):
             status = 'Delay'
-        elif(hours >= site_obj.hours2offline and hours < site_obj.hours2offline):
-            status = 'No Record Available'
+        elif(hours >= site_obj.site.hours2offline and hours > site_obj.site.hours2offline):
+            status = 'Offline'
         else:
             status = 'Disabled'
     else:
