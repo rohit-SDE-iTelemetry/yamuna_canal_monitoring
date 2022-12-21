@@ -2,6 +2,16 @@
 <!DOCTYPE html>
 <html lang="en">
 {% include 'utils/header.html' %}
+<style>
+  #top {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 999;
+    width: 100%;
+    height: 23px;
+}
+</style>
 <body>
   <div class="container-scroller">
     <nav class="navbar default-layout col-lg-12 col-12 p-0 fixed-top d-flex align-items-top flex-row">
@@ -64,7 +74,7 @@
       </div>
     </nav>
     <!-- partial -->
-    <div class="container-fluid page-body-wrapper">
+    <div class="container-fluid page-body-wrapper" id="top">
       <div id="right-sidebar" class="settings-panel">
         <i class="settings-close ti-close"></i>
         <div class="tab-content" id="setting-content">
