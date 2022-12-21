@@ -307,6 +307,8 @@ def edit_site(request):
 def gis(request):
     if request.method == 'GET':
         context = {}
+        sites = Site.objects.all()
+        context['sites'] = sites
         return render(request,'gis/gis.html',context)
 
 #########################################################################################################
