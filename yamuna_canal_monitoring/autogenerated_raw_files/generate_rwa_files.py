@@ -22,12 +22,12 @@ from yamuna_canal_monitoring.GLOBALS import RAW_FILES_DESTINATION, TDAY,\
 # log = logging.getLogger()
 # log.setLevel(logging.INFO)
 
-try:
-    os.mkdir(CURRENT_DATE_BASE)
-    print('raw file folder created for date : %s' % datetime.now().strftime('%d%b%Y'))
-except Exception as err:
-    print('Error : %s' % err)
-    pass
+# try:
+#     os.mkdir(CURRENT_DATE_BASE)
+#     print('raw file folder created for date : %s' % datetime.now().strftime('%d%b%Y'))
+# except Exception as err:
+#     print('Error : %s' % err)
+#     pass
     
 site_array = [{'demo001':'demo001'}]
 station_array = ['demo001']
@@ -83,6 +83,7 @@ def generate_files():
     json_array['data'] = param_json
 
     print('json_array >>>> ',json_array,)
+    print('CURRENT_DATE_BASE >>>>> ',CURRENT_DATE_BASE)
     # Writing to a .json file
     with open(f"{CURRENT_DATE_BASE}/{station_id}_{unix_ts}.json", "w") as jsonFile:
         jsonFile.write(json.dumps(json_array))
