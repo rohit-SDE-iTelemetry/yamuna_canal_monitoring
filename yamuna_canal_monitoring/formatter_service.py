@@ -84,13 +84,13 @@ class FTPRequest:
             try:
                 siteinfo = SiteInfo.objects.get(site = site_obj)
                 siteinfo.last_seen = datetime.now()
-                siteinfo.last_upload_info = f"laste reading received at : {self.timeStamp}"
+                siteinfo.last_upload_info = f"last reading received at : {self.timeStamp}"
                 siteinfo.readings = self.db_reading
                 siteinfo.received_at = datetime.now()
                 siteinfo.save()
             except:
                 siteinfo = SiteInfo(site = site_obj, last_seen = datetime.now(), 
-                                    last_upload_info = f"laste reading received at : {self.timeStamp}", 
+                                    last_upload_info = f"last reading received at : {self.timeStamp}", 
                                     readings = self.db_reading, 
                                     received_at = datetime.now()) 
                 siteinfo.save()

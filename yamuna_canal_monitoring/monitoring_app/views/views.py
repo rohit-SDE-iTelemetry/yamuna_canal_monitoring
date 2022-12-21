@@ -17,10 +17,7 @@ def dashboard(request):
         if request.user.is_superuser:
             for i in SiteInfo.objects.all():
                 utils.check_site_status(i)
-                # i.site_status = status
-                # i.save()
             utils.site_details(context)
-
         return render(request,'dashboard.html',context)
 
 

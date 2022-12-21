@@ -24,7 +24,7 @@ import enum
 import shutil
 
 from yamuna_canal_monitoring.GLOBALS import TODAYS_BASE,\
-    BUFFER_BASE,  TODAYS_JUNK, LAST_FILE_BASE, PROCESSED_BASE
+    BUFFER_BASE,  TODAYS_JUNK, LAST_FILE_BASE, PROCESSED_BASE, CURRENT_DATE_BASE
 # from formatter_service import formatter
 import formatter_service
 
@@ -141,6 +141,7 @@ def prerequisite():
                 TODAYS_JUNK, 
                 LAST_FILE_BASE,
                 PROCESSED_BASE,
+                CURRENT_DATE_BASE,
                 ]
     for dr in dir2chk:
         if not os.path.exists(dr):
