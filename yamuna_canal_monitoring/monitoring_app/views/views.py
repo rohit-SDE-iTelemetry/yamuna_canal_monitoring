@@ -9,6 +9,7 @@ from monitoring_app.utils.GLOBALS import permissionObj,exlude_permissions,get_pe
 from auth_app.models import UserProfile
 from monitoring_app.models import *
 from monitoring_app.utils import utils
+from datetime import datetime
 # dashboard view
 @login_required(login_url='/')
 def dashboard(request):
@@ -184,6 +185,31 @@ def view_site(request,uuid):
         except Exception as e:
             print("Error while fetching site using uuid: {}".format(e))
         return render(request,'sites/view-site.html',context)
+
+# site check via ajax
+@login_required(login_url='/')
+def site_check(request, uuid):
+    if request.method == 'GET':
+        context = {}
+        try:
+            site_obj = SiteInfo.objects.get(uuid=uuid)
+            print('site_obj 1 >>>> ', site_obj)
+            print('latest reading 1 >>>> ', site_obj.readings)
+            reading_dict = {}
+            if(site_obj.readings):
+                convert_lst = site_obj.readings.replace('"','').split(",")
+                for i in convert_lst:
+                    reading_dict[i.split('=>')[0]] = i.split('=>')[1]
+                reading_dict['timestamp'] = datetime.strftime(site_obj.last_seen,'%d-%b-%Y %H:%M %p')
+                print('reading_dict 1 >>> ', reading_dict)
+
+            context['site_status'] = site_obj.site_status
+            context['reading_dict'] = reading_dict
+        except Site.DoesNotExist:
+            print("site doesnot exist")
+        except Exception as e:
+            print("Error while fetching site using uuid: {}".format(e))
+        return JsonResponse({'response' : context}, safe=False)
 
 # add-site view
 @login_required(login_url='/')

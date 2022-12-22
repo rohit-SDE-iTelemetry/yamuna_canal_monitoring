@@ -1,0 +1,1 @@
+{"station_id": "demo002", "prefix": "demo002", "timestamp": 1671708031, "data": {"battery": {"value": 14.59, "unit": "v"}, "waterLevel": {"value": 3.17, "unit": "m"}, "flowRate": {"value": 3.11, "unit": "m3/s"}, "gateOpening": {"value": 74.27, "unit": "mm"}, "velocity": {"value": 9.41, "unit": "m/s"}}}
