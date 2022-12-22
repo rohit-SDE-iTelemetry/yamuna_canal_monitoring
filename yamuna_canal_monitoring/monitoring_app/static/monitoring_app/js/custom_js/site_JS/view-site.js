@@ -139,7 +139,7 @@ function params_cards(localStg_response) {
     $('#params-cards').html(param_card_str);
 }
 
-
+// hd
 // generate html params cards
 function generate_params_cards(param, param_val, param_unit, param_lmt, param_icon, timestamp) {
     return '<div class="col-lg-3 p-1">\
