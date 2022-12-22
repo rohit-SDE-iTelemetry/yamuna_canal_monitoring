@@ -1,14 +1,18 @@
 {% extends 'utils/base.html' %}
 {% block content %}
 <style>
-  .hover-effect:hover {
+  /* .hover-effect:hover {
     color: white;
+  } */
+
+  /* .card-hover:hover {
+    background-color: rgb(24, 117, 192);
+        border-radius:3px;
   }
 
-  .card-hover:hover {
-    /* background-color: rgb(24, 117, 192);
-        border-radius:3px; */
-  }
+  .card-body {
+    background-color: #fcfcfc;
+  } */
 
 </style>
 <div class="main-panel">
@@ -17,69 +21,79 @@
       <div class="card-body">
         <div class="row">
           <div class="col-lg-12">
-            <p class="card-headings-text" style="background-color: #3790c6;padding: 10px;border-radius: 5px;"><i
+            <p class="card-headings-text" style="background-color: #477ada;padding: 10px;border-radius: 5px;"><i
                 class="fa-solid fa-circle-info"></i> Station Information
               <span class="float-right text-white">
                 <marquee class="news-content" scrollamount="4" onmouseover="this.stop();" onmouseout="this.start();">
-                  <!-- <b>{{site.readings|safe}} <small class="" style="color: rgb(124, 10, 10);">( <strong>last updated at :
-                        {{site.received_at}}</strong> )</small></b> -->
                   {% for k, v in reading_dict.items %}
                   <b><a class="badge badge-success">{{k|title}} : {{v}}</a></b>
                   {% endfor %}
-                  <small style="color: rgb(124, 10, 10);">( <strong>last updated at : {{site.received_at}}</strong>
+                  <small style="color: #ffffff">( <strong>last updated at : {{site.received_at}}</strong>
                     )</small>
-                  <!-- <b>Battery :</b> 23(v) <b>&nbsp;&nbsp;|&nbsp;&nbsp;</b> <b>Water Level :</b> 2.3(m)
-                    <b>&nbsp;&nbsp;|&nbsp;&nbsp;</b> <b>Flow Rate :</b> 23(m3/s) <b>&nbsp;&nbsp;|&nbsp;&nbsp;</b> <b>Gate
-                      Opening :</b> 15(mm) <b>&nbsp;&nbsp;|&nbsp;&nbsp;</b> <b>Velocity :</b> 13(m/s) <small class="text-danger">( <strong>last updated at : 15-Nov-2022 15:53:98</strong> )</small> -->
                 </marquee>
               </span>
             </p>
           </div>
         </div>
+        <!-- dc -->
         <div class="row">
           <div class="col-lg-4">
-            <div class="card" style="box-shadow: 0 0 1rem 0 rgba(0, 0, 0, .2);border-radius:10px;">
-              <!-- <div class="card-header" style="background-color: rgb(112, 179, 196);">
-                <strong>Battery <i class="fa-solid fa-battery-full"></i></strong>
-                <div class="float-right">
-                  <small><b>Last updated at : </b></small>
-                </div>
-                <h4><small>Station basic info with image</small></h4>
-              </div> -->
-              <div class="card-body">
+            <!-- <div class="card" style="box-shadow: 0 0 1rem 0 rgba(0, 0, 0, .2);border-radius:10px;"> -->
+              <!-- <div class="card-body"> -->
                 <div class="row">
                   <div class="col-lg-12">
                     <div class="text-center">
                       <img
-                        src="https://www.indiawaterportal.org/sites/default/files/styles/node_lead_image/public/iwp/munak-clc1.jpg?itok=v_r-STuV"
+                        src="https://www.indiawaterportal.org/sites/default/files/styles/node_lead_image/public/iwp/munak-clc1.jpg"
                         alt="" style="height: 100%;width:100%;">
                     </div>
                   </div>
                 </div>
-              </div>
-            </div>
+              <!-- </div> -->
+            <!-- </div> -->
           </div>
 
           <div class="col-lg-8">
-            <div class="card" style="box-shadow: 0 0 1rem 0 rgba(0, 0, 0, .2);border-radius:10px;">
+            <!-- <div class="card" style="box-shadow: 0 0 1rem 0 rgba(0, 0, 0, .2);border-radius:10px;"> -->
               <div class="card-body ">
                 <div class="row">
                   <div class="col-lg-12">
                     <div class="text-left">
                       <div class="row">
                         <div class="col-lg-5">
-                          <h5><strong style="text-decoration:underline;">{{site.site.name}}</strong></h5>
+                          <h5>
+                            <strong style="text-decoration:underline;">{{site.site.name}}</strong>
+                            <small>
+                              {% if site.site_status == 'Live' %}
+                                <a class="text-white badge badge-success"><b>{{site.site_status}}</b></a>
+                              {% elif site.site_status == 'Delay' %}
+                                <a class="text-white badge badge-warning"><b>{{site.site_status}}</b></a>
+                              {% elif site.site_status == 'Offline' %}
+                                <a class="text-white badge badge-danger"><b>{{site.site_status}}</b></a>
+                              {% elif site.site_status == 'Disabled' %}
+                                <a class="text-white badge badge-info"><b>{{site.site_status}}</b></a>
+                              {% else %}
+                                <a class="text-danger"><small><b>{{site.site_status}}</b></small></a>
+                              {% endif %}
+                            </small>
+                            <br>
+                            <p><b>Prefix : </b> <b class="text-secondary">{{site.site.prefix}}</b></p>
+                          </h5>
                         </div>
                         <div class="col-lg-7 text-right">
-                          <p><strong class="text-secondary"><a href="" title="locate me">
+                          <p class="text-secondary"><strong class="text-secondary"><a href=""  data-toggle="tooltip" data-placement="top" title="locate me on map">
                                 <b><i class="fa-solid fa-location-dot"></i></b>
                               </a>{{site.site.address}}, {{site.site.city}},
-                              {{site.site.state}}, {{site.site.zipcode}}</strong></p>
+                              {{site.site.state}}, {{site.site.zipcode}}</strong><br>
+                              <strong>Longitude : </strong>{{site.site.longitude|floatformat:8}}, <strong>Latitude : </strong>{{site.site.latitude|floatformat:8}}</p>
                         </div>
                       </div>
+                      <hr>
                       <div class="row">
                         <div class="col-lg-4">
-                          <p><b>Prefix : </b> <b class="text-secondary">{{site.site.prefix}}</b></p>
+                          <p><b>Today Exceedances <a class="text-info" data-toggle="tooltip" data-placement="top" title="It is the values of parameters that are exceeded over its defined limit."><i class="fa-solid fa-circle-info"></i></a> : </b>
+                            <b class="text-secondary">00</b>
+                          </p>
                         </div>
                         <div class="col-lg-4">
                           <p><b>Category : </b> <b class="text-secondary">{{site.site.site_category.category_name}}</b></p>
@@ -96,18 +110,18 @@
                         <div class="col-lg-12">
                           <p><b>Station Parameters : </b>
                             {% if reading_dict|length == 0 %}
-                            <a style="width: 200px;height: 20px;font-size: 12px;background-color: rgb(243, 210, 62);padding-right: 5px;"
+                            <a style="width: 200px;height: 20px;font-size: 12px;background-color: #FDFF00;padding-right: 5px;"
                               class="badge badge-primary" data-toggle="tooltip" data-placement="top" title="No parameter available">No parameter available</a>
                             {% else %}
                             {% for k, v in reading_dict.items %}
                             {% if k|title == 'Gateopening' %}
                             <b>
-                              <a style="width: 90px;height: 20px;font-size: 12px;background-color: rgb(221, 43, 58);padding-right: 5px;"
+                              <a style="width: 90px;height: 20px;font-size: 12px;background-color: #FB3569;padding-right: 5px;"
                               class="badge badge-primary" data-toggle="tooltip" data-placement="top" title="parameter is not live">{{k|title}}</a>
                             </b>
                             {% else %}
                             <b>
-                              <a style="width: 90px;height: 20px;font-size: 12px;background-color: rgb(168, 204, 85);padding-right: 5px;"
+                              <a style="width: 90px;height: 20px;font-size: 12px;background-color: #38E54D;padding-right: 5px;"
                               class="badge badge-primary" data-toggle="tooltip" data-placement="top" title="parameter is live">{{k|title}}</a>
                             </b>
                             {% endif %}
@@ -118,17 +132,9 @@
                       </div>
                       <div class="row">
                         <div class="col-lg-12">
-                          <p><b>Today Exceedances : </b>
-                            <b class="text-secondary">00</b>
-                          </p>
-                        </div>
-                      </div>
-                      <hr>
-                      <div class="row">
-                        <div class="col-lg-12">
                           <p style="font-size: 15px;font-weight:700;">Todays Weather</p>
                         </div>
-                        <div class="col-lg-3" style="border: 2px solid grey;border-radius:5px;">
+                        <div class="col-lg-3" style="border: 2px solid white;border-radius:5px;background-color: #bfd5f8;">
                           <small><b>Temperature </b></small> <b><i class="text-info fa-solid fa-temperature-three-quarters"></i></b>
                           <div class="row">
                             <div class="col-lg-6">
@@ -139,7 +145,7 @@
                             </div>
                           </div>
                         </div>
-                        <div class="col-lg-3 ml-1" style="border: 2px solid grey;border-radius:5px;">
+                        <div class="col-lg-3 ml-1" style="border: 2px solid white;border-radius:5px;background-color: #b3f2f8;">
                           <small><b>Rainfall Posibility</b></small><b> <i class="text-secondary fa-solid fa-cloud-rain"></i></b>
                           <div class="row">
                             <div class="col-lg-12">
@@ -147,18 +153,19 @@
                             </div>
                           </div>
                         </div>
-                        <div class="col-lg-5 ml-1" style="border: 2px solid grey;border-radius:5px;">
+                        <div class="col-lg-5 ml-1" style="border: 2px solid white;border-radius:5px;background-color: #e2e2e2;">
                           <small><b>Weather</b></small> <b><i class="text-warning fa-solid fa-cloud"></i></b>
                           <div class="row">
                             <div class="col-lg-6">
-                              <small><b>Rainy</b></small>
+                              <small><b>Hazy</b></small>
                             </div>
                             <div class="col-lg-6 mb-1 text-right">
-                              <!-- <img src="https://cdn-icons-png.flaticon.com/512/1779/1779807.png" height="50" width="50" alt="hazy">
+                              <!-- 
                                 <img src="https://cdn-icons-png.flaticon.com/512/1779/1779807.png" height="50" width="50" alt="cloudy">
                                 <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTvEsVrAgveWIlpogi4-xwaIPZZkXu5vRciDg&usqp=CAU" height="50" width="50" alt="rainy">
-                                <img src="https://cdn-icons-png.flaticon.com/512/1779/1779807.png" height="50" width="50" alt="thunderstorm"> -->
                                 <img src="https://img.freepik.com/premium-vector/sun-cloud-cloudy-weather-symbol-forecast-icon-isolated-white-background_80590-12618.jpg" height="50" width="50" alt="sunny">
+                                <img src="https://cdn-icons-png.flaticon.com/512/1779/1779807.png" height="50" width="50" alt="thunderstorm"> -->
+                                <img src="https://cdn-icons-png.flaticon.com/512/1779/1779807.png" height="50" width="50" alt="hazy">
                             </div>
                           </div>
                         </div>
@@ -167,7 +174,7 @@
                   </div>
                 </div>
               </div>
-            </div>
+              <!-- </div> -->
           </div>
         </div>
       </div>
@@ -178,7 +185,7 @@
       <div class="card-body">
         <div class="row">
           <div class="col-lg-12">
-            <p class="card-headings-text" style="background-color: #3790c6;padding: 10px;border-radius: 5px;"><i
+            <p class="card-headings-text" style="background-color: #477ada;padding: 10px;border-radius: 5px;"><i
                 class="fa-solid fa-chart-simple" aria-hidden="true"></i> Station Stats
               <span class="float-right">
                 <a href="#" class="text-white">
@@ -192,60 +199,60 @@
           <div class="col-lg-12">
             <div class="row">
               <div class="col-lg-3 p-1">
-                <div class="col-lg-12" style="box-shadow: 0 0 1rem 0 rgba(0, 0, 0, .2);border-radius:10px;background-color: rgb(101, 151, 216);">
+                <div class="col-lg-12" style="box-shadow: 0 0 1rem 0 rgba(0, 0, 0, .2);border-radius:10px;background-color: #36AE7C">
                   <p><b class="text-white">Battery <i class="fa-solid fa-battery-full"></i></b>
                   <span class="float-right"><small class="text-white"><b><i class="fa-solid fa-bell"></i> Alert Limit : 20v</b></small></span>
                   </p>
                 </div>
-                <div class="col-lg-12" style="box-shadow: 0 0 1rem 0 rgba(0, 0, 0, .2);border-radius:10px;background-color: rgb(112, 179, 196);">
+                <div class="col-lg-12" style="box-shadow: 0 0 1rem 0 rgba(0, 0, 0, .2);border-radius:10px;background-color: #7FDBDA">
                   <span style="font-size: 12px;"><b class="text-dark">Current Reading : 56.9v</b></span>
                   <br>
                   <span style="font-size: 12px;"><b class="text-dark">Last received at : 21-12-2022 16:45 </b></span>
                 </div>
               </div>
               <div class="col-lg-3 p-1">
-                <div class="col-lg-12" style="box-shadow: 0 0 1rem 0 rgba(0, 0, 0, .2);border-radius:10px;background-color: rgb(101, 151, 216);">
+                <div class="col-lg-12" style="box-shadow: 0 0 1rem 0 rgba(0, 0, 0, .2);border-radius:10px;background-color: #36AE7C">
                   <p><b class="text-white">Water Level <i class="fa-solid fa-water"></i></b>
                   <span class="float-right"><small class="text-white"><b><i class="fa-solid fa-bell"></i> Alert Limit : 10m</b></small></span>
                   </p>
                 </div>
-                <div class="col-lg-12" style="box-shadow: 0 0 1rem 0 rgba(0, 0, 0, .2);border-radius:10px;background-color: rgb(112, 179, 196);">
+                <div class="col-lg-12" style="box-shadow: 0 0 1rem 0 rgba(0, 0, 0, .2);border-radius:10px;background-color: #7FDBDA">
                   <span style="font-size: 12px;"><b class="text-dark">Current Reading : 3.1m</b></span>
                   <br>
                   <span style="font-size: 12px;"><b class="text-dark">Last received at : 21-12-2022 16:45 </b></span>
                 </div>
               </div>
               <div class="col-lg-3 p-1">
-                <div class="col-lg-12" style="box-shadow: 0 0 1rem 0 rgba(0, 0, 0, .2);border-radius:10px;background-color: rgb(101, 151, 216);">
+                <div class="col-lg-12" style="box-shadow: 0 0 1rem 0 rgba(0, 0, 0, .2);border-radius:10px;background-color: #36AE7C">
                   <p><b class="text-white">Flow Rate <i class="fa-solid fa-bars-staggered"></i></b>
                   <span class="float-right"><small class="text-white"><b><i class="fa-solid fa-bell"></i> Alert Limit : 20m/s</b></small></span>
                   </p>
                 </div>
-                <div class="col-lg-12" style="box-shadow: 0 0 1rem 0 rgba(0, 0, 0, .2);border-radius:10px;background-color: rgb(112, 179, 196);">
+                <div class="col-lg-12" style="box-shadow: 0 0 1rem 0 rgba(0, 0, 0, .2);border-radius:10px;background-color: #7FDBDA">
                   <span style="font-size: 12px;"><b class="text-dark">Current Reading : 2.7m/s</b></span>
                   <br>
                   <span style="font-size: 12px;"><b class="text-dark">Last received at : 21-12-2022 16:45 </b></span>
                 </div>
               </div>
               <div class="col-lg-3 p-1">
-                <div class="col-lg-12" style="box-shadow: 0 0 1rem 0 rgba(0, 0, 0, .2);border-radius:10px;background-color: rgb(101, 151, 216);">
+                <div class="col-lg-12" style="box-shadow: 0 0 1rem 0 rgba(0, 0, 0, .2);border-radius:10px;background-color: #36AE7C">
                   <p><b class="text-white">Gate Opening <i class="fa-solid fa-door-open"></i></b>
                   <span class="float-right"><small class="text-white"><b><i class="fa-solid fa-bell"></i> Alert Limit : 9mm</b></small></span>
                   </p>
                 </div>
-                <div class="col-lg-12" style="box-shadow: 0 0 1rem 0 rgba(0, 0, 0, .2);border-radius:10px;background-color: rgb(112, 179, 196);">
+                <div class="col-lg-12" style="box-shadow: 0 0 1rem 0 rgba(0, 0, 0, .2);border-radius:10px;background-color: #7FDBDA">
                   <span style="font-size: 12px;"><b class="text-dark">Current Reading : 4.7mm</b></span>
                   <br>
                   <span style="font-size: 12px;"><b class="text-dark">Last received at : 21-12-2022 16:45 </b></span>
                 </div>
               </div>
               <div class="col-lg-3 p-1">
-                <div class="col-lg-12" style="box-shadow: 0 0 1rem 0 rgba(0, 0, 0, .2);border-radius:10px;background-color: rgb(101, 151, 216);">
+                <div class="col-lg-12" style="box-shadow: 0 0 1rem 0 rgba(0, 0, 0, .2);border-radius:10px;background-color: #36AE7C">
                   <p><b class="text-white">Velocity <i class="fa-solid fa-gauge"></i></b>
                   <span class="float-right"><small class="text-white"><b><i class="fa-solid fa-bell"></i> Alert Limit : 20m/s</b></small></span>
                   </p>
                 </div>
-                <div class="col-lg-12" style="box-shadow: 0 0 1rem 0 rgba(0, 0, 0, .2);border-radius:10px;background-color: rgb(112, 179, 196);">
+                <div class="col-lg-12" style="box-shadow: 0 0 1rem 0 rgba(0, 0, 0, .2);border-radius:10px;background-color: #7FDBDA">
                   <span style="font-size: 12px;"><b class="text-dark">Current Reading : 3.5m/s</b></span>
                   <br>
                   <span style="font-size: 12px;"><b class="text-dark">Last received at : 21-12-2022 16:45 </b></span>
@@ -256,7 +263,7 @@
 
               <!-- <div class="col-lg-4 p-1">
                 <div class="card" style="box-shadow: 0 0 1rem 0 rgba(0, 0, 0, .2);border-radius:10px;">
-                  <div class="card-header" style="background-color: rgb(112, 179, 196);">
+                  <div class="card-header" style="background-color: #7FDBDA">
                     <strong>Totalizer <i class="fa-solid fa-layer-group"></i></strong>
                     <div class="float-right">
                       <small><b>Last updated at : </b></small>
@@ -284,7 +291,7 @@
       <div class="card-body">
         <div class="row">
           <div class="col-lg-12">
-            <p class="card-headings-text" style="background-color: #3790c6;padding: 10px;border-radius: 5px;"><i
+            <p class="card-headings-text" style="background-color: #477ada;padding: 10px;border-radius: 5px;"><i
                 class="fa-solid fa-arrow-trend-up"></i> Live Trends </p>
           </div>
         </div>
