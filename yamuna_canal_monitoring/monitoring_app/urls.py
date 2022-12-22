@@ -7,6 +7,7 @@ from monitoring_app.views.dss_ws_view import *
 urlpatterns = [
     path('dashboard', dashboard,name = "dashboard"),
     path('site-info/<uuid:uuid>', siteinfo_data,name = "siteinfo_data"),
+    path('site-check/<uuid:uuid>', site_check, name="site_check"),
 
     # reports url
     path('report', report,name = "report"),

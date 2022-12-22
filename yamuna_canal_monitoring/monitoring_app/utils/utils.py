@@ -42,3 +42,5 @@ def site_details(context_dict):
     context_dict['nat_sites'] = Site.objects.filter(site_status='No Record Availabe').count()
     context_dict['last_reading'] = Reading2022.objects.latest('timestamp')
     return context_dict
+
+

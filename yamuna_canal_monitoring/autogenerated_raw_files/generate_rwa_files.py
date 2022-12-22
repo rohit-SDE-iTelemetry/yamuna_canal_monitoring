@@ -32,6 +32,8 @@ from yamuna_canal_monitoring.GLOBALS import RAW_FILES_DESTINATION, TDAY,\
 site_array = [{'demo001':'demo001'}]
 station_array = ['demo001', 'demo002']
 param_array = ['battery','waterLevel','flowRate','gateOpening','velocity']
+# param_array = ['battery','waterLevel']
+
 
 '''
 raw json data format : {
