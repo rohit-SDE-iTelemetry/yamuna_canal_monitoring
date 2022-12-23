@@ -18,6 +18,13 @@ def dashboard(request):
         if request.user.is_superuser:
             for i in SiteInfo.objects.all():
                 utils.check_site_status(i)
+                reading_str = ''
+                if(i.readings):
+                    convert_lst = i.readings.replace('"','').split(",")
+                    for j in convert_lst:
+                        reading_str = reading_str + f"<a class='text-white badge badge-info'>{j.split('=>')[0].capitalize()} : {j.split('=>')[1]}</a>&nbsp;"
+                i.readingsDict = reading_str
+                i.save()
             utils.site_details(context)
         return render(request,'dashboard.html',context)
 
