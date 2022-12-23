@@ -26,7 +26,7 @@
                 </div>
                 <hr>
                 <div class="row">
-                    <div class="col-lg-3">
+                    <div class="col-lg-4">
                         <div class="card"
                             style="box-shadow: 0 0 1rem 0 rgba(0, 0, 0, .2);border-radius:10px;background-color:rgb(46, 88, 167);">
                             <a class="text-white" style="text-decoration:none;">
@@ -37,35 +37,35 @@
                                 </div>
                             </a>
                         </div>
-                    </div>
+                    </div> 
         
-                    <div class="col-lg-3">
+                    <div class="col-lg-4">
                         <div class="card"
                             style="box-shadow: 0 0 1rem 0 rgba(0, 0, 0, .2);border-radius:10px;background-color:rgb(35, 121, 124);">
                             <a class="text-white" style="text-decoration:none;">
                                 <div class="card-body">
                                     <b><i class="fa-solid fa-door-open"></i> Gates Opening Alert</b>
                                     <hr>
-                                    <p style="font-size: 30px;"><b>20</b></p>                                
+                                    <p style="font-size: 30px;"><b>0</b></p>                                
                                 </div>
                             </a>
                         </div>
                     </div>
 
-                    <div class="col-lg-3">
+                    {% comment %} <div class="col-lg-4">
                         <div class="card"
                             style="box-shadow: 0 0 1rem 0 rgba(0, 0, 0, .2);border-radius:10px;background-color:rgb(146, 62, 14);">
                             <a class="text-white" style="text-decoration:none;">
                                 <div class="card-body">
                                     <b><i class="fa-solid fa-clock"></i> Water Scheduling Alert</b>
                                     <hr>
-                                    <p style="font-size: 30px;"><b>2</b></p>                                                             
+                                    <p style="font-size: 30px;"><b>0</b></p>                                                             
                                 </div>
                             </a>
                         </div>
-                    </div>
+                    </div> {% endcomment %}
 
-                    <div class="col-lg-3">
+                    <div class="col-lg-4">
                         <div class="card"
                             style="box-shadow: 0 0 1rem 0 rgba(0, 0, 0, .2);border-radius:10px;background-color:rgb(136, 28, 69);">
                             <a href="" class="text-white" style="text-decoration:none;">
@@ -89,35 +89,29 @@
                     </div>
                     <div class="col-lg-6 text-right">
                         <a href="" class="btn btn-sm btn-warning" data-toggle="tooltip" data-placement="top"
-                        title="Generate reports"><b><i class="fa-solid fa-file"></i> Generate Reports</b></a>
+                        title="Generate reports"><b><i class="fa-solid fa-file"></i> Export Reports as PDF</b></a>
                     </div>
                 </div>
                 <hr>
                 <div class="row" style="max-height: 700px;overflow-y: scroll;">
                     <div class="col-lg-12">
-                        <!-- <div class="text-center">
-                            <h4><b>No Station Configured!</b></h4>
-                        </div> -->
                         <table id="" class="table" width="100%">
-                            <thead>
+                            <thead class="bg-info">
                               <tr>
-                                <th class="" width="200">-
+                                <th class="" width="200">Station Name
                                 </th>
-                                <th class="" width="200">-
+                                <th class="" width="200">Station Prefix
                                 </th>
-                                <th class="" width="200">-
+                                <th class="" width="200">Alert Type
                                 </th>
-                                <th class="" width="200">-
+                                <th class="" width="200">Alert Recorded On
                                 </th>
-                                <th class="" width="200">-
-                                </th>
-                                <th class="text-center" width="200">-
-                                </th>
-                                <th class="text-center" width="200">-
+                                <th class="" width="200">Alert Recorded for
                                 </th>
                               </tr>
                             </thead>
                             <tbody>
+                              {% comment %} 
                               <tr>
                                 <td><b><a href="">-</a></b></td>
                                 <td>-</td>
@@ -130,7 +124,17 @@
                                 <td class="text-center">
                                    -
                                 </td>
-                              </tr>
+                              </tr> 
+                              {% endcomment %}
+                              <tr>
+                                <td></td>
+                                <td></td>
+                                <td>
+                                    <p class="text-danger"><b><i class="fa-solid fa-triangle-exclamation"></i> No Alerts Found!</b></p>
+                                </td>
+                                <td></td>
+                                <td></td>
+                              </tr> 
                             </tbody>
                           </table>
                     </div>
