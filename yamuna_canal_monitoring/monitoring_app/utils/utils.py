@@ -41,6 +41,7 @@ def site_details(context_dict):
     context_dict['disabled_sites'] = Site.objects.filter(site_status='Disabled').count()
     context_dict['nat_sites'] = Site.objects.filter(site_status='No Record Availabe').count()
     context_dict['last_reading'] = Reading2022.objects.latest('timestamp')
+    context_dict['lastest_reading'] = SiteInfo.objects.latest('last_seen')
     return context_dict
 
 
