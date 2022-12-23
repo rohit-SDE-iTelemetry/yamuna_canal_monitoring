@@ -52,7 +52,7 @@
               <div class="news">
                 <p><b style="font-size: 35px;">{{last_reading.site.name}}</b>&nbsp;&nbsp;<b style="font-size: 15px;">- {{last_reading.timestamp}}</b></p>
                 <marquee class="news-content">
-                  <b>{{last_reading.readings}}</b>
+                  <b>{{lastest_reading.readingsDict|safe}}</b>
                   <!-- <b>Battery :</b> -(v) <b>&nbsp;&nbsp;|&nbsp;&nbsp;</b> <b>Water Level :</b> -(m)
                   <b>&nbsp;&nbsp;|&nbsp;&nbsp;</b> <b>Flow Rate :</b> -(m3/s) <b>&nbsp;&nbsp;|&nbsp;&nbsp;</b> <b>Gate
                     Opening :</b> -(mm) <b>&nbsp;&nbsp;|&nbsp;&nbsp;</b> <b>Velocity :</b> -(m/s) -->
