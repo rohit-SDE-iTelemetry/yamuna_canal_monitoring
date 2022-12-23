@@ -89,6 +89,7 @@ class Reading2022(models.Model):
     timestamp = models.DateTimeField(db_index=True, null=False)
     readings = models.TextField(max_length=999, blank=True)
 
+
     class Meta:
         unique_together = (('site', 'timestamp'),)
 
@@ -111,4 +112,6 @@ class SiteInfo(models.Model):
     freq = models.CharField(max_length=256, blank=True,verbose_name='File Frequency')
     var5 = models.CharField(max_length=256, blank=True)
     site_status = models.CharField(max_length=20, verbose_name='site status', default='NAT')
+    readingsDict = models.TextField(max_length=999, blank=True, null=True)
+
 
