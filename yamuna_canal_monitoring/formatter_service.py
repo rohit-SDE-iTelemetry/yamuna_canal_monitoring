@@ -7,7 +7,7 @@ from monitoring_app.models import *
 from yamuna_canal_monitoring.GLOBALS import SITE_DETAILS, READING_DB_FILE,\
     LOG_DT_FORMAT
 import celerytasks
-from monitoring_app.models import Site, SiteInfo, Reading2022
+from monitoring_app.models import Site, SiteInfo, Reading2022, Parameter
 
 # logging.basicConfig(filename='/home/rohit/Desktop/eyc/yamuna_canal_monitoring/yamuna_canal_monitoring/formatter.log', filemode='a', format=LOG_DT_FORMAT)
 # log = logging.getLogger()
@@ -97,6 +97,9 @@ class FTPRequest:
             print('reading saved!')
         except:
             print('%s prefix site not found', self.prefix)
+
+    
+
 
 
 
