@@ -69,7 +69,7 @@ function generate_report(){
         return false;
     }
 
-    // ajax call
+    // ajax call ------ 
     $.ajax({
         type: 'GET',
         url: "/report-filter",
