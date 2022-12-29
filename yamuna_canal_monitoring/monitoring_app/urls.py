@@ -10,7 +10,8 @@ urlpatterns = [
     path('site-check/<uuid:uuid>', site_check, name="site_check"),
 
     # reports url
-    path('report', report,name = "report"),
+    path('report', report, name = "report"),
+    path('report-filter', report_filter, name="report_filter"),
 
     # user urls
     path('user-management/add-user', add_user,name = "add_user"),
