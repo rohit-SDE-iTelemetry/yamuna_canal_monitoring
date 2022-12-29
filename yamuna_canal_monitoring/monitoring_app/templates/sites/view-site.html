@@ -38,7 +38,7 @@
                   <div class="col-lg-12">
                     <div class="text-center">
                       <img
-                        src="https://www.indiawaterportal.org/sites/default/files/styles/node_lead_image/public/iwp/munak-clc1.jpg"
+                        src="https://public-images-docs.s3.ap-south-1.amazonaws.com/sample-gate1.jpg"
                         alt="" style="height: 100%;width:100%;">
                     </div>
                   </div>
@@ -110,6 +110,7 @@
                             {% endif %}
                             {% endfor %}
                             {% endif %}
+                            <a class="text-primary float-right" style="cursor: pointer;" data-toggle="modal" data-target="#paramUpdate" data-backdrop="static" data-keyboard="false"><strong>Update Parameters</strong></a>
                           </p>
                         </div>
                       </div>
@@ -296,6 +297,72 @@
     <!-- main-panel ends -->
   </div>
 
+
+
+
+
+<!-- param update Modal -->
+<div class="modal fade" id="paramUpdate" tabindex="-1" role="dialog" aria-labelledby="paramUpdateTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Update Parameters Details</h5>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-lg-12">
+            <table class="table table-sm">
+              <thead class="bg-dark text-white">
+                <tr>
+                  <th>Parameter Name</th>
+                  <th>Parameter Unit</th>
+                  <th>Min. Limit</th>
+                  <th>Max. Limit</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Battery</strong></td>
+                  <td><input type="text" class="form-control" id="" placeholder="Enter unit" value="v"></td>
+                  <td><input type="text" class="form-control" id="" placeholder="Enter min. value" value="20"></td>
+                  <td><input type="text" class="form-control" id="" placeholder="Enter max. value" value=""></td>
+                </tr>
+                <tr>
+                  <td><strong>Water Level</strong></td>
+                  <td><input type="text" class="form-control" id="" placeholder="Enter unit" value="m"></td>
+                  <td><input type="text" class="form-control" id="" placeholder="Enter min. value" value="3"></td>
+                  <td><input type="text" class="form-control" id="" placeholder="Enter max. value" value="10"></td>
+                </tr>
+                <tr>
+                  <td><strong>Flow Rate</strong></td>
+                  <td><input type="text" class="form-control" id="" placeholder="Enter unit" value="m/s"></td>
+                  <td><input type="text" class="form-control" id="" placeholder="Enter min. value" value="3"></td>
+                  <td><input type="text" class="form-control" id="" placeholder="Enter max. value" value="10"></td>
+                </tr>
+                <tr>
+                  <td><strong>Gate Opening</strong></td>
+                  <td><input type="text" class="form-control" id="" placeholder="Enter unit" value="mm"></td>
+                  <td><input type="text" class="form-control" id="" placeholder="Enter min. value" value="3"></td>
+                  <td><input type="text" class="form-control" id="" placeholder="Enter max. value" value="10"></td>
+                </tr>
+                <tr>
+                  <td><strong>Velocity</strong></td>
+                  <td><input type="text" class="form-control" id="" placeholder="Enter unit" value="m/s"></td>
+                  <td><input type="text" class="form-control" id="" placeholder="Enter min. value" value="3"></td>
+                  <td><input type="text" class="form-control" id="" placeholder="Enter max. value" value="10"></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="badge badge-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="badge badge-primary">Update changes</button>
+      </div>
+    </div>
+  </div>
+</div>
 
   <script>
     $(function () {

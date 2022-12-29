@@ -12,6 +12,9 @@ class Category(models.Model):
     created_at = models.DateTimeField(auto_now=True, blank=True)
     last_updated_at = models.DateTimeField(default=django.utils.timezone.now)
 
+    def __str__(self):
+        return self.category_name
+
 
 # site model
 class Site(models.Model):
@@ -23,6 +26,7 @@ class Site(models.Model):
     site_status = models.CharField(max_length=20, verbose_name='site status', default='NAT')
     version = models.CharField(max_length=10, default='ver_1.0',verbose_name='Software Version',blank=True)
     site_category = models.ForeignKey(Category, blank=True, null=True,verbose_name="Site Category", on_delete=models.CASCADE)
+    # site_parameter = models.ManyToManyField(Parameter, blank=True, null=True,verbose_name="Site Parameters")
 
     # Address details of the Site
     address = models.TextField(default=None, null=True, blank=True)
@@ -69,17 +73,25 @@ class Site(models.Model):
     last_updated_at = models.DateTimeField(default=django.utils.timezone.now)
 
 
-
 # parameter master model
 class Parameter(models.Model):
     uuid = models.UUIDField(default=uuid.uuid4, primary_key=True,max_length=120)
+    site = models.ForeignKey(Site, blank=True, null=True,verbose_name="Site", on_delete=models.CASCADE)
     parameter_name = models.CharField(max_length=100, verbose_name='Parameter Name')
     parameter_slug = models.CharField(max_length=100, verbose_name='Parameter Slug')
+    parameter_max_limit = models.CharField(max_length=10, verbose_name='parameter_max_limit', null=True, blank=True)
+    parameter_min_limit = models.CharField(max_length=10, verbose_name='parameter_min_limit', null=True, blank=True)
+    parameter_unit = models.CharField(max_length=10, verbose_name='parameter_unit', null=True, blank=True)
     site_added_by = models.CharField(default='', verbose_name='Added By',max_length=120,blank=True)
     last_updated_by = models.CharField(default='', verbose_name='Last Updated By',max_length=120,blank=True)
     created_at = models.DateTimeField(auto_now=True, blank=True)
     last_updated_at = models.DateTimeField(default=django.utils.timezone.now)
 
+    class Meta:
+        unique_together = (('site', 'parameter_name'),)
+    
+    def __str__(self):
+        return self.parameter_name
 
 
 # site readings model
@@ -88,7 +100,6 @@ class Reading2022(models.Model):
     site = models.ForeignKey(Site, null=False,related_name='readings2022',on_delete=models.CASCADE)
     timestamp = models.DateTimeField(db_index=True, null=False)
     readings = models.TextField(max_length=999, blank=True)
-
 
     class Meta:
         unique_together = (('site', 'timestamp'),)
