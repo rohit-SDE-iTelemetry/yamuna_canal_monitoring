@@ -97,7 +97,7 @@
                               class="badge badge-primary" data-toggle="tooltip" data-placement="top" title="No parameter available">No parameter available</a>
                             {% else %}
                             {% for k, v in reading_dict.items %}
-                            {% if k|title == 'Gateopening' %}
+                            {% if k|title == '' %}
                             <b>
                               <a style="width: 90px;height: 20px;font-size: 12px;background-color: #FB3569;padding-right: 5px;"
                               class="badge badge-primary" data-toggle="tooltip" data-placement="top" title="parameter is not live">{{k|title}}</a>
