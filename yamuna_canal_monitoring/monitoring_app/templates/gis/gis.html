@@ -42,7 +42,7 @@
                                         </div>
                                         <hr>
                                         {% comment %} <h5 class="card-title text-secondary"><i class="fa-solid fa-circle-info"></i> Selected Station Information</h5> {% endcomment %}
-                                        <div class="row">
+                                        <div class="row d-none">
                                             {% comment %} <div class="col-lg-2">
                                                 <label for=""><b>Station Name</b></label>
                                                 <p>Station001</p>
@@ -99,6 +99,17 @@
     <!-- main-panel ends -->
 </div>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC2jIUfDq0QUVMJF5Y6y-cYlSHNuGp-DvU&callback=initMap&v=weekly" defer></script>
-<script src="{% static 'monitoring_app/js/map.js' %}"></script>
+{% comment %} <script src="{% static 'monitoring_app/js/map.js' %}"></script> {% endcomment %}
+<script>
+    function initMap() {
+        var center = {lat: 29.959694, lng: 77.549057};  var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 13,
+          center: center
+        });  var marker = new google.maps.Marker({
+          position: center,
+          map: map
+        });
+      }
+</script>
 
 {% endblock content %}
