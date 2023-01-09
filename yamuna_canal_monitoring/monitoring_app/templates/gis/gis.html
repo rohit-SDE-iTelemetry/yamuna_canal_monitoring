@@ -56,11 +56,7 @@
                                             {% if reading.site.uuid|slugify == industry %}
                                             <div class="col-lg-2">
                                                 <label for=""><b>Station Longitude</b></label>
-                                                <!-- {% for site in sites %} -->
-                                                <!-- {% if site.uuid|slugify == industry %} -->
                                                 <p>{{reading.site.longitude}}</p>
-                                                <!-- {% endif %} -->
-                                                <!-- {% endfor %} -->
                                             </div>
                                             <div class="col-lg-2">
                                                 <label for=""><b>Station Lattitude</b></label>
@@ -69,20 +65,20 @@
                                             <div class="col-lg-2">
                                                 {% comment %} <hr> {% endcomment %}
                                                 <label for=""><b>Current Water Level</b></label>
-                                                <p>{{reading.readings}}</p>
+                                                <p>{{reading.readings|slice:"34:38"}}(m)</p>
                                             </div>
                                             <div class="col-lg-2">
                                                 {% comment %} <hr> {% endcomment %}
                                                 <label for=""><b>Current Flow Rate</b></label>
-                                                <p>12 (m3/s)</p>
+                                                <p>{{reading.readings|slice:"-46:-42"}}(m3/s)</p>
                                             </div>
                                             <div class="col-lg-2">
                                                 <label for=""><b>Current Velocity</b></label>
-                                                <p>14 (m/s)</p>
+                                                <p>{{reading.readings|slice:"-5:-1"}}(m/s)</p>
                                             </div>
                                             <div class="col-lg-2">
                                                 <label for=""><b>Gate Opening</b></label>
-                                                <p>19 (mm)</p>
+                                                <p>{{reading.readings|slice:"-24:-20"}}(mm)</p>
                                             </div>
                                             {% endif %}
                                             {% endfor %}
@@ -107,12 +103,11 @@
     </div>
     <!-- main-panel ends -->
 </div>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC2jIUfDq0QUVMJF5Y6y-cYlSHNuGp-DvU&callback=&style=feature:administrative%7Celement:geometry%7Cvisibility:off&style=feature:poi%7Cvisibility:off&style=feature:road%7Cvisibility:off&style=feature:road%7Celement:labels.icon%7Cvisibility:off&style=feature:transit%7Cvisibility:off"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDS1mS6Y0c0VMcY5euijXzITuifVP4qnVE&callback=&style=feature:administrative%7Celement:geometry%7Cvisibility:off&style=feature:poi%7Cvisibility:off&style=feature:road%7Cvisibility:off&style=feature:road%7Celement:labels.icon%7Cvisibility:off&style=feature:transit%7Cvisibility:off"></script>
 <script src="{% static 'monitoring_app/js/map.js' %}"></script>
 <script type="text/javascript">
     function update_map(){
         var industry = $('#inputState').find(':selected').val();
-        console.log(industry);
         var map_url ='/gis?industry='+industry;
         document.location.href = map_url;
     }
@@ -237,15 +232,11 @@
             status ='warning'
             icon = delay_icon;
         }
-        // var siteDetailBox = '{{details}}'
-        {% for reading in readings %}
-        {% if reading.site.uuid|slugify == industry %}
-        var siteDetailBox = '<div style="font-size:3vw;color:red; width:100%; height:100%; background-color:blue;">{{reading.site.name}}<hr ></div>'
-        {% endif %}
-        {% endfor %}
-        console.log(siteDetailBox);
+        {% for site in sites %}
+        {% if site.uuid|slugify == industry %}
+        var siteDetailBox{{forloop.counter}} = '<div style="font-size:3vw; color:black; font-weight:bold; width:100%; height:100;"><a href="#" target="_blank">{{site.name}}-{{site.site_status}}</a><hr>{{site.city}}</div>'
         markPosition = new google.maps.LatLng({{site.latitude}}, {{site.longitude}});
-        var marker{{ forloop.counter }} =new google.maps.Marker(
+        var marker{{ forloop.counter }} = new google.maps.Marker(
                         {
                         position : markPosition,
                         icon : icon
@@ -258,7 +249,7 @@
         });
         google.maps.event.addListener(marker{{ forloop.counter }},'click',function() {
             var infowindow{{ forloop.counter }} = new google.maps.InfoWindow({
-              content:siteDetailBox,
+              content:siteDetailBox{{forloop.counter}},
               maxWidth: 400,
               maxHeight: 400,
 
@@ -266,6 +257,33 @@
             });
             infowindow{{ forloop.counter }}.open(map,marker{{ forloop.counter }});
         });
+        {% elif industry == "all" %}
+        var siteDetailBox{{forloop.counter}} = '<div style="font-size:3vw; color:black; font-weight:bold; width:100%; height:100;"><a href="#">{{site.name}}-{{site.site_status}}</a><hr>{{site.city}}</div>'
+        markPosition{{forloop.counter}} = new google.maps.LatLng({{site.latitude}}, {{site.longitude}});
+        console.log(markPosition);
+        var marker{{ forloop.counter }} = new google.maps.Marker(
+                        {
+                        position : markPosition{{forloop.counter}},
+                        icon : icon
+                        }
+                        );
+        marker{{ forloop.counter }}.setMap(map);
+        marker{{ forloop.counter }}.addListener('click', function(){
+            map.setZoom(7);
+          map.setCenter(marker{{ forloop.counter }}.getPosition());
+        });
+        google.maps.event.addListener(marker{{ forloop.counter }},'click',function() {
+            var infowindow{{ forloop.counter }} = new google.maps.InfoWindow({
+              content:siteDetailBox{{forloop.counter}},
+              maxWidth: 400,
+              maxHeight: 400,
+
+              //content:"<span class='label label-info'><b>({{site.status}})</b></span>"
+            });
+            infowindow{{ forloop.counter }}.open(map,marker{{ forloop.counter }});
+        });
+        {% endif %}
+        {% endfor %}
     {% endfor %}
 }
 </script>

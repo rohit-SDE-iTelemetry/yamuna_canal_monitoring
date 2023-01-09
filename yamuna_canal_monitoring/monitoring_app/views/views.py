@@ -11,7 +11,7 @@ from monitoring_app.models import *
 from monitoring_app.utils import utils
 from datetime import datetime
 from django.template.loader import get_template
-# dashboard view
+# dashboard 
 @login_required(login_url='/')
 def dashboard(request):
     if request.method == 'GET':
@@ -345,8 +345,8 @@ def gis(request):
         sites = Site.objects.all()
         siteinfo = SiteInfo.objects.all()
         industry = request.GET.get('industry')
-        if industry !='All':
-            queries.update(dict(industry=industry))
+        # if industry !='All':
+            # queries.update(dict(industry=industry))
         context.update(dict(sites=sites,
                             readings=siteinfo,
                             industry =industry))
