@@ -10,7 +10,8 @@ from auth_app.models import UserProfile
 from monitoring_app.models import *
 from monitoring_app.utils import utils
 from datetime import datetime
-# dashboard view
+from django.template.loader import get_template
+# dashboard 
 @login_required(login_url='/')
 def dashboard(request):
     if request.method == 'GET':
@@ -340,10 +341,18 @@ def edit_site(request):
 def gis(request):
     if request.method == 'GET':
         context = {}
+        queries = {}
         sites = Site.objects.all()
-        context['sites'] = sites
-        return render(request,'gis/gis.html',context)
-
+        siteinfo = SiteInfo.objects.all()
+        industry = request.GET.get('industry')
+        # if industry !='All':
+            # queries.update(dict(industry=industry))
+        context.update(dict(sites=sites,
+                            readings=siteinfo,
+                            industry =industry))
+        info_template = get_template('gis/gis.html')
+        html = info_template.render(context,request)
+        return HttpResponse(html)
 #########################################################################################################
 # GUIDELINES MODULE
 #########################################################################################################

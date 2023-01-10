@@ -2,7 +2,7 @@
 {% load static %}
 {% block content %}
 <link rel="stylesheet" type="text/css" href="{% static 'monitoring_app/css/map.css' %}" />
-
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-177751941-1"></script>
 <div class="main-panel">
     <div class="content-wrapper">
         <div class="card"
@@ -32,17 +32,18 @@
                                     <div class="card-body">
                                         <h5 class="card-title text-secondary"><i class="fa-solid fa-industry"></i> Select Station</h5>
                                         <div class="form-group col-md-6">
-                                            <select id="inputState" class="form-control">
+                                            <select id="inputState" class="form-control dropdown-search" onchange="update_map()">
                                                 <option class="d-none">Choose station</option>
                                                 {% for site in sites %}
                                                     <option value="{{site.uuid}}">{{site.name}} - {{site.site_status}}</option>
                                                 {% endfor %}
-                                                <option value="all">Choose station</option>
+                                                <option value="all">Select All</option>
                                             </select>
+                                            <!-- <button class="btn btn-primary btn-sm" type="button" onclick="update_map()">Select</button> -->
                                         </div>
                                         <hr>
                                         {% comment %} <h5 class="card-title text-secondary"><i class="fa-solid fa-circle-info"></i> Selected Station Information</h5> {% endcomment %}
-                                        <div class="row d-none">
+                                        <div class="row">
                                             {% comment %} <div class="col-lg-2">
                                                 <label for=""><b>Station Name</b></label>
                                                 <p>Station001</p>
@@ -51,32 +52,36 @@
                                                 <label for=""><b>Station Status</b></label>
                                                 <p><span class="badge badge-success">Live</span></p>
                                             </div> {% endcomment %}
+                                            {% for reading in readings%}
+                                            {% if reading.site.uuid|slugify == industry %}
                                             <div class="col-lg-2">
                                                 <label for=""><b>Station Longitude</b></label>
-                                                <p>722.872247826287</p>
+                                                <p>{{reading.site.longitude}}</p>
                                             </div>
                                             <div class="col-lg-2">
                                                 <label for=""><b>Station Lattitude</b></label>
-                                                <p>456.872247826287</p>
+                                                <p>{{reading.site.latitude}}</p>
                                             </div>
                                             <div class="col-lg-2">
                                                 {% comment %} <hr> {% endcomment %}
                                                 <label for=""><b>Current Water Level</b></label>
-                                                <p>2.4 (m)</p>
+                                                <p>{{reading.readings|slice:"34:38"}}(m)</p>
                                             </div>
                                             <div class="col-lg-2">
                                                 {% comment %} <hr> {% endcomment %}
                                                 <label for=""><b>Current Flow Rate</b></label>
-                                                <p>12 (m3/s)</p>
+                                                <p>{{reading.readings|slice:"-46:-42"}}(m3/s)</p>
                                             </div>
                                             <div class="col-lg-2">
                                                 <label for=""><b>Current Velocity</b></label>
-                                                <p>14 (m/s)</p>
+                                                <p>{{reading.readings|slice:"-5:-1"}}(m/s)</p>
                                             </div>
                                             <div class="col-lg-2">
                                                 <label for=""><b>Gate Opening</b></label>
-                                                <p>19 (mm)</p>
+                                                <p>{{reading.readings|slice:"-24:-20"}}(mm)</p>
                                             </div>
+                                            {% endif %}
+                                            {% endfor %}
                                         </div>
                                     </div>
                                 </div>
@@ -98,18 +103,188 @@
     </div>
     <!-- main-panel ends -->
 </div>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC2jIUfDq0QUVMJF5Y6y-cYlSHNuGp-DvU&callback=initMap&v=weekly" defer></script>
-{% comment %} <script src="{% static 'monitoring_app/js/map.js' %}"></script> {% endcomment %}
-<script>
-    function initMap() {
-        var center = {lat: 29.959694, lng: 77.549057};  var map = new google.maps.Map(document.getElementById('map'), {
-          zoom: 13,
-          center: center
-        });  var marker = new google.maps.Marker({
-          position: center,
-          map: map
-        });
-      }
-</script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDS1mS6Y0c0VMcY5euijXzITuifVP4qnVE&callback=&style=feature:administrative%7Celement:geometry%7Cvisibility:off&style=feature:poi%7Cvisibility:off&style=feature:road%7Cvisibility:off&style=feature:road%7Celement:labels.icon%7Cvisibility:off&style=feature:transit%7Cvisibility:off"></script>
+<script src="{% static 'monitoring_app/js/map.js' %}"></script>
+<script type="text/javascript">
+    function update_map(){
+        var industry = $('#inputState').find(':selected').val();
+        var map_url ='/gis?industry='+industry;
+        document.location.href = map_url;
+    }
+    myMap();
+    function myMap(){
+    var offline_icon = {
+        url: "http://maps.google.com/mapfiles/ms/icons/red-dot.png",
+        scaledSize: new google.maps.Size(20, 21), // scaled size
+        origin: new google.maps.Point(0,0), // origin
+        anchor: new google.maps.Point(0, 0) // anchor
+    };
+    var live_icon = {
+        url: "http://maps.google.com/mapfiles/ms/icons/green-dot.png",
+        scaledSize: new google.maps.Size(20, 21), // scaled size
+        origin: new google.maps.Point(0,0), // origin
+        anchor: new google.maps.Point(0, 0) // anchor
+    };
+    var delay_icon = {
+        url: "http://maps.google.com/mapfiles/ms/icons/orange-dot.png",
+        scaledSize: new google.maps.Size(20, 21), // scaled size
+        origin: new google.maps.Point(0,0), // origin
+        anchor: new google.maps.Point(0, 0) // anchor
+    };
+    var mapProp= {
+        center: new google.maps.LatLng(23.7041,79.1025), // FOR INDIA
+        zoom: 5,
+        mapTypeId: google.maps.MapTypeId.ROADMAP,
+        styles: [
+    {
+        "featureType": "administrative",
+        "elementType": "labels.text.fill",
+        "stylers": [
+            {
+                "color": "#444444"
+            }
+        ]
+    },
+    {
+        "featureType": "landscape",
+        "elementType": "all",
+        "stylers": [
+            {
+                "color": "#f2f2f2"
+            }
+        ]
+    },
+    {
+        "featureType": "poi",
+        "elementType": "all",
+        "stylers": [
+            {
+                "visibility": "off"
+            }
+        ]
+    },
+    {
+        "featureType": "road",
+        "elementType": "all",
+        "stylers": [
+            {
+                "saturation": -100
+            },
+            {
+                "lightness": 45
+            }
+        ]
+    },
+    {
+        "featureType": "road.highway",
+        "elementType": "all",
+        "stylers": [
+            {
+                "visibility": "simplified"
+            }
+        ]
+    },
+    {
+        "featureType": "road.arterial",
+        "elementType": "labels.icon",
+        "stylers": [
+            {
+                "visibility": "off"
+            }
+        ]
+    },
+    {
+        "featureType": "transit",
+        "elementType": "all",
+        "stylers": [
+            {
+                "visibility": "off"
+            }
+        ]
+    },
+    {
+        "featureType": "water",
+        "elementType": "all",
+        "stylers": [
+            {
+                "color": "#00b7ff"
+            },
+            {
+                "visibility": "on"
+            }
+        ]
+    }
+]
+};
+    // creating map object
+    var map = new google.maps.Map(document.getElementById('map'),mapProp);
 
+    // adding markers on the map
+    var markPosition;
+    {% for site in sites %}
+    var status = 'danger'
+    icon = offline_icon;
+        if($.trim('{{site.site_status}}') == 'Live'){
+            status = 'success'
+            icon = live_icon;
+        }
+        if($.trim('{{site.site_status}}') == 'Delay'){
+            status ='warning'
+            icon = delay_icon;
+        }
+        {% for site in sites %}
+        {% if site.uuid|slugify == industry %}
+        var siteDetailBox{{forloop.counter}} = '<div style="font-size:3vw; color:black; font-weight:bold; width:100%; height:100;"><a href="#" target="_blank">{{site.name}}-{{site.site_status}}</a><hr>{{site.city}}</div>'
+        markPosition = new google.maps.LatLng({{site.latitude}}, {{site.longitude}});
+        var marker{{ forloop.counter }} = new google.maps.Marker(
+                        {
+                        position : markPosition,
+                        icon : icon
+                        }
+                        );
+        marker{{ forloop.counter }}.setMap(map);
+        marker{{ forloop.counter }}.addListener('click', function(){
+            map.setZoom(7);
+          map.setCenter(marker{{ forloop.counter }}.getPosition());
+        });
+        google.maps.event.addListener(marker{{ forloop.counter }},'click',function() {
+            var infowindow{{ forloop.counter }} = new google.maps.InfoWindow({
+              content:siteDetailBox{{forloop.counter}},
+              maxWidth: 400,
+              maxHeight: 400,
+
+              //content:"<span class='label label-info'><b>({{site.status}})</b></span>"
+            });
+            infowindow{{ forloop.counter }}.open(map,marker{{ forloop.counter }});
+        });
+        {% elif industry == "all" %}
+        var siteDetailBox{{forloop.counter}} = '<div style="font-size:3vw; color:black; font-weight:bold; width:100%; height:100;"><a href="#">{{site.name}}-{{site.site_status}}</a><hr>{{site.city}}</div>'
+        markPosition{{forloop.counter}} = new google.maps.LatLng({{site.latitude}}, {{site.longitude}});
+        console.log(markPosition);
+        var marker{{ forloop.counter }} = new google.maps.Marker(
+                        {
+                        position : markPosition{{forloop.counter}},
+                        icon : icon
+                        }
+                        );
+        marker{{ forloop.counter }}.setMap(map);
+        marker{{ forloop.counter }}.addListener('click', function(){
+            map.setZoom(7);
+          map.setCenter(marker{{ forloop.counter }}.getPosition());
+        });
+        google.maps.event.addListener(marker{{ forloop.counter }},'click',function() {
+            var infowindow{{ forloop.counter }} = new google.maps.InfoWindow({
+              content:siteDetailBox{{forloop.counter}},
+              maxWidth: 400,
+              maxHeight: 400,
+
+              //content:"<span class='label label-info'><b>({{site.status}})</b></span>"
+            });
+            infowindow{{ forloop.counter }}.open(map,marker{{ forloop.counter }});
+        });
+        {% endif %}
+        {% endfor %}
+    {% endfor %}
+}
+</script>
 {% endblock content %}
